@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://bqpm0q55l02je"]
+[gd_scene format=4 uid="uid://bqpm0q55l02je"]
 
 [ext_resource type="Script" uid="uid://cmi86xpidglku" path="res://scenes/player_container.gd" id="1_sugp2"]
 [ext_resource type="ArrayMesh" uid="uid://daqhjsq524sqn" path="res://assets/Tuberia/placeholder_Tubo.tres" id="2_sugp2"]
-[ext_resource type="Texture2D" path="res://assets/Tuberia/tube-texture.png" id="3_sugp2"]
+[ext_resource type="Material" uid="uid://ci6av41splxc1" path="res://assets/Tuberia/mTuberia.tres" id="3_sugp2"]
+[ext_resource type="ArrayMesh" uid="uid://dh30p0dgvj62n" path="res://assets/Tuberia/Caños y cables/Caños Segmentos/Caños_2_Mid.obj" id="4_tefeu"]
+[ext_resource type="Texture2D" uid="uid://cp3xj2yk7juwd" path="res://assets/texturas/tCaño_1.png" id="5_o6xl0"]
+[ext_resource type="ArrayMesh" uid="uid://djhcvwb0fsltk" path="res://assets/Tuberia/Caños y cables/Cables_1.obj" id="6_tipki"]
 
 [sub_resource type="Curve3D" id="Curve3D_j74c7"]
 _data = {
@@ -11,8 +14,39 @@ _data = {
 }
 point_count = 4
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r55m1"]
-albedo_texture = ExtResource("3_sugp2")
+[sub_resource type="ArrayMesh" id="ArrayMesh_tipki"]
+_surfaces = [{
+"aabb": AABB(-2.900404, -1.516143, -5.99526, 0.43572593, 0.90177697, 5.99526),
+"attribute_data": PackedByteArray("/78AAP/fAAD/v/9//9//f///AAD///9//5//f/+fAAD/f/9//38AAP9f/3//XwAA/z//f/8/AAD/H/9//x8AAAAA/38AAAAA/78AAP/fAAD/v/9//9//f///AAD///9//5//f/+fAAD/f/9//38AAP9f/3//XwAA/z//f/8/AAD/H/9//x8AAAAA/38AAAAA/78AAP/fAAD/v/9//9//f///AAD///9//5//f/+fAAD/f/9//38AAP9f/3//XwAA/z//f/8/AAD/H/9//x8AAAAA/38AAAAA/78AAP/fAAD/v/9//9//f///AAD///9//5//f/+fAAD/f/9//38AAP9f/3//XwAA/z//f/8/AAD/H/9//x8AAAAA/38AAAAA"),
+"format": 34896613399,
+"index_count": 192,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAQAEAAMAAwAEAAUABgAAAAIABwAAAAYACAAHAAYACQAHAAgACgAJAAgACwAJAAoADAALAAoADQALAAwADgANAAwADwANAA4AEAAPAA4AEQAPABAAEgATABQAFAATABUAEwAWABUAFQAWABcAGAASABQAGQASABgAGgAZABgAGwAZABoAHAAbABoAHQAbABwAHgAdABwAHwAdAB4AIAAfAB4AIQAfACAAIgAhACAAIwAhACIAJAAlACYAJgAlACcAJQAoACcAJwAoACkAKgAkACYAKwAkACoALAArACoALQArACwALgAtACwALwAtAC4AMAAvAC4AMQAvADAAMgAxADAAMwAxADIANAAzADIANQAzADQANgA3ADgAOAA3ADkANwA6ADkAOQA6ADsAPAA2ADgAPQA2ADwAPgA9ADwAPwA9AD4AQAA/AD4AQQA/AEAAQgBBAEAAQwBBAEIARABDAEIARQBDAEQARgBFAEQARwBFAEYA"),
+"name": "Caños_1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("1hz+////PPmvBIf3//9E49Yc//8AADz5rwSH9wAAROMAAErp//8J0AAASukAAAnQTzq7/QAAPfBOOrv9//898NVLD/IAAA7b1EsP8v//DtslR9LjAADOySVH0uP//87J/i5a2wAAjsD+Llrb//+OwIYRnt0AAALDhhGe3f//AsMAAErpAAAJ0AAASun//wnQ2kaqs///f/Z7MB+q//+74NpGqrMAAH/2ezAfqgAAu+CfLrub//8Jzp8uu5sAAAnOomTEsgAA8fKiZMSy///x8mF49acAAHzdYXj1p///fN2FdpGZAACSy4V2kZn//5LLJmAGkAAAGcEmYAaQ//8ZwV5C7JAAABLCXkLskP//EsKfLrubAAAJzp8uu5v//wnOun+daf//xvNWaxZf//893rp/nWkAAMbzVmsWXwAAPd5TbK1Q//8hzFNsrVAAACHMjZ0XagAAqfWNnRdq//+p9VazPWAAAPbfVrM9YP//9t9TtNRRAABxzVO01FH//3HN8J9NRwAA0cHvn01H///RwR2C00YAAEzBHYLTRv//TMFTbK1QAAAhzFNsrVD//yHM8saFIv//EPG5tBoX///L2/LGhSIAABDxubQaFwAAy9uNuM0I//9Vyo24zQgAAFXKiuReJAAAZfiK5F4k//9l+Cv8kBsAAHziK/yQG///fOL//0QNAABqz///RA3//2rPxu3ZAQAAtMLG7dkB//+0wi7QAAAAALTALtAAAP//tMCNuM0IAABVyo24zQj//1XK3XhuvANkAbLdeG68A2QBsldOK6dXTiunFDjVDxQ41Q/lLTQk5S00JMwhZTzMIWU8OAyNZzgMjWcxLhiXMS4Yl1dOK6dXTiunJnYSu49hx7AmdhK7j2HHsEpLpKVKS6SlWzlHDVs5Rw0oL64hKC+uIYcj8DiHI/A4ABD9XwAQ/V+CKECUgihAlEpLpKVKS6SlgnPAuRRfia+Cc8C5FF+JrxNICaQTSAmkqjqpCqo6qQpmMDEfZjAxHyklrDUpJaw1URNbWVETW1kgIg+RICIPkRNICaQTSAmk73B3uJFcSK7vcHe4kVxIrq1EVqKtRFaiAzz5BwM8+QeiMbscojG7HLYmkjK2JpIyQxZ4U0MWeFPeGm6N3hpuja1EVqKtRFai")
+}, {
+"aabb": AABB(-3.080478, -1.820045, -5.994901, 0.66536593, 1.378114, 5.994901),
+"attribute_data": PackedByteArray("/5////9f////n/+//1//v/+f/7//X/+//1//f/+fAAD/X/8//18AAP9f/3//H/9//1//P/8f/z//3/9//1//f//f/z//X/8//5////9f////n/+//1//v/+f/7//X/+//1//f/+fAAD/X/8//18AAP9f/3//H/9//1//P/8f/z//3/9//1//f//f/z//X/8//5////9f////n/+//1//v/+f/7//X/+//1//f/+fAAD/X/8//18AAP9f/3//H/9//1//P/8f/z//3/9//1//f//f/z//X/8//5//f/+f/3//n/8//5//P/+f/3//n/8//5//f/+f/3//n/8//5//P/+f/3//n/8//5//f/+f/3//n/8//5//P/+f/3//n/8/"),
+"format": 34896613399,
+"index_count": 108,
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFADYANgAFAAYANwAPADgAOAAPABEAOQAIAAcABwAIAAkACgALAAwADAALAA0ADgA6ABAAEAA6ADsAEgATABQAFAATABUAFgAXADwAPAAXABgAPQAhAD4APgAhACMAPwAaABkAGQAaABsAHAAdAB4AHgAdAB8AIABAACIAIgBAAEEAJAAlACYAJgAlACcAKAApAEIAQgApACoAQwAzAEQARAAzADUARQAsACsAKwAsAC0ALgAvADAAMAAvADEAMgBGADQANABGAEcA"),
+"lods": [0.16919018, PackedByteArray("AAABAAIAAgABAAMABAAFAAYABwAIAAkACgALAAwADAALAA0ADgAPABAAEAAPABEAEgATABQAFAATABUAFgAXABgAGQAaABsAHAAdAB4AHgAdAB8AIAAhACIAIgAhACMAJAAlACYAJgAlACcAKAApACoAKwAsAC0ALgAvADAAMAAvADEAMgAzADQANAAzADUA")],
+"name": "Cube",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("emsi5////8EAAP7/////wXprIueW9P/BAAD+/5b0/8F6ayLnlvT//wAA/v+W9P//lNYAAJb0//96ayLn//80j5TWAAD///GlAAD+////M5KU1gAAlvTxzAAA/v+W9PHMlNYAAP//8cwAAP7////xzHprIueW9OLelNYAAJb0ic16ayLn///i3pTWAAD//4nNemsi57OF/8EAAP7/s4X/wXprIudLev/BAAD+/0t6/8F6ayLnS3r//wAA/v9Lev//lNYAAEt6//96ayLns4U0j5TWAACzhfGlAAD+/7OFM5KU1gAAS3rxzAAA/v9LevHMlNYAALOF8cwAAP7/s4XxzHprIudLeuLelNYAAEt6ic16ayLns4Xi3pTWAACzhYnNemsi52gL/8EAAP//aAv/wXprIucAAP/BAAD//wAA/8F6ayLnAAD//wAA//8AAP//lNYAAAAA//96ayLnaAs0j5TWAABoC/GlAAD//2gLM5KU1gAAAADxzAAA//8AAPHMlNYAAGgL8cwAAP//aAvxzHprIucAAOLelNYAAAAAic16ayLnaAvi3pTWAABoC4nN///0NZb0//////Q1lvSJzf//9DX//4nN///0Nf//ibH///Q1lvTi3v//9DX//+Le///0NUt6//////Q1S3qJzf//9DWzhYnN///0NbOFibH///Q1S3ri3v//9DWzheLe///0NQAA//////Q1AACJzf//9DVoC4nN///0NWgLibH///Q1AADi3v//9DVoC+LeAdgAbAHYAGwB2ABsAdgAbE3oTWhf9l92ecuEtP9//3///////3//f31JvqR9Sb6kfUm+pH1JvqTdL0QgPSWENd0vRCA9JYQ1AdgAbAHYAGwB2ABsAdgAbE3oTWhf9l92ecuEtP9//3///////3//f31JvqR9Sb6kfUm+pH1JvqTdL0QgPSWENd0vRCA9JYQ1AdgAbAHYAGwB2ABsAdgAbE3oTWhf9l92ecuEtP9//3///////3//f31JvqR9Sb6kfUm+pH1JvqTdL0QgPSWENd0vRCA9JYQ17M0Ssj0lhDU9JYQ1/////90vRCDdL0Qg7M0Ssj0lhDU9JYQ1/////90vRCDdL0Qg7M0Ssj0lhDU9JYQ1/////90vRCDdL0Qg")
+}]
+blend_shape_mode = 0
+shadow_mesh = ExtResource("4_tefeu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85g3d"]
+albedo_color = Color(0.29479998, 0.37950003, 0.44, 1)
+albedo_texture = ExtResource("5_o6xl0")
+uv1_scale = Vector3(10.645, 10.645, 10.645)
+texture_filter = 0
 
 [node name="Main" type="Node3D" unique_id=215478794]
 
@@ -62,7 +96,7 @@ surface_0/tilt = true
 surface_0/offset = Vector2(0, 0)
 surface_0/triangle_count = 12495
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.532634, 0)
-material_override = SubResource("StandardMaterial3D_r55m1")
+material_override = ExtResource("3_sugp2")
 cast_shadow = 0
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="PathMesh3D" unique_id=1563819202]
@@ -74,3 +108,73 @@ size = Vector3(3.3078766, 4.5250244, 1.3972168)
 transform = Transform3D(-0.82164913, 0.00045363232, 0.56999344, 0, 0.9999997, -0.0007958551, -0.5699936, -0.00065391365, -0.8216489, 10.647497, -8.817396, -6.4617805)
 visible = false
 size = Vector3(2.221222, 2.9853516, 1)
+
+[node name="Caños" type="PathMesh3D" parent="PathMesh3D" unique_id=1926309122 node_paths=PackedStringArray("path_3d")]
+path_3d = NodePath("../../Path3D")
+relative_transform = 1
+collision_mode = 1
+collision_layer = 1
+collision_mask = 1
+mesh = SubResource("ArrayMesh_tipki")
+surface_0/tile_rotation = Vector3(0, 0, 0)
+surface_0/tile_rotation_order = 2
+surface_0/distribution = 0
+surface_0/alignment = 0
+surface_0/warp_along_curve = true
+surface_0/mesh_length_offset = 0.0
+surface_0/sample_cubic = false
+surface_0/tilt = true
+surface_0/offset = Vector2(0, 0)
+surface_0/triangle_count = 1176
+surface_1/tile_rotation = Vector3(0, 0, 0)
+surface_1/tile_rotation_order = 2
+surface_1/distribution = 0
+surface_1/alignment = 0
+surface_1/warp_along_curve = true
+surface_1/mesh_length_offset = 0.0
+surface_1/sample_cubic = false
+surface_1/tilt = true
+surface_1/offset = Vector2(0, 0)
+surface_1/triangle_count = 1176
+material_override = SubResource("StandardMaterial3D_85g3d")
+cast_shadow = 0
+
+[node name="Cables" type="PathMesh3D" parent="PathMesh3D" unique_id=873450238 node_paths=PackedStringArray("path_3d")]
+path_3d = NodePath("../../Path3D")
+relative_transform = 1
+collision_mode = 1
+collision_layer = 1
+collision_mask = 1
+mesh = ExtResource("6_tipki")
+surface_0/tile_rotation = Vector3(0, 0, 0)
+surface_0/tile_rotation_order = 2
+surface_0/distribution = 0
+surface_0/alignment = 0
+surface_0/warp_along_curve = true
+surface_0/mesh_length_offset = 0.0
+surface_0/sample_cubic = false
+surface_0/tilt = true
+surface_0/offset = Vector2(0, 0)
+surface_0/triangle_count = 784
+surface_1/tile_rotation = Vector3(0, 0, 0)
+surface_1/tile_rotation_order = 2
+surface_1/distribution = 0
+surface_1/alignment = 0
+surface_1/warp_along_curve = true
+surface_1/mesh_length_offset = 0.0
+surface_1/sample_cubic = false
+surface_1/tilt = true
+surface_1/offset = Vector2(0, 0)
+surface_1/triangle_count = 5945
+surface_2/tile_rotation = Vector3(0, 0, 0)
+surface_2/tile_rotation_order = 2
+surface_2/distribution = 0
+surface_2/alignment = 0
+surface_2/warp_along_curve = true
+surface_2/mesh_length_offset = 0.0
+surface_2/sample_cubic = false
+surface_2/tilt = true
+surface_2/offset = Vector2(0, 0)
+surface_2/triangle_count = 5945
+material_override = SubResource("StandardMaterial3D_85g3d")
+cast_shadow = 0
