@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch532nthcybb7"
-path.s3tc="res://.godot/imported/placeholder_Tubo_checker-map_tho.png-208511ad24e85c94a0f541c5b8f73f63.s3tc.ctex"
+uid="uid://bteuk64humbw6"
+path.s3tc="res://.godot/imported/tube-texture.png-5a2aedd9294f97e88056ce78c82ea0d2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/modelos_kam/Entorno/placeholder_Tubo_checker-map_tho.png"
-dest_files=["res://.godot/imported/placeholder_Tubo_checker-map_tho.png-208511ad24e85c94a0f541c5b8f73f63.s3tc.ctex"]
+source_file="res://assets/tube-texture.png"
+dest_files=["res://.godot/imported/tube-texture.png-5a2aedd9294f97e88056ce78c82ea0d2.s3tc.ctex"]
 
 [params]
 

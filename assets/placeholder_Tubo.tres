@@ -1,14 +1,4 @@
-[gd_scene format=4 uid="uid://bqpm0q55l02je"]
-
-[ext_resource type="Script" uid="uid://cmi86xpidglku" path="res://scenes/player_container.gd" id="1_sugp2"]
-[ext_resource type="Texture2D" uid="uid://bteuk64humbw6" path="res://assets/tube-texture.png" id="3_sugp2"]
-
-[sub_resource type="Curve3D" id="Curve3D_j74c7"]
-_data = {
-"points": PackedVector3Array(0.9740143, 0.057525635, -1.4887581, -0.9740143, -0.057525635, 1.4887581, 31.928667, -10.186392, -36.945374, 0.2742138, -1.0614758, -13.409205, -0.2742138, 1.0614758, 13.409205, 0.91869736, -9.091127, 10.240465, 40.487793, -1.2687988, -48.199715, -40.487793, 1.2687988, 48.199715, -0.62369156, -7.2547016, 77.33448, 1.0361023, -0.7563896, -3.1743279, -1.0361023, 0.7563896, 3.1743279, 85.75021, -1.6417866, 194.94183),
-"tilts": PackedFloat32Array(0, 0, 0, 0)
-}
-point_count = 4
+[gd_resource type="ArrayMesh" format=4 uid="uid://cf4oqhqrtn5e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4bu2"]
 
@@ -26,7 +16,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_0wfyh"]
+[resource]
 resource_name = "placeholder_Tubo_Cylinder"
 _surfaces = [{
 "aabb": AABB(-3.0000043, -14.939848, -3.0000005, 6.0000095, 14.93985, 6),
@@ -43,67 +33,3 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_145jl")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r55m1"]
-albedo_texture = ExtResource("3_sugp2")
-
-[node name="Main" type="Node3D" unique_id=215478794]
-
-[node name="Path3D" type="Path3D" parent="." unique_id=1530488143]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.95978, 0)
-curve = SubResource("Curve3D_j74c7")
-
-[node name="PathFollow" type="PathFollow3D" parent="Path3D" unique_id=497262417]
-unique_name_in_owner = true
-transform = Transform3D(-0.8368028, -0.017692234, 0.54718465, -1.8626154e-09, 0.9994103, 0.03231693, -0.54747504, 0.027042158, -0.8363589, 31.928667, -10.186392, -36.945374)
-
-[node name="PlayerContainer" type="Node3D" parent="Path3D/PathFollow" unique_id=1258040793]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
-script = ExtResource("1_sugp2")
-
-[node name="Camera" type="Camera3D" parent="Path3D/PathFollow/PlayerContainer" unique_id=1105489900]
-unique_name_in_owner = true
-transform = Transform3D(1.0000162, -2.9267408e-08, 2.6676722e-07, 1.210719e-08, 0.997364, 0.07348366, -2.0861626e-07, -0.07348685, 0.99732065, 0.17299998, 0.89972705, 7.062038)
-fov = 60.0
-
-[node name="Player" type="CharacterBody3D" parent="Path3D/PathFollow/PlayerContainer" unique_id=1546135778]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, -1.913, 0)
-motion_mode = 1
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Path3D/PathFollow/PlayerContainer/Player" unique_id=576691905]
-size = Vector3(1.6, 1.6, 1.6)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Path3D/PathFollow" unique_id=1969803073]
-omni_range = 148.87
-
-[node name="PathMesh3D" type="PathMesh3D" parent="." unique_id=1638612615 node_paths=PackedStringArray("path_3d")]
-path_3d = NodePath("../Path3D")
-relative_transform = 1
-collision_mode = 1
-collision_layer = 1
-collision_mask = 1
-mesh = SubResource("ArrayMesh_0wfyh")
-surface_0/tile_rotation = Vector3(0, 0, 0)
-surface_0/tile_rotation_order = 2
-surface_0/distribution = 0
-surface_0/alignment = 0
-surface_0/warp_along_curve = true
-surface_0/mesh_length_offset = 0.0
-surface_0/sample_cubic = false
-surface_0/tilt = true
-surface_0/offset = Vector2(0, 0)
-surface_0/triangle_count = 12495
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.532634, 0)
-material_override = SubResource("StandardMaterial3D_r55m1")
-cast_shadow = 0
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="PathMesh3D" unique_id=1563819202]
-transform = Transform3D(-0.90258694, -0.020312637, 0.43002814, 0, 0.9988863, 0.047182992, -0.4305076, 0.042586755, -0.9015817, 6.1216335, -6.968704, 64.7941)
-visible = false
-size = Vector3(3.3078766, 4.5250244, 1.3972168)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="PathMesh3D" unique_id=1165074453]
-transform = Transform3D(-0.82164913, 0.00045363232, 0.56999344, 0, 0.9999997, -0.0007958551, -0.5699936, -0.00065391365, -0.8216489, 10.647497, -8.817396, -6.4617805)
-visible = false
-size = Vector3(2.221222, 2.9853516, 1)
