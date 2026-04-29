@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://bqpm0q55l02je"]
+
+[ext_resource type="Script" uid="uid://cmi86xpidglku" path="res://scenes/player_container.gd" id="1_sugp2"]
+[ext_resource type="ArrayMesh" uid="uid://cmxy1khgqiwcd" path="res://assets/modelos_kam/placeholdertubo.obj" id="2_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://ch532nthcybb7" path="res://assets/modelos_kam/Entorno/placeholder_Tubo_checker-map_tho.png" id="3_tbgi4"]
+
+[sub_resource type="Curve3D" id="Curve3D_j74c7"]
+_data = {
+"points": PackedVector3Array(0.9740143, 0.057525635, -1.4887581, -0.9740143, -0.057525635, 1.4887581, 31.928667, -10.186392, -36.945374, 0.2742138, -1.0614758, -13.409205, -0.2742138, 1.0614758, 13.409205, 0.91869736, -9.091127, 10.240465, 40.487793, -1.2687988, -48.199715, -40.487793, 1.2687988, 48.199715, -0.62369156, -7.2547016, 77.33448, 1.0361023, -0.7563896, -3.1743279, -1.0361023, 0.7563896, 3.1743279, 85.75021, -1.6417866, 194.94183),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r55m1"]
+albedo_texture = ExtResource("3_tbgi4")
+
+[sub_resource type="Animation" id="Animation_m1qvv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path3D/PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_od7en"]
+resource_name = "test"
+length = 10.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path3D/PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r55m1"]
+_data = {
+&"RESET": SubResource("Animation_m1qvv"),
+&"test": SubResource("Animation_od7en")
+}
+
+[node name="Main" type="Node3D" unique_id=215478794]
+
+[node name="Path3D" type="Path3D" parent="." unique_id=1530488143]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.95978, 0)
+curve = SubResource("Curve3D_j74c7")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=497262417]
+transform = Transform3D(-0.83680344, -0.017692354, 0.5471864, -1.8626168e-09, 0.99941707, 0.03231703, -0.54747546, 0.027042342, -0.8363616, 31.928667, -10.186392, -36.945374)
+
+[node name="PlayerContainer" type="Node3D" parent="Path3D/PathFollow3D" unique_id=1258040793]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_sugp2")
+
+[node name="Camera3D" type="Camera3D" parent="Path3D/PathFollow3D/PlayerContainer" unique_id=1105489900]
+transform = Transform3D(1.0000154, -5.5879354e-09, 3.2782555e-07, 5.5879354e-09, 1.0000607, -7.450581e-09, -3.874302e-07, 5.5879354e-09, 1.000021, 0.09095001, -0.19767582, 6.11322)
+fov = 60.0
+
+[node name="Player" type="CharacterBody3D" parent="Path3D/PathFollow3D/PlayerContainer" unique_id=1546135778]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, -1.913, -0.08)
+motion_mode = 1
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Path3D/PathFollow3D/PlayerContainer/Player" unique_id=576691905]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Path3D/PathFollow3D" unique_id=1969803073]
+omni_range = 148.87
+
+[node name="PathMesh3D" type="PathMesh3D" parent="." unique_id=1638612615 node_paths=PackedStringArray("path_3d")]
+path_3d = NodePath("../Path3D")
+relative_transform = 1
+collision_mode = 1
+collision_layer = 1
+collision_mask = 1
+mesh = ExtResource("2_jyhfs")
+surface_0/tile_rotation = Vector3(0, 0, 0)
+surface_0/tile_rotation_order = 2
+surface_0/distribution = 0
+surface_0/alignment = 0
+surface_0/warp_along_curve = true
+surface_0/mesh_length_offset = 0.0
+surface_0/sample_cubic = false
+surface_0/tilt = true
+surface_0/offset = Vector2(0, 0)
+surface_0/triangle_count = 4181
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.532634, 0)
+material_override = SubResource("StandardMaterial3D_r55m1")
+cast_shadow = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1192519913]
+libraries/ = SubResource("AnimationLibrary_r55m1")
+autoplay = &"test"
