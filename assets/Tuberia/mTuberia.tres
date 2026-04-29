@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ci6av41splxc1"]
+
+[ext_resource type="Texture2D" uid="uid://d1t4evroi63c8" path="res://assets/Tuberia/image.png" id="1_mvh8a"]
+
+[resource]
+albedo_texture = ExtResource("1_mvh8a")
+texture_filter = 0
