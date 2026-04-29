@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bteuk64humbw6"
-path.s3tc="res://.godot/imported/tube-texture.png-5a2aedd9294f97e88056ce78c82ea0d2.s3tc.ctex"
+uid="uid://d1t4evroi63c8"
+path.s3tc="res://.godot/imported/image.png-15dffe9524b615bcf719f0e8e5c14e1f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/tube-texture.png"
-dest_files=["res://.godot/imported/tube-texture.png-5a2aedd9294f97e88056ce78c82ea0d2.s3tc.ctex"]
+source_file="res://assets/Tuberia/image.png"
+dest_files=["res://.godot/imported/image.png-15dffe9524b615bcf719f0e8e5c14e1f.s3tc.ctex"]
 
 [params]
 
