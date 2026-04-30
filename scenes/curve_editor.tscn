@@ -1,6 +1,18 @@
 [gd_scene format=3 uid="uid://bob264tt6a1cl"]
 
 [ext_resource type="Curve3D" uid="uid://b30hvi0xkcsxg" path="res://resources/main_curve_3d.tres" id="1_hc3ra"]
+[ext_resource type="Script" path="res://scenes/curve3d_generator.gd" id="2_incnw"]
 
 [node name="Path3D" type="Path3D" unique_id=1936980629]
 curve = ExtResource("1_hc3ra")
+script = ExtResource("2_incnw")
+length = 3600.0
+horizontal_variation = 100.0
+forward_interval = 300.0
+forward_in_out_variation = 170.0
+
+[node name="PathFollow3D" type="PathFollow3D" parent="." unique_id=1736552198]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 100, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="PathFollow3D" unique_id=844862765]
+transform = Transform3D(0.9988649, 0, -0.0476335, 0, 1, 0, 0.0476335, 0, 0.9988649, 0, 0, 0)

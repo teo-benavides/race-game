@@ -6,13 +6,12 @@ const MAX_SPEEDOMETER_SHAKE = 8.0
 
 var playing = true
 var elapsed_time: float = 0.0
-#var speedometer_shake: float = 0.0
 var original_speedometer_position: Vector2
 
 func _ready() -> void:
     %EndScreen.visible = false
     original_speedometer_position = %SpeedLabel.position
-
+    %GoalContainer.progress_ratio = 0.995
 func _physics_process(delta: float) -> void:
     if playing:
         elapsed_time += delta
