@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Race Game"
-run/main_scene="uid://bqpm0q55l02je"
+run/main_scene="uid://ckmfc6u78mkl1"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 

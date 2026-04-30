@@ -14,6 +14,13 @@
 [ext_resource type="PackedScene" uid="uid://ceu5mfv48xr2" path="res://scenes/tunnel_light.tscn" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://dnwwptsrkyx7e" path="res://scenes/placeholder_obstacle.tscn" id="12_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://eemrhmoi2t51" path="res://scenes/boost.tscn" id="14_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://dptejmksvwfpi" path="res://assets/ui/hud-atlas.png" id="15_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://c61danmuid1qs" path="res://scenes/time_display.tscn" id="16_dp3eg"]
+[ext_resource type="PackedScene" uid="uid://cd2gupfffjyqw" path="res://scenes/three_digit_display.tscn" id="16_jbj1t"]
+[ext_resource type="Script" uid="uid://plg72ayt27qa" path="res://scenes/speedometer.gd" id="16_muem4"]
+[ext_resource type="Texture2D" uid="uid://xgoxhcwxh65h" path="res://assets/ui/misc-ui-atlas.png" id="19_gqmmt"]
+[ext_resource type="Texture2D" uid="uid://cwo6568oe4fke" path="res://assets/ui/hit-overlay.png" id="19_yc10j"]
+[ext_resource type="PackedScene" uid="uid://cvryb65p0phss" path="res://scenes/end_screen_time_display.tscn" id="20_yc10j"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tipki"]
 _surfaces = [{
@@ -48,6 +55,30 @@ albedo_color = Color(0.29479998, 0.37950003, 0.44, 1)
 albedo_texture = ExtResource("5_o6xl0")
 uv1_scale = Vector3(10.645, 10.645, 10.645)
 texture_filter = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbj1t"]
+atlas = ExtResource("15_jkv2x")
+region = Rect2(0, 0, 84, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muem4"]
+atlas = ExtResource("15_jkv2x")
+region = Rect2(117, 69, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp3eg"]
+atlas = ExtResource("15_jkv2x")
+region = Rect2(0, 144, 71, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ld40"]
+atlas = ExtResource("15_jkv2x")
+region = Rect2(75, 117, 19, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqmmt"]
+atlas = ExtResource("15_jkv2x")
+region = Rect2(49, 97, 46, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jscy8"]
+atlas = ExtResource("19_gqmmt")
+region = Rect2(0, 49, 126, 100)
 
 [node name="Main" type="Node3D" unique_id=215478794]
 script = ExtResource("1_eb6dy")
@@ -200,22 +231,108 @@ metadata/_custom_type_script = "uid://d4b0eol7ktjlk"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=731867418]
 
-[node name="TimeLabel" type="Label" parent="CanvasLayer" unique_id=8862687]
+[node name="HUD" type="MarginContainer" parent="CanvasLayer" unique_id=656803335]
 unique_name_in_owner = true
-offset_left = 2.0
-offset_top = 1.0
-offset_right = 132.0
-offset_bottom = 24.0
-text = "TIEMPO: 00:00.00"
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
 
-[node name="SpeedLabel" type="Label" parent="CanvasLayer" unique_id=1060958687]
+[node name="Time" type="Control" parent="CanvasLayer/HUD" unique_id=1376982193]
+layout_mode = 2
+
+[node name="Base" type="TextureRect" parent="CanvasLayer/HUD/Time" unique_id=1479200494]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -84.0
+offset_bottom = 66.0
+grow_horizontal = 0
+texture = SubResource("AtlasTexture_jbj1t")
+
+[node name="LightDot" type="TextureRect" parent="CanvasLayer/HUD/Time" unique_id=379218599]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -75.0
+offset_top = 31.0
+offset_right = -68.0
+offset_bottom = 38.0
+grow_horizontal = 0
+texture = SubResource("AtlasTexture_muem4")
+
+[node name="TimeDisplay" parent="CanvasLayer/HUD/Time" unique_id=668320583 instance=ExtResource("16_dp3eg")]
 unique_name_in_owner = true
+layout_mode = 0
+offset_left = 293.0
+offset_top = 5.0
+offset_right = 374.0
+offset_bottom = 23.0
+
+[node name="Speedometer" type="Control" parent="CanvasLayer/HUD" unique_id=1634829884]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("16_muem4")
+
+[node name="Base" type="TextureRect" parent="CanvasLayer/HUD/Speedometer" unique_id=669005190]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -32.0
+offset_right = 71.0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_dp3eg")
+
+[node name="Contents" type="Control" parent="CanvasLayer/HUD/Speedometer" unique_id=1394265110]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Kmh" type="TextureRect" parent="CanvasLayer/HUD/Speedometer/Contents" unique_id=1197229593]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = 155.0
+offset_right = 64.0
+offset_bottom = 162.0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_0ld40")
+
+[node name="ThreeDigitDisplay" parent="CanvasLayer/HUD/Speedometer/Contents" unique_id=1189653240 instance=ExtResource("16_jbj1t")]
+layout_mode = 0
 offset_left = 4.0
-offset_top = 193.0
-offset_right = 142.0
-offset_bottom = 216.0
-pivot_offset_ratio = Vector2(0, 1)
-text = "VELOCIDAD: 0 km/h"
+offset_top = 184.0
+offset_right = 44.0
+offset_bottom = 224.0
+
+[node name="LoQueDe" type="TextureRect" parent="CanvasLayer/HUD/Speedometer/Contents" unique_id=2086485529]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 146.0
+offset_right = 60.0
+offset_bottom = 157.0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_gqmmt")
+
+[node name="HitEffect" type="TextureRect" parent="CanvasLayer" unique_id=92020677]
+unique_name_in_owner = true
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("19_yc10j")
 
 [node name="EndScreen" type="Control" parent="CanvasLayer" unique_id=546772342]
 unique_name_in_owner = true
@@ -236,6 +353,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="CanvasLayer/EndScreen" unique_id=1897825332]
+visible = false
 layout_mode = 0
 offset_left = 138.0
 offset_top = 59.0
@@ -244,6 +362,7 @@ offset_bottom = 82.0
 text = "TERMINASTE!"
 
 [node name="Label2" type="Label" parent="CanvasLayer/EndScreen" unique_id=2002220311]
+visible = false
 layout_mode = 0
 offset_left = 138.0
 offset_top = 80.0
@@ -253,6 +372,7 @@ text = "Tiempo Final:"
 
 [node name="FinalTimeLabel" type="Label" parent="CanvasLayer/EndScreen" unique_id=1382503878]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
 offset_left = 138.0
 offset_top = 101.0
@@ -260,16 +380,51 @@ offset_right = 242.0
 offset_bottom = 124.0
 horizontal_alignment = 1
 
-[node name="RestartButton" type="Button" parent="CanvasLayer/EndScreen" unique_id=1836295717]
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/EndScreen" unique_id=2084564038]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/EndScreen/CenterContainer" unique_id=1441457831]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/EndScreen/CenterContainer/Control" unique_id=704325322]
 layout_mode = 0
-offset_left = 152.0
-offset_top = 130.0
-offset_right = 228.0
-offset_bottom = 161.0
-text = "Reiniciar"
+offset_left = -63.0
+offset_top = -50.0
+offset_right = 63.0
+offset_bottom = 50.0
+texture = SubResource("AtlasTexture_jscy8")
+
+[node name="EndScreenTimeDisplay" parent="CanvasLayer/EndScreen/CenterContainer/Control" unique_id=941597689 instance=ExtResource("20_yc10j")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -34.0
+offset_top = 12.0
+offset_right = 32.0
+offset_bottom = 24.0
+
+[node name="RestartButton" type="Button" parent="CanvasLayer/EndScreen/CenterContainer/Control" unique_id=1836295717]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -42.0
+offset_top = 32.0
+offset_right = 38.0
+offset_bottom = 44.0
+mouse_default_cursor_shape = 2
+
+[node name="HitEffectTimer" type="Timer" parent="." unique_id=1237640182]
+process_callback = 0
+wait_time = 0.08
+one_shot = true
 
 [connection signal="boosted" from="Path3D/PathFollow/PlayerContainer/Player" to="Path3D/PathFollow/PlayerContainer" method="_on_player_boosted"]
+[connection signal="died" from="Path3D/PathFollow/PlayerContainer/Player" to="." method="_on_player_died"]
 [connection signal="died" from="Path3D/PathFollow/PlayerContainer/Player" to="Path3D/PathFollow/PlayerContainer" method="_on_player_died"]
 [connection signal="finished_track" from="Path3D/PathFollow/PlayerContainer/Player" to="." method="_on_player_finished_track"]
 [connection signal="respawned" from="Path3D/PathFollow/PlayerContainer/Player" to="Path3D/PathFollow/PlayerContainer" method="_on_player_respawned"]
-[connection signal="pressed" from="CanvasLayer/EndScreen/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/EndScreen/CenterContainer/Control/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="timeout" from="HitEffectTimer" to="." method="_on_hit_effect_timer_timeout"]
