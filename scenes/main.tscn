@@ -58,7 +58,7 @@ curve = ExtResource("1_choun")
 
 [node name="PathFollow" type="PathFollow3D" parent="Path3D" unique_id=497262417]
 unique_name_in_owner = true
-transform = Transform3D(-0.858122, 0.34230897, -0.38262895, 0, 0.74521863, 0.6667479, 0.51341486, 0.57213545, -0.6395263, 22.852928, -0.075408936, -33.094803)
+transform = Transform3D(-0.9999841, 0, -8.742066e-08, 0, 0.9999325, 0, 8.7421384e-08, 0, -0.9999758, 100, 0, 0)
 
 [node name="PlayerContainer" type="Node3D" parent="Path3D/PathFollow" unique_id=1258040793]
 unique_name_in_owner = true
@@ -77,8 +77,9 @@ transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, -2.408, 0)
 omni_range = 148.87
 
 [node name="GoalContainer" type="PathFollow3D" parent="Path3D" unique_id=709208126]
-transform = Transform3D(-0.5835323, -0.061557695, -0.8097522, -0.07538217, 0.99691826, -0.021464119, 0.80858266, 0.048515696, -0.5863774, 86.74837, -3.3149495, 620.9042)
-progress = 821.2669
+unique_name_in_owner = true
+transform = Transform3D(-0.8084088, 0, -0.5886198, 0, 0.9999945, 0, 0.58861995, 0, -0.8084086, 73.79891, 0, 1111.832)
+progress = 1429.9998
 
 [node name="Goal" parent="Path3D/GoalContainer" unique_id=1367205300 instance=ExtResource("5_trceg")]
 

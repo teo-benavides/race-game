@@ -38,6 +38,7 @@ func _physics_process(delta: float) -> void:
         remaining_boost_time = 0.0
         boost_speed = 0.0
         camera_distance = lerp(camera_distance, MIN_CAMERA_DISTANCE, 1.0 - exp(deg_to_rad(-CAMERA_APPROACH_SPEED) * delta))
+        %Camera.fov = lerp(%Camera.fov, 75.0, 1.0 - exp(deg_to_rad(-BOOST_CAMERA_APPROACH_SPEED) * delta))
     else:
         if Input.is_action_pressed("player_move_left"):
             rotation_speed = move_toward(rotation_speed, deg_to_rad(-MAX_ROTATION_SPEED), deg_to_rad(ROTATION_ACCELERATION) * delta)
@@ -51,7 +52,6 @@ func _physics_process(delta: float) -> void:
         
         if remaining_boost_time > 0.0:
             remaining_boost_time -= delta
-            #print(remaining_boost_time)
             boost_speed = move_toward(boost_speed, MAX_BOOST_SPEED, BOOST_ACCELERATION * delta)
             if USE_FOV_EFFECT:
                 %Camera.fov = lerp(%Camera.fov, MAX_FOV, 1.0 - exp(deg_to_rad(-BOOST_CAMERA_APPROACH_SPEED) * delta))
