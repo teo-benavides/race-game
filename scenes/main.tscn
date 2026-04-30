@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://bqpm0q55l02je"]
 
+[ext_resource type="Curve3D" uid="uid://b30hvi0xkcsxg" path="res://resources/main_curve_3d.tres" id="1_choun"]
 [ext_resource type="Script" uid="uid://cmi86xpidglku" path="res://scenes/player_container.gd" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://d4b0eol7ktjlk" path="res://scenes/path_scene_spawner_3d.gd" id="1_tipki"]
 [ext_resource type="PackedScene" uid="uid://c8u5sxntahhvj" path="res://assets/Auto Entubado Placeholder.glb" id="2_o6xl0"]
@@ -9,13 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://cp3xj2yk7juwd" path="res://assets/texturas/tCaño_1.png" id="5_o6xl0"]
 [ext_resource type="ArrayMesh" uid="uid://djhcvwb0fsltk" path="res://assets/Tuberia/Caños y cables/Cables_1.obj" id="6_tipki"]
 [ext_resource type="PackedScene" uid="uid://ceu5mfv48xr2" path="res://scenes/tunnel_light.tscn" id="9_85g3d"]
-
-[sub_resource type="Curve3D" id="Curve3D_j74c7"]
-_data = {
-"points": PackedVector3Array(0.9740143, 0.057525635, -1.4887581, -0.9740143, -0.057525635, 1.4887581, 22.852928, -0.075408936, -33.094803, 16.610275, -1.1156616, -82.45128, -16.610275, 1.1156616, 82.45128, 165.70248, -8.940063, 195.66925, 42.45515, -1.287796, -71.92938, -42.45515, 1.287796, 71.92938, -28.708204, -6.955017, 454.36404, 1.0361023, -0.7563896, -3.1743279, -1.0361023, 0.7563896, 3.1743279, 95.11081, -1.281311, 645.1531),
-"tilts": PackedFloat32Array(0, 0, 0, 0)
-}
-point_count = 4
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tipki"]
 _surfaces = [{
@@ -55,7 +49,7 @@ texture_filter = 0
 
 [node name="Path3D" type="Path3D" parent="." unique_id=1530488143]
 unique_name_in_owner = true
-curve = SubResource("Curve3D_j74c7")
+curve = ExtResource("1_choun")
 
 [node name="PathFollow" type="PathFollow3D" parent="Path3D" unique_id=497262417]
 unique_name_in_owner = true
@@ -173,7 +167,7 @@ surface_2/triangle_count = 17108
 material_override = SubResource("StandardMaterial3D_85g3d")
 cast_shadow = 0
 
-[node name="PathSceneSpawner3D" type="Node3D" parent="." unique_id=1987378476 node_paths=PackedStringArray("path")]
+[node name="LightSpawner" type="Node3D" parent="." unique_id=1987378476 node_paths=PackedStringArray("path")]
 script = ExtResource("1_tipki")
 path = NodePath("../Path3D")
 scene = ExtResource("9_85g3d")
