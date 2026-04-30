@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ceu5mfv48xr2" path="res://scenes/tunnel_light.tscn" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://dnwwptsrkyx7e" path="res://scenes/placeholder_obstacle.tscn" id="12_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://eemrhmoi2t51" path="res://scenes/boost.tscn" id="14_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://c1fnbs33706s6" path="res://scenes/fish_obstacle.tscn" id="14_pm3ni"]
 [ext_resource type="Texture2D" uid="uid://dptejmksvwfpi" path="res://assets/ui/hud-atlas.png" id="15_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://c61danmuid1qs" path="res://scenes/time_display.tscn" id="16_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://cd2gupfffjyqw" path="res://scenes/three_digit_display.tscn" id="16_jbj1t"]
@@ -202,7 +203,7 @@ cast_shadow = 0
 [node name="LightSpawner" type="Node3D" parent="." unique_id=1987378476 node_paths=PackedStringArray("path")]
 script = ExtResource("1_tipki")
 path = NodePath("../Path3D")
-scene = ExtResource("9_85g3d")
+scenes = Array[PackedScene]([ExtResource("9_85g3d")])
 distance = 30.0
 random_min_distance = 30.0
 random_max_distance = 60.0
@@ -211,7 +212,7 @@ metadata/_custom_type_script = "uid://d4b0eol7ktjlk"
 [node name="ObstacleSpawner" type="Node3D" parent="." unique_id=1281799190 node_paths=PackedStringArray("path")]
 script = ExtResource("1_tipki")
 path = NodePath("../Path3D")
-scene = ExtResource("12_eb6dy")
+scenes = Array[PackedScene]([ExtResource("12_eb6dy"), ExtResource("14_pm3ni")])
 random_enabled = true
 random_randomize_distance = true
 random_min_distance = 50.0
@@ -222,7 +223,7 @@ metadata/_custom_type_script = "uid://d4b0eol7ktjlk"
 [node name="BoostSpawner" type="Node3D" parent="." unique_id=1892113004 node_paths=PackedStringArray("path")]
 script = ExtResource("1_tipki")
 path = NodePath("../Path3D")
-scene = ExtResource("14_a8y0u")
+scenes = Array[PackedScene]([ExtResource("14_a8y0u")])
 random_enabled = true
 random_randomize_distance = true
 random_min_distance = 75.0

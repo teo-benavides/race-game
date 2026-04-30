@@ -3,7 +3,7 @@ class_name PathSceneSpawner3D
 
 @export var enabled: bool = true
 @export var path: Path3D
-@export var scene: PackedScene
+@export var scenes: Array[PackedScene]
 @export_range(0.001, 99999.0) var distance: float = 1.0
 @export var offset: Vector3
 @export var start_at_zero: bool
@@ -27,7 +27,8 @@ func _ready() -> void:
     while current_offset < curve.get_baked_length():
         var rot = randf_range(0.0, 360.0)
         var t = curve.sample_baked_with_rotation(current_offset)
-        var instance = scene.instantiate()
+        var scene_idx = randi_range(0, len(scenes) - 1) if random_enabled else 0
+        var instance = scenes[scene_idx].instantiate()
         var local_offset = offset
         t.origin += t.basis * local_offset
         t.basis = t.basis.rotated(t.basis.z, deg_to_rad(rot)) if random_enabled and random_randomize_rotation else t.basis
