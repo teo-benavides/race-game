@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://c5b4sonrvn3ml"]
+
+[ext_resource type="PackedScene" uid="uid://wlugksfy3my1" path="res://assets/Auto Entubado Placeholder 2.glb" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://bhq1j0m2ot1m8" path="res://scenes/player.gd" id="1_g2els"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3vyb7"]
+size = Vector3(1.2570801, 1.4219971, 2.1678162)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2els"]
+albedo_color = Color(1, 0.5, 0, 1)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qhqgy"]
+spread = 180.0
+initial_velocity_min = 11.63
+initial_velocity_max = 59.07
+gravity = Vector3(0, 0, 0)
+color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_dqkch"]
+
+[sub_resource type="Animation" id="Animation_g2els"]
+resource_name = "invincible"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qhqgy"]
+_data = {
+&"invincible": SubResource("Animation_g2els")
+}
+
+[node name="Player" type="CharacterBody3D" unique_id=1255014144]
+motion_mode = 1
+script = ExtResource("1_g2els")
+
+[node name="Model" parent="." unique_id=365219149 instance=ExtResource("1_3vyb7")]
+unique_name_in_owner = true
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1662969251]
+collision_mask = 14
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=439483308]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00012207031, 0.21099824, -0.004653629)
+shape = SubResource("BoxShape3D_3vyb7")
+
+[node name="DeathParticles" type="GPUParticles3D" parent="." unique_id=1004400268]
+material_override = SubResource("StandardMaterial3D_g2els")
+emitting = false
+amount = 40
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_qhqgy")
+draw_pass_1 = SubResource("SphereMesh_dqkch")
+
+[node name="RespawnTimer" type="Timer" parent="." unique_id=844256761]
+process_callback = 0
+wait_time = 1.5
+one_shot = true
+
+[node name="InvincibilityTimer" type="Timer" parent="." unique_id=638681228]
+process_callback = 0
+wait_time = 2.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=691286648]
+libraries/ = SubResource("AnimationLibrary_qhqgy")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]

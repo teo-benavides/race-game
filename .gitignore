@@ -1,4 +1,6 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+~path_mesh_3d.windows.template_debug.x86_64.dll
+~path_mesh_3d.windows.template_release.x86_64.dll
 assets/.DS_Store

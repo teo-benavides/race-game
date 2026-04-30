@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://7mosxxinjrcy"]
+
+[ext_resource type="Script" uid="uid://rtdwlaqw1ywv" path="res://scenes/goal.gd" id="1_jbojv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xl315"]
+size = Vector3(7.5515823, 6.4663696, 1.5201416)
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=1922331250]
+collision_layer = 4
+script = ExtResource("1_jbojv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=903983837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20933914, -0.1902771, -0.7300415)
+shape = SubResource("BoxShape3D_xl315")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=490971602]
+transform = Transform3D(7.3090954, 0, 0, 0, 6.18775, 0, 0, 0, 0.065916, 0, 0, 0)

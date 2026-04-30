@@ -1,18 +1,19 @@
 [gd_scene format=4 uid="uid://bqpm0q55l02je"]
 
+[ext_resource type="Curve3D" uid="uid://b30hvi0xkcsxg" path="res://resources/main_curve_3d.tres" id="1_choun"]
+[ext_resource type="Script" uid="uid://d1pjqd70k3cnx" path="res://scenes/main.gd" id="1_eb6dy"]
 [ext_resource type="Script" uid="uid://cmi86xpidglku" path="res://scenes/player_container.gd" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://d4b0eol7ktjlk" path="res://scenes/path_scene_spawner_3d.gd" id="1_tipki"]
 [ext_resource type="ArrayMesh" uid="uid://daqhjsq524sqn" path="res://assets/Tuberia/placeholder_Tubo.tres" id="2_sugp2"]
 [ext_resource type="Material" uid="uid://ci6av41splxc1" path="res://assets/Tuberia/mTuberia.tres" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://c5b4sonrvn3ml" path="res://scenes/player.tscn" id="3_ya4ey"]
 [ext_resource type="ArrayMesh" uid="uid://dh30p0dgvj62n" path="res://assets/Tuberia/Caños y cables/Caños Segmentos/Caños_2_Mid.obj" id="4_tefeu"]
 [ext_resource type="Texture2D" uid="uid://cp3xj2yk7juwd" path="res://assets/texturas/tCaño_1.png" id="5_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://7mosxxinjrcy" path="res://scenes/goal.tscn" id="5_trceg"]
 [ext_resource type="ArrayMesh" uid="uid://djhcvwb0fsltk" path="res://assets/Tuberia/Caños y cables/Cables_1.obj" id="6_tipki"]
-
-[sub_resource type="Curve3D" id="Curve3D_j74c7"]
-_data = {
-"points": PackedVector3Array(0.9740143, 0.057525635, -1.4887581, -0.9740143, -0.057525635, 1.4887581, 31.928667, -10.186392, -36.945374, 0.2742138, -1.0614758, -13.409205, -0.2742138, 1.0614758, 13.409205, 0.91869736, -9.091127, 10.240465, 40.487793, -1.2687988, -48.199715, -40.487793, 1.2687988, 48.199715, -0.62369156, -7.2547016, 77.33448, 1.0361023, -0.7563896, -3.1743279, -1.0361023, 0.7563896, 3.1743279, 85.75021, -1.6417866, 194.94183),
-"tilts": PackedFloat32Array(0, 0, 0, 0)
-}
-point_count = 4
+[ext_resource type="PackedScene" uid="uid://ceu5mfv48xr2" path="res://scenes/tunnel_light.tscn" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://dnwwptsrkyx7e" path="res://scenes/placeholder_obstacle.tscn" id="12_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://eemrhmoi2t51" path="res://scenes/boost.tscn" id="14_a8y0u"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tipki"]
 _surfaces = [{
@@ -49,34 +50,38 @@ uv1_scale = Vector3(10.645, 10.645, 10.645)
 texture_filter = 0
 
 [node name="Main" type="Node3D" unique_id=215478794]
+script = ExtResource("1_eb6dy")
 
 [node name="Path3D" type="Path3D" parent="." unique_id=1530488143]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.95978, 0)
-curve = SubResource("Curve3D_j74c7")
+unique_name_in_owner = true
+curve = ExtResource("1_choun")
 
 [node name="PathFollow" type="PathFollow3D" parent="Path3D" unique_id=497262417]
 unique_name_in_owner = true
-transform = Transform3D(-0.8368028, -0.017692234, 0.5471846, -1.8626154e-09, 0.9994103, 0.032316927, -0.54747504, 0.027042158, -0.83635885, 31.928667, -10.186392, -36.945374)
+transform = Transform3D(-0.858122, 0.34230897, -0.38262895, 0, 0.74521863, 0.6667479, 0.51341486, 0.57213545, -0.6395263, 22.852928, -0.075408936, -33.094803)
 
 [node name="PlayerContainer" type="Node3D" parent="Path3D/PathFollow" unique_id=1258040793]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_sugp2")
 
 [node name="Camera" type="Camera3D" parent="Path3D/PathFollow/PlayerContainer" unique_id=1105489900]
 unique_name_in_owner = true
-transform = Transform3D(1.0000162, -2.9267408e-08, 2.6676722e-07, 1.210719e-08, 0.997364, 0.07348366, -2.0861626e-07, -0.07348685, 0.99732065, 0.17299998, 0.89972705, 7.062038)
+transform = Transform3D(1.0000162, -3.5001715e-08, 2.6592764e-07, 1.210719e-08, 0.9949427, 0.101110786, -2.0861626e-07, -0.10111517, 0.9948995, 0.17299938, 0.61304903, 4.8041573)
 fov = 60.0
 
-[node name="Player" type="CharacterBody3D" parent="Path3D/PathFollow/PlayerContainer" unique_id=1546135778]
+[node name="Player" parent="Path3D/PathFollow/PlayerContainer" unique_id=1255014144 instance=ExtResource("3_ya4ey")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, -1.913, 0)
-motion_mode = 1
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Path3D/PathFollow/PlayerContainer/Player" unique_id=576691905]
-size = Vector3(1.6, 1.6, 1.6)
+transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, -2.408, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Path3D/PathFollow" unique_id=1969803073]
 omni_range = 148.87
+
+[node name="GoalContainer" type="PathFollow3D" parent="Path3D" unique_id=709208126]
+transform = Transform3D(-0.5835323, -0.061557695, -0.8097522, -0.07538217, 0.99691826, -0.021464119, 0.80858266, 0.048515696, -0.5863774, 86.74837, -3.3149495, 620.9042)
+progress = 821.2669
+
+[node name="Goal" parent="Path3D/GoalContainer" unique_id=1367205300 instance=ExtResource("5_trceg")]
 
 [node name="PathMesh3D" type="PathMesh3D" parent="." unique_id=1638612615 node_paths=PackedStringArray("path_3d")]
 path_3d = NodePath("../Path3D")
@@ -94,20 +99,11 @@ surface_0/mesh_length_offset = 0.0
 surface_0/sample_cubic = false
 surface_0/tilt = true
 surface_0/offset = Vector2(0, 0)
-surface_0/triangle_count = 12495
+surface_0/triangle_count = 36720
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.532634, 0)
 material_override = ExtResource("3_sugp2")
 cast_shadow = 0
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="PathMesh3D" unique_id=1563819202]
-transform = Transform3D(-0.90258694, -0.020312637, 0.43002814, 0, 0.9988863, 0.047182992, -0.4305076, 0.042586755, -0.9015817, 6.1216335, -6.968704, 64.7941)
-visible = false
-size = Vector3(3.3078766, 4.5250244, 1.3972168)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="PathMesh3D" unique_id=1165074453]
-transform = Transform3D(-0.82164913, 0.00045363232, 0.56999344, 0, 0.9999997, -0.0007958551, -0.5699936, -0.00065391365, -0.8216489, 10.647497, -8.817396, -6.4617805)
-visible = false
-size = Vector3(2.221222, 2.9853516, 1)
+gi_mode = 2
 
 [node name="Caños" type="PathMesh3D" parent="PathMesh3D" unique_id=1926309122 node_paths=PackedStringArray("path_3d")]
 path_3d = NodePath("../../Path3D")
@@ -125,7 +121,7 @@ surface_0/mesh_length_offset = 0.0
 surface_0/sample_cubic = false
 surface_0/tilt = true
 surface_0/offset = Vector2(0, 0)
-surface_0/triangle_count = 1176
+surface_0/triangle_count = 3456
 surface_1/tile_rotation = Vector3(0, 0, 0)
 surface_1/tile_rotation_order = 2
 surface_1/distribution = 0
@@ -135,7 +131,7 @@ surface_1/mesh_length_offset = 0.0
 surface_1/sample_cubic = false
 surface_1/tilt = true
 surface_1/offset = Vector2(0, 0)
-surface_1/triangle_count = 1176
+surface_1/triangle_count = 3456
 material_override = SubResource("StandardMaterial3D_85g3d")
 cast_shadow = 0
 
@@ -155,7 +151,7 @@ surface_0/mesh_length_offset = 0.0
 surface_0/sample_cubic = false
 surface_0/tilt = true
 surface_0/offset = Vector2(0, 0)
-surface_0/triangle_count = 784
+surface_0/triangle_count = 2288
 surface_1/tile_rotation = Vector3(0, 0, 0)
 surface_1/tile_rotation_order = 2
 surface_1/distribution = 0
@@ -165,7 +161,7 @@ surface_1/mesh_length_offset = 0.0
 surface_1/sample_cubic = false
 surface_1/tilt = true
 surface_1/offset = Vector2(0, 0)
-surface_1/triangle_count = 5945
+surface_1/triangle_count = 17350
 surface_2/tile_rotation = Vector3(0, 0, 0)
 surface_2/tile_rotation_order = 2
 surface_2/distribution = 0
@@ -175,6 +171,114 @@ surface_2/mesh_length_offset = 0.0
 surface_2/sample_cubic = false
 surface_2/tilt = true
 surface_2/offset = Vector2(0, 0)
-surface_2/triangle_count = 5945
+surface_2/triangle_count = 17350
 material_override = SubResource("StandardMaterial3D_85g3d")
 cast_shadow = 0
+
+[node name="LightSpawner" type="Node3D" parent="." unique_id=1987378476 node_paths=PackedStringArray("path")]
+script = ExtResource("1_tipki")
+path = NodePath("../Path3D")
+scene = ExtResource("9_85g3d")
+distance = 80.0
+random_enabled = true
+random_min_distance = 30.0
+random_max_distance = 60.0
+metadata/_custom_type_script = "uid://d4b0eol7ktjlk"
+
+[node name="ObstacleSpawner" type="Node3D" parent="." unique_id=1281799190 node_paths=PackedStringArray("path")]
+script = ExtResource("1_tipki")
+path = NodePath("../Path3D")
+scene = ExtResource("12_eb6dy")
+random_enabled = true
+random_randomize_distance = true
+random_min_distance = 50.0
+random_max_distance = 100.0
+random_randomize_rotation = true
+metadata/_custom_type_script = "uid://d4b0eol7ktjlk"
+
+[node name="BoostSpawner" type="Node3D" parent="." unique_id=1892113004 node_paths=PackedStringArray("path")]
+script = ExtResource("1_tipki")
+path = NodePath("../Path3D")
+scene = ExtResource("14_a8y0u")
+random_enabled = true
+random_randomize_distance = true
+random_min_distance = 150.0
+random_max_distance = 200.0
+random_randomize_rotation = true
+metadata/_custom_type_script = "uid://d4b0eol7ktjlk"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=731867418]
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer" unique_id=8862687]
+unique_name_in_owner = true
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 132.0
+offset_bottom = 24.0
+text = "TIEMPO: 00:00.00"
+
+[node name="SpeedLabel" type="Label" parent="CanvasLayer" unique_id=1060958687]
+unique_name_in_owner = true
+offset_left = 4.0
+offset_top = 193.0
+offset_right = 142.0
+offset_bottom = 216.0
+pivot_offset_ratio = Vector2(0, 1)
+text = "VELOCIDAD: 0 km/h"
+
+[node name="EndScreen" type="Control" parent="CanvasLayer" unique_id=546772342]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="CanvasLayer/EndScreen" unique_id=30767534]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/EndScreen" unique_id=1897825332]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 59.0
+offset_right = 241.0
+offset_bottom = 82.0
+text = "TERMINASTE!"
+
+[node name="Label2" type="Label" parent="CanvasLayer/EndScreen" unique_id=2002220311]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 80.0
+offset_right = 242.0
+offset_bottom = 103.0
+text = "Tiempo Final:"
+
+[node name="FinalTimeLabel" type="Label" parent="CanvasLayer/EndScreen" unique_id=1382503878]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 138.0
+offset_top = 101.0
+offset_right = 242.0
+offset_bottom = 124.0
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="CanvasLayer/EndScreen" unique_id=1836295717]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 130.0
+offset_right = 228.0
+offset_bottom = 161.0
+text = "Reiniciar"
+
+[connection signal="boosted" from="Path3D/PathFollow/PlayerContainer/Player" to="Path3D/PathFollow/PlayerContainer" method="_on_player_boosted"]
+[connection signal="died" from="Path3D/PathFollow/PlayerContainer/Player" to="Path3D/PathFollow/PlayerContainer" method="_on_player_died"]
+[connection signal="finished_track" from="Path3D/PathFollow/PlayerContainer/Player" to="." method="_on_player_finished_track"]
+[connection signal="respawned" from="Path3D/PathFollow/PlayerContainer/Player" to="Path3D/PathFollow/PlayerContainer" method="_on_player_respawned"]
+[connection signal="pressed" from="CanvasLayer/EndScreen/RestartButton" to="." method="_on_restart_button_pressed"]
