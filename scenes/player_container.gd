@@ -3,7 +3,7 @@ extends Node3D
 const MAX_SPEED = 40
 const MAX_ROTATION_SPEED = 240.0
 const SLOW_SPEED = MAX_SPEED / 3
-const MAX_BOOST_SPEED = MAX_SPEED / 2
+const MAX_BOOST_SPEED = MAX_SPEED / 4
 const BOOST_ACCELERATION = MAX_BOOST_SPEED * 2
 const BOOST_TIME = 2.0
 const MAX_TILT = 40.0
@@ -15,10 +15,10 @@ const ROTATION_DECELERATION = MAX_ROTATION_SPEED*4
 const CAMERA_LAG_SPEED = 12.0
 const CAMERA_APPROACH_SPEED = 150.0
 const BOOST_CAMERA_APPROACH_SPEED = 300.0
-const MAX_CAMERA_DISTANCE = 6.0
-const MIN_CAMERA_DISTANCE = 5.0
+const MAX_CAMERA_DISTANCE = 5.0
+const MIN_CAMERA_DISTANCE = 4.0
 const BOOST_CAMERA_DISTANCE = 8.0
-const MAX_FOV = 105.0
+const MAX_FOV = 100.0
 const USE_FOV_EFFECT = true
 
 var speed: float = 0.0
@@ -55,7 +55,6 @@ func _physics_process(delta: float) -> void:
             boost_speed = move_toward(boost_speed, MAX_BOOST_SPEED, BOOST_ACCELERATION * delta)
             if USE_FOV_EFFECT:
                 %Camera.fov = lerp(%Camera.fov, MAX_FOV, 1.0 - exp(deg_to_rad(-BOOST_CAMERA_APPROACH_SPEED) * delta))
-            print(boost_speed)
         else:
             boost_speed = move_toward(boost_speed, 0.0, BOOST_ACCELERATION * delta)
             if USE_FOV_EFFECT:
