@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ck4awk1jo1stp" path="res://scenes/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://b80m0xispuqev" path="res://assets/ui/main-menu-bg.png" id="1_l6cm7"]
+[ext_resource type="AudioStream" uid="uid://c2oydy0qe4pus" path="res://assets/music/Menu_00.mp3" id="3_bqqt6"]
 
 [node name="MainMenu" type="Control" unique_id=271085558]
 layout_mode = 3
@@ -26,5 +27,9 @@ offset_top = 78.0
 offset_right = 249.0
 offset_bottom = 132.0
 mouse_default_cursor_shape = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1324903191]
+stream = ExtResource("3_bqqt6")
+autoplay = true
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

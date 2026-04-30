@@ -19,6 +19,8 @@ func _physics_process(delta: float) -> void:
 func _on_area_3d_body_entered(body: Node3D) -> void:
     if body is Goal:
         finished_track.emit()
+    elif body.name == "PassbyBody":
+        $PassbySFX.play()
     else:
         $Explosion00/Sparks.emitting = true
         $Explosion00/Flash.emitting = true

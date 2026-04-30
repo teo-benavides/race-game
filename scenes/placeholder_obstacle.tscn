@@ -3,6 +3,9 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_fem8u"]
 size = Vector3(2.3131409, 1.7058105, 1.7923584)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_5uqw3"]
+size = Vector3(5.5675964, 3.0550241, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fem8u"]
 albedo_color = Color(1, 0, 0, 1)
 
@@ -14,6 +17,14 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1691749589]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1157074, 2.305822, 0.06500244)
 shape = SubResource("BoxShape3D_fem8u")
+
+[node name="PassbyBody" type="StaticBody3D" parent="." unique_id=1565552525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.2481403)
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PassbyBody" unique_id=1223397561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.113082886, 2.9473796, 2.3737264)
+shape = SubResource("BoxShape3D_5uqw3")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=345303106]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9626186, 0.16680908)
