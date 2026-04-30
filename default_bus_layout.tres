@@ -1,0 +1,9 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://bedof3c666ak1"]
+
+[sub_resource type="AudioEffectFilter" id="AudioEffectFilter_j3pel"]
+resource_name = "Filter"
+cutoff_hz = 2272.0
+
+[resource]
+bus/0/effect/0/effect = SubResource("AudioEffectFilter_j3pel")
+bus/0/effect/0/enabled = false

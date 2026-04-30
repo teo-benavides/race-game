@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://xgoxhcwxh65h" path="res://assets/ui/misc-ui-atlas.png" id="19_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://cwo6568oe4fke" path="res://assets/ui/hit-overlay.png" id="19_yc10j"]
 [ext_resource type="PackedScene" uid="uid://cvryb65p0phss" path="res://scenes/end_screen_time_display.tscn" id="20_yc10j"]
+[ext_resource type="Script" uid="uid://2pndk6s3gqiq" path="res://scenes/pause_menu.gd" id="21_y6deb"]
 [ext_resource type="AudioStream" uid="uid://c7efqkgiim6yc" path="res://assets/music/MainTrack_00.mp3" id="22_jscy8"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tipki"]
@@ -76,6 +77,9 @@ region = Rect2(75, 117, 19, 7)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gqmmt"]
 atlas = ExtResource("15_jkv2x")
 region = Rect2(49, 97, 46, 11)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pm3ni"]
+blend_mode = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jscy8"]
 atlas = ExtResource("19_gqmmt")
@@ -335,6 +339,38 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("19_yc10j")
 
+[node name="PauseMenu" type="Control" parent="CanvasLayer" unique_id=641091118]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("21_y6deb")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/PauseMenu" unique_id=354445082]
+material = SubResource("CanvasItemMaterial_pm3ni")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.29803923)
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/PauseMenu" unique_id=1111756553]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu/CenterContainer" unique_id=29148813]
+layout_mode = 2
+text = "PAUSA"
+
 [node name="EndScreen" type="Control" parent="CanvasLayer" unique_id=546772342]
 unique_name_in_owner = true
 visible = false
@@ -423,6 +459,7 @@ wait_time = 0.08
 one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1775894916]
+process_mode = 3
 stream = ExtResource("22_jscy8")
 autoplay = true
 
