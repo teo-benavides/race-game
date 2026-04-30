@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dnwwptsrkyx7e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fem8u"]
+size = Vector3(2.3131409, 1.7058105, 1.7923584)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fem8u"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="PlaceholderObstacle" type="Node3D" unique_id=394385950]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1987607264]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1691749589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1157074, 2.305822, 0.06500244)
+shape = SubResource("BoxShape3D_fem8u")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=345303106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9626186, 0.16680908)
+size = Vector3(1, 1, 1.5904541)
+material = SubResource("StandardMaterial3D_fem8u")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=707562405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7507192, 2.3547843, 0.14013672)
+size = Vector3(1, 1, 1.2802734)
+material = SubResource("StandardMaterial3D_fem8u")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1099801933]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21213853, 2.6419082, -0.16894531)
+size = Vector3(1.6143799, 1, 1.3378906)
+material = SubResource("StandardMaterial3D_fem8u")

@@ -3,13 +3,14 @@
 [ext_resource type="Curve3D" uid="uid://b30hvi0xkcsxg" path="res://resources/main_curve_3d.tres" id="1_choun"]
 [ext_resource type="Script" uid="uid://cmi86xpidglku" path="res://scenes/player_container.gd" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://d4b0eol7ktjlk" path="res://scenes/path_scene_spawner_3d.gd" id="1_tipki"]
-[ext_resource type="PackedScene" uid="uid://c8u5sxntahhvj" path="res://assets/Auto Entubado Placeholder.glb" id="2_o6xl0"]
 [ext_resource type="ArrayMesh" uid="uid://daqhjsq524sqn" path="res://assets/Tuberia/placeholder_Tubo.tres" id="2_sugp2"]
 [ext_resource type="Material" uid="uid://ci6av41splxc1" path="res://assets/Tuberia/mTuberia.tres" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://c5b4sonrvn3ml" path="res://scenes/player.tscn" id="3_ya4ey"]
 [ext_resource type="ArrayMesh" uid="uid://dh30p0dgvj62n" path="res://assets/Tuberia/Caños y cables/Caños Segmentos/Caños_2_Mid.obj" id="4_tefeu"]
 [ext_resource type="Texture2D" uid="uid://cp3xj2yk7juwd" path="res://assets/texturas/tCaño_1.png" id="5_o6xl0"]
 [ext_resource type="ArrayMesh" uid="uid://djhcvwb0fsltk" path="res://assets/Tuberia/Caños y cables/Cables_1.obj" id="6_tipki"]
 [ext_resource type="PackedScene" uid="uid://ceu5mfv48xr2" path="res://scenes/tunnel_light.tscn" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://dnwwptsrkyx7e" path="res://scenes/placeholder_obstacle.tscn" id="12_eb6dy"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tipki"]
 _surfaces = [{
@@ -53,7 +54,7 @@ curve = ExtResource("1_choun")
 
 [node name="PathFollow" type="PathFollow3D" parent="Path3D" unique_id=497262417]
 unique_name_in_owner = true
-transform = Transform3D(-0.83680296, -0.017692234, 0.5471846, -1.8626157e-09, 0.9994103, 0.032316923, -0.54747516, 0.027042158, -0.8363588, 22.852928, -0.075408936, -33.094803)
+transform = Transform3D(-0.858122, 0.34230897, -0.38262895, 0, 0.74521863, 0.6667479, 0.51341486, 0.57213545, -0.6395263, 22.852928, -0.075408936, -33.094803)
 
 [node name="PlayerContainer" type="Node3D" parent="Path3D/PathFollow" unique_id=1258040793]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
@@ -64,13 +65,9 @@ unique_name_in_owner = true
 transform = Transform3D(1.0000162, -3.5001715e-08, 2.6592764e-07, 1.210719e-08, 0.9949427, 0.101110786, -2.0861626e-07, -0.10111517, 0.9948995, 0.17299938, 0.61304903, 4.8041573)
 fov = 60.0
 
-[node name="Player" type="CharacterBody3D" parent="Path3D/PathFollow/PlayerContainer" unique_id=1546135778]
+[node name="Player" parent="Path3D/PathFollow/PlayerContainer" unique_id=1255014144 instance=ExtResource("3_ya4ey")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, -2.408, 0)
-motion_mode = 1
-
-[node name="Auto Entubado Placeholder" parent="Path3D/PathFollow/PlayerContainer/Player" unique_id=2030740333 instance=ExtResource("2_o6xl0")]
-transform = Transform3D(1.28, 0, 0, 0, 1.62, 0, 0, 0, 1.28, 0, 0, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Path3D/PathFollow" unique_id=1969803073]
 omni_range = 148.87
@@ -91,7 +88,7 @@ surface_0/mesh_length_offset = 0.0
 surface_0/sample_cubic = false
 surface_0/tilt = true
 surface_0/offset = Vector2(0, 0)
-surface_0/triangle_count = 35955
+surface_0/triangle_count = 36720
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.532634, 0)
 material_override = ExtResource("3_sugp2")
 cast_shadow = 0
@@ -113,7 +110,7 @@ surface_0/mesh_length_offset = 0.0
 surface_0/sample_cubic = false
 surface_0/tilt = true
 surface_0/offset = Vector2(0, 0)
-surface_0/triangle_count = 3384
+surface_0/triangle_count = 3456
 surface_1/tile_rotation = Vector3(0, 0, 0)
 surface_1/tile_rotation_order = 2
 surface_1/distribution = 0
@@ -123,7 +120,7 @@ surface_1/mesh_length_offset = 0.0
 surface_1/sample_cubic = false
 surface_1/tilt = true
 surface_1/offset = Vector2(0, 0)
-surface_1/triangle_count = 3384
+surface_1/triangle_count = 3456
 material_override = SubResource("StandardMaterial3D_85g3d")
 cast_shadow = 0
 
@@ -143,7 +140,7 @@ surface_0/mesh_length_offset = 0.0
 surface_0/sample_cubic = false
 surface_0/tilt = true
 surface_0/offset = Vector2(0, 0)
-surface_0/triangle_count = 2256
+surface_0/triangle_count = 2288
 surface_1/tile_rotation = Vector3(0, 0, 0)
 surface_1/tile_rotation_order = 2
 surface_1/distribution = 0
@@ -153,7 +150,7 @@ surface_1/mesh_length_offset = 0.0
 surface_1/sample_cubic = false
 surface_1/tilt = true
 surface_1/offset = Vector2(0, 0)
-surface_1/triangle_count = 17108
+surface_1/triangle_count = 17350
 surface_2/tile_rotation = Vector3(0, 0, 0)
 surface_2/tile_rotation_order = 2
 surface_2/distribution = 0
@@ -163,7 +160,7 @@ surface_2/mesh_length_offset = 0.0
 surface_2/sample_cubic = false
 surface_2/tilt = true
 surface_2/offset = Vector2(0, 0)
-surface_2/triangle_count = 17108
+surface_2/triangle_count = 17350
 material_override = SubResource("StandardMaterial3D_85g3d")
 cast_shadow = 0
 
@@ -171,5 +168,22 @@ cast_shadow = 0
 script = ExtResource("1_tipki")
 path = NodePath("../Path3D")
 scene = ExtResource("9_85g3d")
-distance = 40.0
+distance = 80.0
+random_enabled = true
+random_min_distance = 30.0
+random_max_distance = 60.0
 metadata/_custom_type_script = "uid://d4b0eol7ktjlk"
+
+[node name="ObstacleSpawner" type="Node3D" parent="." unique_id=1281799190 node_paths=PackedStringArray("path")]
+script = ExtResource("1_tipki")
+path = NodePath("../Path3D")
+scene = ExtResource("12_eb6dy")
+random_enabled = true
+random_randomize_distance = true
+random_min_distance = 80.0
+random_max_distance = 160.0
+random_randomize_rotation = true
+metadata/_custom_type_script = "uid://d4b0eol7ktjlk"
+
+[connection signal="died" from="Path3D/PathFollow/PlayerContainer/Player" to="Path3D/PathFollow/PlayerContainer" method="_on_player_died"]
+[connection signal="respawned" from="Path3D/PathFollow/PlayerContainer/Player" to="Path3D/PathFollow/PlayerContainer" method="_on_player_respawned"]
