@@ -22,7 +22,11 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
     elif body is Boost:
         boosted.emit()
     else:
-        $DeathParticles.emitting = true
+        #$DeathParticles.emitting = true
+        $Explosion00/Sparks.emitting = true
+        $Explosion00/Flash.emitting = true
+        $Explosion00/Burn.emitting = true
+        $Explosion00/SmokeUranium.emitting = true
         %Model.visible = false
         $Area3D.set_deferred("monitoring", false)
         $RespawnTimer.start()
