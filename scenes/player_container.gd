@@ -1,9 +1,9 @@
 extends Node3D
 
-const MAX_SPEED = 60.0
+const MAX_SPEED = 40
 const MAX_ROTATION_SPEED = 240.0
-const SLOW_SPEED = 20.0
-const MAX_BOOST_SPEED = 30.0
+const SLOW_SPEED = MAX_SPEED / 3
+const MAX_BOOST_SPEED = MAX_SPEED / 2
 const BOOST_ACCELERATION = MAX_BOOST_SPEED * 2
 const BOOST_TIME = 2.0
 const MAX_TILT = 40.0
