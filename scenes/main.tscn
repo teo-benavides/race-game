@@ -13,6 +13,7 @@
 [ext_resource type="ArrayMesh" uid="uid://djhcvwb0fsltk" path="res://assets/Tuberia/Caños y cables/Cables_1.obj" id="6_tipki"]
 [ext_resource type="PackedScene" uid="uid://ceu5mfv48xr2" path="res://scenes/tunnel_light.tscn" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://dnwwptsrkyx7e" path="res://scenes/placeholder_obstacle.tscn" id="12_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://eemrhmoi2t51" path="res://scenes/boost.tscn" id="14_a8y0u"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tipki"]
 _surfaces = [{
@@ -77,8 +78,8 @@ transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, -2.408, 0)
 omni_range = 148.87
 
 [node name="GoalContainer" type="PathFollow3D" parent="Path3D" unique_id=709208126]
-transform = Transform3D(-0.56207013, -0.075984344, -0.8235906, -0.074704885, 0.9963601, -0.040941406, 0.8237079, 0.038514193, -0.5657032, 114.13567, -2.3897696, 640.10724)
-progress = 854.73
+transform = Transform3D(-0.5835323, -0.061557695, -0.8097522, -0.07538217, 0.99691826, -0.021464119, 0.80858266, 0.048515696, -0.5863774, 86.74837, -3.3149495, 620.9042)
+progress = 821.2669
 
 [node name="Goal" parent="Path3D/GoalContainer" unique_id=1367205300 instance=ExtResource("5_trceg")]
 
@@ -195,6 +196,17 @@ random_max_distance = 100.0
 random_randomize_rotation = true
 metadata/_custom_type_script = "uid://d4b0eol7ktjlk"
 
+[node name="BoostSpawner" type="Node3D" parent="." unique_id=1892113004 node_paths=PackedStringArray("path")]
+script = ExtResource("1_tipki")
+path = NodePath("../Path3D")
+scene = ExtResource("14_a8y0u")
+random_enabled = true
+random_randomize_distance = true
+random_min_distance = 150.0
+random_max_distance = 200.0
+random_randomize_rotation = true
+metadata/_custom_type_script = "uid://d4b0eol7ktjlk"
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=731867418]
 
 [node name="TimeLabel" type="Label" parent="CanvasLayer" unique_id=8862687]
@@ -265,6 +277,7 @@ offset_right = 228.0
 offset_bottom = 161.0
 text = "Reiniciar"
 
+[connection signal="boosted" from="Path3D/PathFollow/PlayerContainer/Player" to="Path3D/PathFollow/PlayerContainer" method="_on_player_boosted"]
 [connection signal="died" from="Path3D/PathFollow/PlayerContainer/Player" to="Path3D/PathFollow/PlayerContainer" method="_on_player_died"]
 [connection signal="finished_track" from="Path3D/PathFollow/PlayerContainer/Player" to="." method="_on_player_finished_track"]
 [connection signal="respawned" from="Path3D/PathFollow/PlayerContainer/Player" to="Path3D/PathFollow/PlayerContainer" method="_on_player_respawned"]
