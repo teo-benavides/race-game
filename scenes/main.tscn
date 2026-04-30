@@ -68,7 +68,6 @@ script = ExtResource("1_sugp2")
 [node name="Camera" type="Camera3D" parent="Path3D/PathFollow/PlayerContainer" unique_id=1105489900]
 unique_name_in_owner = true
 transform = Transform3D(1.0000162, -3.5001715e-08, 2.6592764e-07, 1.210719e-08, 0.9949427, 0.101110786, -2.0861626e-07, -0.10111517, 0.9948995, 0.17299938, 0.61304903, 4.8041573)
-fov = 60.0
 
 [node name="Player" parent="Path3D/PathFollow/PlayerContainer" unique_id=1255014144 instance=ExtResource("3_ya4ey")]
 unique_name_in_owner = true

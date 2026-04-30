@@ -1,6 +1,7 @@
 extends Node3D
 class_name PathSceneSpawner3D
 
+@export var enabled: bool = true
 @export var path: Path3D
 @export var scene: PackedScene
 @export_range(0.001, 99999.0) var distance: float = 1.0
@@ -15,6 +16,9 @@ class_name PathSceneSpawner3D
 @export var random_randomize_rotation: bool
 
 func _ready() -> void:
+    if !enabled:
+        return
+
     var curve: Curve3D = path.curve
 
     var d = randf_range(random_min_distance, random_max_distance) if random_enabled and random_randomize_distance else distance
