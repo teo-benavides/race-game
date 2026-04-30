@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://c5b4sonrvn3ml"]
 
-[ext_resource type="PackedScene" uid="uid://wlugksfy3my1" path="res://assets/Auto Entubado Placeholder 2.glb" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://bhq1j0m2ot1m8" path="res://scenes/player.gd" id="1_g2els"]
+[ext_resource type="PackedScene" uid="uid://dpoabwl700ct1" path="res://assets/Vehiculo.glb" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://bjjtgi0i7b5tt" path="res://scenes/VFXs/Explosion_00.tscn" id="3_qhqgy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3vyb7"]
 size = Vector3(1.2570801, 1.4219971, 2.1678162)
@@ -34,8 +35,9 @@ _data = {
 motion_mode = 1
 script = ExtResource("1_g2els")
 
-[node name="Model" parent="." unique_id=365219149 instance=ExtResource("1_3vyb7")]
+[node name="Model" parent="." unique_id=779167478 instance=ExtResource("2_qhqgy")]
 unique_name_in_owner = true
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1662969251]
 collision_mask = 14
@@ -44,7 +46,10 @@ collision_mask = 14
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00012207031, 0.21099824, -0.004653629)
 shape = SubResource("BoxShape3D_3vyb7")
 
+[node name="Explosion00" parent="." unique_id=1317501946 instance=ExtResource("3_qhqgy")]
+
 [node name="DeathParticles" type="GPUParticles3D" parent="." unique_id=1004400268]
+visible = false
 material_override = SubResource("StandardMaterial3D_g2els")
 emitting = false
 amount = 40
@@ -69,3 +74,5 @@ libraries/ = SubResource("AnimationLibrary_qhqgy")
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
+
+[editable path="Explosion00"]
