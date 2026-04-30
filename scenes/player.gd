@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 signal died
 signal respawned
+signal finished_track
 
 const FLASH_INTERVAL = 0.2
 
@@ -14,12 +15,15 @@ func _physics_process(delta: float) -> void:
     
     flash_cooldown -= FLASH_INTERVAL * delta
 
-func _on_area_3d_body_entered(_body: Node3D) -> void:
-    $DeathParticles.emitting = true
-    %Model.visible = false
-    $Area3D.monitoring = false
-    $RespawnTimer.start()
-    died.emit()
+func _on_area_3d_body_entered(body: Node3D) -> void:
+    if body is Goal:
+        finished_track.emit()
+    else:
+        $DeathParticles.emitting = true
+        %Model.visible = false
+        $Area3D.set_deferred("monitoring", false)
+        $RespawnTimer.start()
+        died.emit()
 
 func _on_respawn_timer_timeout() -> void:
     invincible = true
@@ -29,4 +33,4 @@ func _on_respawn_timer_timeout() -> void:
 func _on_invincibility_timer_timeout() -> void:
     invincible = false
     %Model.visible = true
-    $Area3D.monitoring = true
+    $Area3D.set_deferred("monitoring", true)
