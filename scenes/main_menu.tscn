@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ckmfc6u78mkl1"]
+
+[ext_resource type="Script" uid="uid://ck4awk1jo1stp" path="res://scenes/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://b80m0xispuqev" path="res://assets/ui/main-menu-bg.png" id="1_l6cm7"]
+
+[node name="MainMenu" type="Control" unique_id=271085558]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ekxnf")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1108331639]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_l6cm7")
+
+[node name="StartButton" type="Button" parent="." unique_id=1893855657]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 170.0
+offset_top = 78.0
+offset_right = 249.0
+offset_bottom = 132.0
+mouse_default_cursor_shape = 2
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cd2gupfffjyqw"]
+
+[ext_resource type="Script" uid="uid://dy6mfvbfifq0m" path="res://scenes/three_digit_display.gd" id="1_123d2"]
+[ext_resource type="PackedScene" uid="uid://b3tvhfxvdjod5" path="res://scenes/digit.tscn" id="2_v4ars"]
+
+[node name="ThreeDigitDisplay" type="HBoxContainer" unique_id=1189653240]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 1
+alignment = 2
+script = ExtResource("1_123d2")
+
+[node name="Digit3" parent="." unique_id=161224956 instance=ExtResource("2_v4ars")]
+layout_mode = 2
+
+[node name="Digit2" parent="." unique_id=336994832 instance=ExtResource("2_v4ars")]
+layout_mode = 2
+
+[node name="Digit1" parent="." unique_id=1175090952 instance=ExtResource("2_v4ars")]
+layout_mode = 2

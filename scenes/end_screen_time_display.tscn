@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cvryb65p0phss"]
+
+[ext_resource type="Script" uid="uid://bkmpw1avg5vgb" path="res://scenes/time_display.gd" id="1_onjpm"]
+[ext_resource type="PackedScene" uid="uid://dc5vnlyn28k0d" path="res://scenes/end_screen_digit.tscn" id="2_onjpm"]
+[ext_resource type="Texture2D" uid="uid://xgoxhcwxh65h" path="res://assets/ui/misc-ui-atlas.png" id="3_werfm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhslw"]
+atlas = ExtResource("3_werfm")
+region = Rect2(330, 52, 2, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3teyi"]
+atlas = ExtResource("3_werfm")
+region = Rect2(330, 60, 2, 2)
+
+[node name="EndScreenTimeDisplay" type="HBoxContainer" unique_id=668320583]
+offset_right = 66.0
+offset_bottom = 12.0
+theme_override_constants/separation = 2
+script = ExtResource("1_onjpm")
+
+[node name="MinutesDigit2" parent="." unique_id=1175090952 instance=ExtResource("2_onjpm")]
+layout_mode = 2
+
+[node name="MinutesDigit1" parent="." unique_id=1587957292 instance=ExtResource("2_onjpm")]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=379613741]
+layout_mode = 2
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_hhslw")
+stretch_mode = 2
+
+[node name="SecondsDigit2" parent="." unique_id=158387233 instance=ExtResource("2_onjpm")]
+layout_mode = 2
+
+[node name="SecondsDigit1" parent="." unique_id=1988796827 instance=ExtResource("2_onjpm")]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=1241708478]
+layout_mode = 2
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_3teyi")
+stretch_mode = 3
+
+[node name="CentisecondsDigit2" parent="." unique_id=1349577605 instance=ExtResource("2_onjpm")]
+layout_mode = 2
+
+[node name="CentisecondsDigit1" parent="." unique_id=349913576 instance=ExtResource("2_onjpm")]
+layout_mode = 2
