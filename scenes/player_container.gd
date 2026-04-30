@@ -18,6 +18,8 @@ const BOOST_CAMERA_APPROACH_SPEED = 300.0
 const MAX_CAMERA_DISTANCE = 6.0
 const MIN_CAMERA_DISTANCE = 5.0
 const BOOST_CAMERA_DISTANCE = 8.0
+const MAX_FOV = 105.0
+const USE_FOV_EFFECT = true
 
 var speed: float = 0.0
 var boost_speed: float = 0.0
@@ -51,13 +53,18 @@ func _physics_process(delta: float) -> void:
             remaining_boost_time -= delta
             #print(remaining_boost_time)
             boost_speed = move_toward(boost_speed, MAX_BOOST_SPEED, BOOST_ACCELERATION * delta)
+            if USE_FOV_EFFECT:
+                %Camera.fov = lerp(%Camera.fov, MAX_FOV, 1.0 - exp(deg_to_rad(-BOOST_CAMERA_APPROACH_SPEED) * delta))
             print(boost_speed)
         else:
             boost_speed = move_toward(boost_speed, 0.0, BOOST_ACCELERATION * delta)
+            if USE_FOV_EFFECT:
+                %Camera.fov = lerp(%Camera.fov, 75.0, 1.0 - exp(deg_to_rad(-BOOST_CAMERA_APPROACH_SPEED) * delta))
         
         if boost_speed > 0.0:
             speed = MAX_SPEED + boost_speed
-            camera_distance = lerp(camera_distance, BOOST_CAMERA_DISTANCE, 1.0 - exp(deg_to_rad(-BOOST_CAMERA_APPROACH_SPEED) * delta))
+            if !USE_FOV_EFFECT:
+                camera_distance = lerp(camera_distance, BOOST_CAMERA_DISTANCE, 1.0 - exp(deg_to_rad(-BOOST_CAMERA_APPROACH_SPEED) * delta))
         elif Input.is_action_pressed("player_brake"):
             speed = move_toward(speed, SLOW_SPEED, DECELERATION * delta)
             camera_distance = lerp(camera_distance, MIN_CAMERA_DISTANCE, 1.0 - exp(deg_to_rad(-CAMERA_APPROACH_SPEED) * delta))
