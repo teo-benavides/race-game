@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://c1fnbs33706s6"]
+
+[ext_resource type="ArrayMesh" uid="uid://shfu4fqakqxr" path="res://assets/Bagre.obj" id="1_msh6x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fem8u"]
+size = Vector3(5.3792315, 1.7058105, 1.7923584)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5uqw3"]
+size = Vector3(6.3066673, 3.3029027, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cor1t"]
+size = Vector3(1.5510287, 1.9281216, 0.9777832)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_msh6x"]
+size = Vector3(1.5510287, 1.9281216, 0.9777832)
+
+[node name="FishObstacle" type="Node3D" unique_id=394385950]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1987607264]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1691749589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08440733, 2.305822, 0.06500244)
+shape = SubResource("BoxShape3D_fem8u")
+
+[node name="PassbyBody" type="StaticBody3D" parent="." unique_id=1565552525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.2481403)
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PassbyBody" unique_id=1223397561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.058950424, 2.8234403, 2.3737264)
+shape = SubResource("BoxShape3D_5uqw3")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="PassbyBody" unique_id=373659265]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7989771, 0.39386463, 7.6025715)
+shape = SubResource("BoxShape3D_cor1t")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="PassbyBody" unique_id=70473326]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7064416, 1.5796275, 3.8012857)
+shape = SubResource("BoxShape3D_msh6x")
+
+[node name="Bagre" type="MeshInstance3D" parent="." unique_id=1835182779]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, 3.339, 0)
+mesh = ExtResource("1_msh6x")
