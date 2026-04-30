@@ -1,8 +1,9 @@
 extends Node3D
 
-const LO_QUE_DE_THRESHOLD = 250
+const LO_QUE_DE_THRESHOLD = 350
 const MAX_SPEEDOMETER_SCALE = 2.0
 const MAX_SPEEDOMETER_SHAKE = 8.0
+const SPEED_MULTIPLIER = 2.0
 
 var playing = true
 var elapsed_time: float = 0.0
@@ -12,6 +13,7 @@ func _ready() -> void:
     %EndScreen.visible = false
     original_speedometer_position = %SpeedLabel.position
     %GoalContainer.progress_ratio = 0.995
+
 func _physics_process(delta: float) -> void:
     if playing:
         elapsed_time += delta
@@ -33,7 +35,7 @@ func format_time(seconds: float) -> String:
     return "%02d:%02d.%02d" % [minutes, secs, centiseconds]
 
 func format_speed(meters_per_second: float) -> String:
-    var kmh := int(roundf(meters_per_second * 3.6))
+    var kmh := int(roundf(meters_per_second * SPEED_MULTIPLIER * 3.6))
     return "%s km/h" % kmh if kmh < LO_QUE_DE_THRESHOLD else "LO QUE DÉ"
 
 func _on_player_finished_track() -> void:

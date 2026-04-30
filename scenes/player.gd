@@ -19,8 +19,6 @@ func _physics_process(delta: float) -> void:
 func _on_area_3d_body_entered(body: Node3D) -> void:
     if body is Goal:
         finished_track.emit()
-    elif body is Boost:
-        boosted.emit()
     else:
         $Explosion00/Sparks.emitting = true
         $Explosion00/Flash.emitting = true
@@ -40,3 +38,6 @@ func _on_invincibility_timer_timeout() -> void:
     invincible = false
     %Model.visible = true
     $Area3D.set_deferred("monitoring", true)
+
+func _on_boost_area_body_entered(_body: Node3D) -> void:
+    boosted.emit()
