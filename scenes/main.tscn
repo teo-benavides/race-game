@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://xgoxhcwxh65h" path="res://assets/ui/misc-ui-atlas.png" id="19_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://cwo6568oe4fke" path="res://assets/ui/hit-overlay.png" id="19_yc10j"]
 [ext_resource type="PackedScene" uid="uid://cvryb65p0phss" path="res://scenes/end_screen_time_display.tscn" id="20_yc10j"]
+[ext_resource type="AudioStream" uid="uid://c7efqkgiim6yc" path="res://assets/music/MainTrack_00.mp3" id="22_jscy8"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tipki"]
 _surfaces = [{
@@ -420,6 +421,10 @@ mouse_default_cursor_shape = 2
 process_callback = 0
 wait_time = 0.08
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1775894916]
+stream = ExtResource("22_jscy8")
+autoplay = true
 
 [connection signal="boosted" from="Path3D/PathFollow/PlayerContainer/Player" to="Path3D/PathFollow/PlayerContainer" method="_on_player_boosted"]
 [connection signal="died" from="Path3D/PathFollow/PlayerContainer/Player" to="." method="_on_player_died"]
