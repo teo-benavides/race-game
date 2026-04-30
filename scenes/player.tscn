@@ -38,7 +38,7 @@ script = ExtResource("1_g2els")
 unique_name_in_owner = true
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1662969251]
-collision_mask = 6
+collision_mask = 14
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=439483308]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00012207031, 0.21099824, -0.004653629)

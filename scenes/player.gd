@@ -3,6 +3,7 @@ extends CharacterBody3D
 signal died
 signal respawned
 signal finished_track
+signal boosted
 
 const FLASH_INTERVAL = 0.2
 
@@ -18,6 +19,8 @@ func _physics_process(delta: float) -> void:
 func _on_area_3d_body_entered(body: Node3D) -> void:
     if body is Goal:
         finished_track.emit()
+    elif body is Boost:
+        boosted.emit()
     else:
         $DeathParticles.emitting = true
         %Model.visible = false

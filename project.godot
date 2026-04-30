@@ -53,6 +53,7 @@ player_brake={
 3d_physics/layer_1="player"
 3d_physics/layer_2="obstacles"
 3d_physics/layer_3="goal"
+3d_physics/layer_4="boost"
 
 [physics]
 
