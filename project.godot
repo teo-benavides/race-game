@@ -15,6 +15,12 @@ run/main_scene="uid://bqpm0q55l02je"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=384
+window/size/viewport_height=216
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/PathMesh3D/plugin.cfg")
@@ -50,7 +56,5 @@ player_brake={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
 textures/decals/filter=0
 textures/light_projectors/filter=0

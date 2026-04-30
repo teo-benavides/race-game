@@ -1,9 +1,9 @@
 extends Node3D
 
-const MAX_SPEED = 30.0
+const MAX_SPEED = 60.0
 const MAX_ROTATION_SPEED = 240.0
-const SLOW_SPEED = 10.0
-const MAX_TILT = 15.0
+const SLOW_SPEED = 20.0
+const MAX_TILT = 40.0
 const TILT_SPEED = 700.0
 const ACCELERATION = 15.0
 const DECELERATION = 45.0
@@ -11,8 +11,8 @@ const ROTATION_ACCELERATION = MAX_ROTATION_SPEED*4
 const ROTATION_DECELERATION = MAX_ROTATION_SPEED*4
 const CAMERA_LAG_SPEED = 12.0
 const CAMERA_APPROACH_SPEED = 150.0
-const MAX_CAMERA_DISTANCE = 8.0
-const MIN_CAMERA_DISTANCE = 6.0
+const MAX_CAMERA_DISTANCE = 5.0
+const MIN_CAMERA_DISTANCE = 4.0
 
 var speed: float = 0.0
 var rotation_speed: float = 0.0
@@ -45,7 +45,6 @@ func _physics_process(delta: float) -> void:
         target_rotation,
         1.0 - exp(-CAMERA_LAG_SPEED * delta)
     )
-
 
     %Camera.rotation.z = camera_rotation - rotation.z
     %PathFollow.progress += speed * delta
