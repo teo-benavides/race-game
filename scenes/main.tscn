@@ -186,7 +186,6 @@ metadata/_custom_type_script = "uid://d4b0eol7ktjlk"
 
 [node name="ObstacleSpawner" type="Node3D" parent="." unique_id=1281799190 node_paths=PackedStringArray("path")]
 script = ExtResource("1_tipki")
-enabled = false
 path = NodePath("../Path3D")
 scene = ExtResource("12_eb6dy")
 random_enabled = true
