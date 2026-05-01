@@ -12,13 +12,16 @@
 [ext_resource type="PackedScene" uid="uid://7mosxxinjrcy" path="res://scenes/goal.tscn" id="5_trceg"]
 [ext_resource type="ArrayMesh" uid="uid://djhcvwb0fsltk" path="res://assets/Tuberia/Caños y cables/Cables_1.obj" id="6_tipki"]
 [ext_resource type="PackedScene" uid="uid://ceu5mfv48xr2" path="res://scenes/tunnel_light.tscn" id="9_85g3d"]
-[ext_resource type="PackedScene" uid="uid://dnwwptsrkyx7e" path="res://scenes/placeholder_obstacle.tscn" id="12_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://cvbjriif2mjfk" path="res://scenes/obstacles/bondi1_obstacle.tscn" id="13_2f3dj"]
 [ext_resource type="PackedScene" uid="uid://eemrhmoi2t51" path="res://scenes/boost.tscn" id="14_a8y0u"]
-[ext_resource type="PackedScene" uid="uid://c1fnbs33706s6" path="res://scenes/fish_obstacle.tscn" id="14_pm3ni"]
+[ext_resource type="PackedScene" uid="uid://c1fnbs33706s6" path="res://scenes/obstacles/fish_obstacle.tscn" id="14_pm3ni"]
+[ext_resource type="PackedScene" uid="uid://w82g3ixm36jd" path="res://scenes/obstacles/bondi2_obstacle.tscn" id="14_yq6so"]
+[ext_resource type="PackedScene" uid="uid://cwil05rmjesx3" path="res://scenes/obstacles/bondi3_obstacle.tscn" id="15_fv21b"]
 [ext_resource type="Texture2D" uid="uid://dptejmksvwfpi" path="res://assets/ui/hud-atlas.png" id="15_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://c61danmuid1qs" path="res://scenes/time_display.tscn" id="16_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://cd2gupfffjyqw" path="res://scenes/three_digit_display.tscn" id="16_jbj1t"]
 [ext_resource type="Script" uid="uid://plg72ayt27qa" path="res://scenes/speedometer.gd" id="16_muem4"]
+[ext_resource type="PackedScene" uid="uid://cmhyxtrtsrtag" path="res://scenes/obstacles/pipe_obstacle.tscn" id="17_tel4y"]
 [ext_resource type="Texture2D" uid="uid://xgoxhcwxh65h" path="res://assets/ui/misc-ui-atlas.png" id="19_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://cwo6568oe4fke" path="res://assets/ui/hit-overlay.png" id="19_yc10j"]
 [ext_resource type="PackedScene" uid="uid://cvryb65p0phss" path="res://scenes/end_screen_time_display.tscn" id="20_yc10j"]
@@ -220,11 +223,11 @@ metadata/_custom_type_script = "uid://d4b0eol7ktjlk"
 [node name="ObstacleSpawner" type="Node3D" parent="." unique_id=1281799190 node_paths=PackedStringArray("path")]
 script = ExtResource("1_tipki")
 path = NodePath("../Path3D")
-scenes = Array[PackedScene]([ExtResource("12_eb6dy"), ExtResource("14_pm3ni")])
+scenes = Array[PackedScene]([ExtResource("13_2f3dj"), ExtResource("14_yq6so"), ExtResource("15_fv21b"), ExtResource("14_pm3ni"), ExtResource("17_tel4y")])
 random_enabled = true
 random_randomize_distance = true
 random_min_distance = 50.0
-random_max_distance = 100.0
+random_max_distance = 80.0
 random_randomize_rotation = true
 metadata/_custom_type_script = "uid://d4b0eol7ktjlk"
 

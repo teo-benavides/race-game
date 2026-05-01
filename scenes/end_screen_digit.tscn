@@ -15,9 +15,9 @@ region = Rect2(292, 50, 8, 12)
 atlas = ExtResource("2_f3iew")
 region = Rect2(308, 50, 8, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3i0ox"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_oytg0"]
 atlas = ExtResource("2_f3iew")
-region = Rect2(293, 82, 8, 12)
+region = Rect2(277, 66, 8, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q648r"]
 atlas = ExtResource("2_f3iew")
@@ -30,6 +30,10 @@ region = Rect2(309, 66, 8, 12)
 [sub_resource type="AtlasTexture" id="AtlasTexture_w5ik5"]
 atlas = ExtResource("2_f3iew")
 region = Rect2(277, 82, 8, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i0ox"]
+atlas = ExtResource("2_f3iew")
+region = Rect2(293, 82, 8, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3e7ka"]
 atlas = ExtResource("2_f3iew")
@@ -72,7 +76,7 @@ visible = false
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 12.0
-texture = SubResource("AtlasTexture_3i0ox")
+texture = SubResource("AtlasTexture_oytg0")
 
 [node name="4" type="TextureRect" parent="." unique_id=1633780457]
 visible = false

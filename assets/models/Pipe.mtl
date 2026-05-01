@@ -1,0 +1,12 @@
+# Blender 5.0.1 MTL File: 'Obstaculos UVs.blend'
+# www.blender.org
+
+newmtl mPipe
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 2
+map_Kd E:/GitHub Chungy/CositasBruCas/Assets/Jam Godot/Rios subterraneos/Texturas/PIPE Texture.png
+map_d E:/GitHub Chungy/CositasBruCas/Assets/Jam Godot/Rios subterraneos/Texturas/PIPE Texture.png

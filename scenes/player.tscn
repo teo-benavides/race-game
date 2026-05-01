@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c5b4sonrvn3ml"]
 
 [ext_resource type="Script" uid="uid://bhq1j0m2ot1m8" path="res://scenes/player.gd" id="1_g2els"]
-[ext_resource type="PackedScene" uid="uid://dpoabwl700ct1" path="res://assets/Vehiculo.glb" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://dpoabwl700ct1" path="res://assets/models/Vehiculo.glb" id="2_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://bjjtgi0i7b5tt" path="res://scenes/VFXs/Explosion_00.tscn" id="3_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://cpbv2xd664dtn" path="res://assets/sfx/passby.wav" id="4_dqkch"]
 [ext_resource type="AudioStream" uid="uid://cs63fvyrhg4ji" path="res://assets/sfx/engine.ogg" id="5_qlg0r"]

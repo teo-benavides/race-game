@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c8u5sxntahhvj"
-path="res://.godot/imported/Auto Entubado Placeholder.glb-2afb1c674bd6dbd439a923c8a02ed54f.scn"
+uid="uid://cqlkj5xwdwvur"
+path="res://.godot/imported/BondiMedio v2.glb-e704f7c56d79a30d0f7448d3de73e835.scn"
 
 [deps]
 
-source_file="res://assets/Auto Entubado Placeholder.glb"
-dest_files=["res://.godot/imported/Auto Entubado Placeholder.glb-2afb1c674bd6dbd439a923c8a02ed54f.scn"]
+source_file="res://assets/models/BondiMedio v2.glb"
+dest_files=["res://.godot/imported/BondiMedio v2.glb-e704f7c56d79a30d0f7448d3de73e835.scn"]
 
 [params]
 

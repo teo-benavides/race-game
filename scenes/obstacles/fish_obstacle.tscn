@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://c1fnbs33706s6"]
 
 [ext_resource type="Script" uid="uid://ba1jb0hymxlbt" path="res://scenes/obstacle.gd" id="1_gns2r"]
-[ext_resource type="ArrayMesh" uid="uid://shfu4fqakqxr" path="res://assets/Bagre.obj" id="1_msh6x"]
 [ext_resource type="AudioStream" uid="uid://cpbv2xd664dtn" path="res://assets/sfx/passby.wav" id="2_cor1t"]
+[ext_resource type="PackedScene" uid="uid://dl26drs2jrs75" path="res://assets/models/Bagre v2.glb" id="3_175ee"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fem8u"]
-size = Vector3(5.3792315, 1.7058105, 1.7923584)
+size = Vector3(5.6150713, 2.0204468, 1.7923584)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fo82a"]
+size = Vector3(0.85297644, 0.96458435, 1.7923584)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gns2r"]
 size = Vector3(20.200932, 15.950726, 1)
@@ -31,8 +34,12 @@ script = ExtResource("1_gns2r")
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1691749589]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08440733, 2.305822, 0.06500244)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09278965, 2.1485038, 0.06500244)
 shape = SubResource("BoxShape3D_fem8u")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=419545633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.566138, 0.67733955, 0.06500244)
+shape = SubResource("BoxShape3D_fo82a")
 
 [node name="PassbyBody" type="Area3D" parent="." unique_id=923829957]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.2481403)
@@ -57,12 +64,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7064416, 1.5796275, 3.8012
 shape = SubResource("BoxShape3D_msh6x")
 disabled = true
 
-[node name="Bagre" type="MeshInstance3D" parent="." unique_id=1835182779]
-transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, 3.339, 0)
-mesh = ExtResource("1_msh6x")
-
 [node name="WhooshSFX" type="AudioStreamPlayer3D" parent="." unique_id=1151719934]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3454013, 0)
 stream = SubResource("AudioStreamRandomizer_gns2r")
+
+[node name="Bagre v2" parent="." unique_id=1319107815 instance=ExtResource("3_175ee")]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -4.552668, 3.268509, 0.983047)
 
 [connection signal="body_entered" from="PassbyBody" to="." method="_on_passby_body_body_entered"]

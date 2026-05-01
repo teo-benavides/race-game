@@ -1,21 +1,18 @@
 [gd_scene format=3 uid="uid://eemrhmoi2t51"]
 
 [ext_resource type="Script" uid="uid://dyr68jly2wy4b" path="res://scenes/boost.gd" id="1_8xfal"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_776o6"]
-albedo_color = Color(1, 0.68333334, 0, 1)
+[ext_resource type="PackedScene" uid="uid://dlq6tg7n18my" path="res://assets/models/Booster v2.glb" id="2_s34y7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_776o6"]
-size = Vector3(2.1322632, 1, 1.9004211)
+size = Vector3(1.9366302, 1, 2.2264729)
 
 [node name="Boost" type="StaticBody3D" unique_id=1961623901]
 collision_layer = 8
 script = ExtResource("1_8xfal")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=162035083]
-transform = Transform3D(1.6144067, 0, 0, 0, 0.14952868, 0, 0, 0, 1.7220215, 0, 2.8095407, 0)
-material_override = SubResource("StandardMaterial3D_776o6")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=114580659]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.027191162, 2.8095407, -0.077041626)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07216644, 2.8095407, -0.079707146)
 shape = SubResource("BoxShape3D_776o6")
+
+[node name="Booster v2" parent="." unique_id=1111939056 instance=ExtResource("2_s34y7")]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 2.4662533, 3.0414732, 0.6902075)
