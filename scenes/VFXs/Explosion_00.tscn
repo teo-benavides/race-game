@@ -73,8 +73,8 @@ curve = SubResource("Curve_nhoyn")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x07u3"]
 gravity = Vector3(0, 0, 0)
-scale_min = 10.0
-scale_max = 10.0
+scale_min = 14.91
+scale_max = 22.289999
 scale_curve = SubResource("CurveTexture_dp1os")
 color = Color(1.5084606, 1.3166785, 1.3689828, 0.4509804)
 emission_curve = SubResource("CurveTexture_y5ter")
@@ -108,8 +108,8 @@ emission_sphere_radius = 0.3
 direction = Vector3(0, 0, 0)
 spread = 180.0
 gravity = Vector3(0, -2, 0)
-scale_min = 0.0
-scale_max = 6.31
+scale_min = 3.0
+scale_max = 7.0
 scale_curve = SubResource("CurveTexture_t8ai5")
 color = Color(2.2399983, 1.3442644, 0.4399996, 0.61960787)
 color_ramp = SubResource("GradientTexture1D_a3l7o")
@@ -123,23 +123,24 @@ shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("1_obbpe")
 
-[sub_resource type="Curve" id="Curve_o8177"]
-_limits = [0.0, 15.26, 0.0, 1.0]
-_data = [Vector2(0, 4.193267), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_obbpe"]
+_data = [Vector2(0, 0.8832643), 0.0, 0.0, 0, 0, Vector2(1, 0.27649498), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_5tf1l"]
-curve = SubResource("Curve_o8177")
+[sub_resource type="CurveTexture" id="CurveTexture_7ql65"]
+curve = SubResource("Curve_obbpe")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8a86h"]
 lifetime_randomness = 1.0
 emission_shape = 1
 emission_sphere_radius = 2.12
+direction = Vector3(0, 0, 10)
 spread = 180.0
-initial_velocity_min = 0.5
-initial_velocity_max = 2.0
+initial_velocity_max = 9.37
 gravity = Vector3(0, 0, 0)
-scale_curve = SubResource("CurveTexture_5tf1l")
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_7ql65")
 color = Color(1.4647535, 3.8021939, 0, 0.09019608)
 
 [sub_resource type="QuadMesh" id="QuadMesh_2dgpa"]
@@ -150,9 +151,9 @@ color = Color(1.4647535, 3.8021939, 0, 0.09019608)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0009059906, 0.058809042, 0.006383896)
 material_override = SubResource("StandardMaterial3D_7ql65")
 emitting = false
-amount = 20
-lifetime = 0.19
-interp_to_end = 0.08
+amount = 30
+lifetime = 0.33
+interp_to_end = 0.1
 one_shot = true
 explosiveness = 1.0
 fixed_fps = 60
@@ -186,11 +187,13 @@ draw_pass_1 = SubResource("QuadMesh_rq4ch")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.059305906, 0, 0.04773426)
 material_override = SubResource("StandardMaterial3D_s32ei")
 emitting = false
-amount = 10
-lifetime = 0.91
+amount = 20
+lifetime = 0.73
 one_shot = true
 speed_scale = 0.6
 explosiveness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_8a86h")
+draw_passes = 2
 draw_pass_1 = SubResource("QuadMesh_2dgpa")
+draw_pass_2 = null
