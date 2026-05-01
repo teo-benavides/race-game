@@ -48,12 +48,17 @@ stream_1/stream = ExtResource("7_smehm")
 stream_1/volume = 10.35
 
 [node name="Player" type="CharacterBody3D" unique_id=1255014144]
+collision_mask = 16
 motion_mode = 1
 script = ExtResource("1_g2els")
 
 [node name="Model" parent="." unique_id=779167478 instance=ExtResource("2_qhqgy")]
 unique_name_in_owner = true
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2101887231]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00012207031, 0.21099824, -0.004653629)
+shape = SubResource("BoxShape3D_3vyb7")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1662969251]
 collision_mask = 22
