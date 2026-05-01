@@ -1,11 +1,15 @@
 extends Control
 
 func _on_start_button_pressed() -> void:
-    get_tree().change_scene_to_file("res://scenes/main.tscn")
-
+    $LoreTexture.visible = true
+    $LoreButton.visible = true
 
 func _on_start_button_mouse_entered() -> void:
     $JugarOn.visible = true
 
 func _on_start_button_mouse_exited() -> void:
     $JugarOn.visible = false
+
+
+func _on_lore_button_pressed() -> void:
+    get_tree().change_scene_to_file("res://scenes/main.tscn")
