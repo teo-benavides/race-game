@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cmhyxtrtsrtag"]
+
+[ext_resource type="Script" uid="uid://ba1jb0hymxlbt" path="res://scenes/obstacle.gd" id="1_s72dp"]
+[ext_resource type="AudioStream" uid="uid://cpbv2xd664dtn" path="res://assets/sfx/passby.wav" id="2_5x15b"]
+[ext_resource type="PackedScene" uid="uid://dgkch211ngesb" path="res://assets/models/Pipe v2.glb" id="2_h25ip"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fem8u"]
+size = Vector3(1.9082437, 1.6627197, 1.9372082)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5uqw3"]
+size = Vector3(5.5675964, 3.0550241, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fgd73"]
+size = Vector3(18.008354, 17.104595, 1)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fgd73"]
+random_pitch = 1.122462
+streams_count = 1
+stream_0/stream = ExtResource("2_5x15b")
+
+[node name="PipeObstacle" type="Node3D" unique_id=394385950]
+script = ExtResource("1_s72dp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1987607264]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1691749589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00012373924, 2.5153556, 0.043377876)
+shape = SubResource("BoxShape3D_fem8u")
+
+[node name="PassbyBody" type="Area3D" parent="." unique_id=1168642088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.2481403)
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PassbyBody" unique_id=1223397561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.113082886, 2.9473796, 2.3737264)
+shape = SubResource("BoxShape3D_5uqw3")
+disabled = true
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="PassbyBody" unique_id=199691065]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9073486e-05, 0.038843155, 2.3737264)
+shape = SubResource("BoxShape3D_fgd73")
+
+[node name="Pipe v2" parent="." unique_id=787560863 instance=ExtResource("2_h25ip")]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 3.1558185, 3.9354944, 3.445796)
+
+[node name="WhooshSFX" type="AudioStreamPlayer3D" parent="." unique_id=434000796]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3454013, 0)
+stream = SubResource("AudioStreamRandomizer_fgd73")
+
+[connection signal="body_entered" from="PassbyBody" to="." method="_on_passby_body_body_entered"]

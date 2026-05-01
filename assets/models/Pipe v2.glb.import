@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://wlugksfy3my1"
-path="res://.godot/imported/Auto Entubado Placeholder 2.glb-75cef7c4a38737c99ac2539b2cca05f1.scn"
+uid="uid://dgkch211ngesb"
+path="res://.godot/imported/Pipe v2.glb-651debe08707423945945bc0a03e81a6.scn"
 
 [deps]
 
-source_file="res://assets/Auto Entubado Placeholder 2.glb"
-dest_files=["res://.godot/imported/Auto Entubado Placeholder 2.glb-75cef7c4a38737c99ac2539b2cca05f1.scn"]
+source_file="res://assets/models/Pipe v2.glb"
+dest_files=["res://.godot/imported/Pipe v2.glb-651debe08707423945945bc0a03e81a6.scn"]
 
 [params]
 

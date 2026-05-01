@@ -15,6 +15,10 @@ run/main_scene="uid://ckmfc6u78mkl1"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://bedof3c666ak1"
+
 [display]
 
 window/size/viewport_width=384
@@ -71,3 +75,4 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 textures/decals/filter=0
 textures/light_projectors/filter=0
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
