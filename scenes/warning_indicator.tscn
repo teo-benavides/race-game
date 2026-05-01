@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://df6x1wmivalud"]
+
+[node name="Control" type="Control" unique_id=1851156026]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="ColorRect" parent="." unique_id=739241645]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+color = Color(1, 0, 0, 1)

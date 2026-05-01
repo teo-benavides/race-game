@@ -15,6 +15,8 @@ class_name PathSceneSpawner3D
 @export_range(0.001, 99999.0) var random_max_distance: float
 @export var random_randomize_rotation: bool
 
+var object_infos: Array[PathObjectInfo]
+
 func _ready() -> void:
     if !enabled:
         return
@@ -30,8 +32,15 @@ func _ready() -> void:
         var scene_idx = randi_range(0, len(scenes) - 1) if random_enabled else 0
         var instance = scenes[scene_idx].instantiate()
         var local_offset = offset
+        object_infos.push_back(PathObjectInfo.new(current_offset, rot))
         t.origin += t.basis * local_offset
         t.basis = t.basis.rotated(t.basis.z, deg_to_rad(rot)) if random_enabled and random_randomize_rotation else t.basis
         instance.global_transform = t
         add_child(instance)
         current_offset += randf_range(random_min_distance, random_max_distance) if random_enabled and random_randomize_distance else distance
+
+func get_object_infos_in_range(from: float, to: float) -> Array[PathObjectInfo]:
+    return (object_infos.filter(
+        func(obj: PathObjectInfo):
+            return obj.offset >= from and obj.offset <= to
+            ) as Array[PathObjectInfo])
