@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ck4awk1jo1stp" path="res://scenes/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://b80m0xispuqev" path="res://assets/ui/main-menu-bg.png" id="1_l6cm7"]
 [ext_resource type="AudioStream" uid="uid://c2oydy0qe4pus" path="res://assets/music/Menu_00.mp3" id="3_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://58l2y5ce0o8o" path="res://assets/ui/jugar-on.png" id="4_wu84c"]
 
 [node name="MainMenu" type="Control" unique_id=271085558]
 layout_mode = 3
@@ -19,6 +20,13 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_l6cm7")
 
+[node name="JugarOn" type="TextureRect" parent="." unique_id=1079504674]
+visible = false
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 216.0
+texture = ExtResource("4_wu84c")
+
 [node name="StartButton" type="Button" parent="." unique_id=1893855657]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
@@ -32,4 +40,6 @@ mouse_default_cursor_shape = 2
 stream = ExtResource("3_bqqt6")
 autoplay = true
 
+[connection signal="mouse_entered" from="StartButton" to="." method="_on_start_button_mouse_entered"]
+[connection signal="mouse_exited" from="StartButton" to="." method="_on_start_button_mouse_exited"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

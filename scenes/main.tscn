@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://cwo6568oe4fke" path="res://assets/ui/hit-overlay.png" id="19_yc10j"]
 [ext_resource type="PackedScene" uid="uid://cvryb65p0phss" path="res://scenes/end_screen_time_display.tscn" id="20_yc10j"]
 [ext_resource type="Script" uid="uid://2pndk6s3gqiq" path="res://scenes/pause_menu.gd" id="21_y6deb"]
+[ext_resource type="Texture2D" uid="uid://b3fubi238632v" path="res://assets/ui/credits.png" id="23_og1vs"]
 [ext_resource type="AudioStream" uid="uid://2c2tsn468u0w" path="res://assets/music/MainTrack_01Loop.ogg" id="24_y6deb"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tipki"]
@@ -61,7 +62,7 @@ texture_filter = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jbj1t"]
 atlas = ExtResource("15_jkv2x")
-region = Rect2(0, 0, 84, 66)
+region = Rect2(0, 0, 100, 66)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_muem4"]
 atlas = ExtResource("15_jkv2x")
@@ -270,9 +271,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -75.0
+offset_left = -91.0
 offset_top = 31.0
-offset_right = -68.0
+offset_right = -84.0
 offset_bottom = 38.0
 grow_horizontal = 0
 texture = SubResource("AtlasTexture_muem4")
@@ -280,9 +281,9 @@ texture = SubResource("AtlasTexture_muem4")
 [node name="TimeDisplay" parent="CanvasLayer/HUD/Time" unique_id=668320583 instance=ExtResource("16_dp3eg")]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 293.0
+offset_left = 283.0
 offset_top = 5.0
-offset_right = 374.0
+offset_right = 364.0
 offset_bottom = 23.0
 
 [node name="Speedometer" type="Control" parent="CanvasLayer/HUD" unique_id=1634829884]
@@ -345,6 +346,7 @@ texture = ExtResource("19_yc10j")
 
 [node name="PauseMenu" type="Control" parent="CanvasLayer" unique_id=641091118]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -429,24 +431,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/EndScreen/CenterContainer" unique_id=704325322]
+layout_mode = 2
+texture = SubResource("AtlasTexture_jscy8")
+
 [node name="Control" type="Control" parent="CanvasLayer/EndScreen/CenterContainer" unique_id=1441457831]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/EndScreen/CenterContainer/Control" unique_id=704325322]
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/EndScreen/CenterContainer/Control" unique_id=810195053]
 layout_mode = 0
-offset_left = -63.0
-offset_top = -50.0
-offset_right = 63.0
-offset_bottom = 50.0
-texture = SubResource("AtlasTexture_jscy8")
+offset_left = -192.0
+offset_top = -99.0
+offset_right = 192.0
+offset_bottom = 117.0
+texture = ExtResource("23_og1vs")
 
 [node name="EndScreenTimeDisplay" parent="CanvasLayer/EndScreen/CenterContainer/Control" unique_id=941597689 instance=ExtResource("20_yc10j")]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = -34.0
-offset_top = 12.0
-offset_right = 32.0
-offset_bottom = 24.0
+offset_left = -33.0
+offset_top = 13.0
+offset_right = 93.0
+offset_bottom = 113.0
 
 [node name="RestartButton" type="Button" parent="CanvasLayer/EndScreen/CenterContainer/Control" unique_id=1836295717]
 modulate = Color(1, 1, 1, 0)
