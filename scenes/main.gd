@@ -8,6 +8,7 @@ var elapsed_time: float = 0.0
 
 func _ready() -> void:
     %HUD.visible = true
+    %RotatingVehicle.position = Vector2(-66.0, -124.0)
     %EndScreen.visible = false
     %HitEffect.visible = false
     %GoalContainer.progress_ratio = 0.995

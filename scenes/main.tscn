@@ -28,6 +28,7 @@
 [ext_resource type="Script" uid="uid://2pndk6s3gqiq" path="res://scenes/pause_menu.gd" id="21_y6deb"]
 [ext_resource type="Texture2D" uid="uid://b3fubi238632v" path="res://assets/ui/credits.png" id="23_og1vs"]
 [ext_resource type="AudioStream" uid="uid://2c2tsn468u0w" path="res://assets/music/MainTrack_01Loop.ogg" id="24_y6deb"]
+[ext_resource type="PackedScene" uid="uid://dbo3cqfcsvuev" path="res://scenes/rotating_vehicle.tscn" id="25_yq6so"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tipki"]
 _surfaces = [{
@@ -128,6 +129,10 @@ progress = 1429.9998
 
 [node name="Goal" parent="Path3D/GoalContainer" unique_id=1367205300 instance=ExtResource("5_trceg")]
 
+[node name="PlaceTestObjectsHere" type="PathFollow3D" parent="Path3D" unique_id=9759153]
+transform = Transform3D(-0.9998119, 0, 0.019332524, 0, 1, 0, -0.019332524, 0, -0.9998119, 99.96066, 0, 4.0998735)
+progress = 4.1
+
 [node name="PathMesh3D" type="PathMesh3D" parent="." unique_id=1638612615 node_paths=PackedStringArray("path_3d")]
 path_3d = NodePath("../Path3D")
 relative_transform = 1
@@ -213,6 +218,7 @@ cast_shadow = 0
 
 [node name="LightSpawner" type="Node3D" parent="." unique_id=1987378476 node_paths=PackedStringArray("path")]
 script = ExtResource("1_tipki")
+enabled = false
 path = NodePath("../Path3D")
 scenes = Array[PackedScene]([ExtResource("9_85g3d")])
 distance = 30.0
@@ -389,7 +395,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="RotatingVehicle" parent="CanvasLayer/EndScreen" unique_id=1530574261 instance=ExtResource("25_yq6so")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = -124.0
+offset_right = 446.0
+offset_bottom = 388.0
+
 [node name="Background" type="ColorRect" parent="CanvasLayer/EndScreen" unique_id=30767534]
+visible = false
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0

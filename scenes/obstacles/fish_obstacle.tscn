@@ -71,4 +71,10 @@ stream = SubResource("AudioStreamRandomizer_gns2r")
 [node name="Bagre v2" parent="." unique_id=1319107815 instance=ExtResource("3_175ee")]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -4.552668, 3.268509, 0.983047)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=490730407]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4148498, 0)
+light_color = Color(0.6333333, 1, 0, 1)
+light_energy = 5.023
+omni_range = 10.0
+
 [connection signal="body_entered" from="PassbyBody" to="." method="_on_passby_body_body_entered"]

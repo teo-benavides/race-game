@@ -6,6 +6,26 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_776o6"]
 size = Vector3(1.9366302, 1, 2.2264729)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s34y7"]
+particle_flag_align_y = true
+emission_shape_offset = Vector3(-0.06, 0, -0.07)
+emission_shape_scale = Vector3(1, 0.035, 1)
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 6.8799996
+initial_velocity_max = 7.5699997
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sc3qm"]
+albedo_color = Color(1, 0.7833333, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.78431374, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_0h208"]
+material = SubResource("StandardMaterial3D_sc3qm")
+radius = 0.05
+
 [node name="Boost" type="StaticBody3D" unique_id=1961623901]
 collision_layer = 8
 script = ExtResource("1_8xfal")
@@ -16,3 +36,16 @@ shape = SubResource("BoxShape3D_776o6")
 
 [node name="Booster v2" parent="." unique_id=1111939056 instance=ExtResource("2_s34y7")]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 2.4662533, 3.0414732, 0.6902075)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=681450759]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7658603, 0)
+amount = 22
+process_material = SubResource("ParticleProcessMaterial_s34y7")
+draw_pass_1 = SubResource("SphereMesh_0h208")
+
+[node name="OmniLight3D" type="SpotLight3D" parent="." unique_id=1215997849]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.873306, 0)
+light_color = Color(1, 0.78431374, 0, 1)
+light_energy = 11.515
+spot_range = 3.585
+spot_angle = 137.57
