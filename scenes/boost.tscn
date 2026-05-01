@@ -10,6 +10,7 @@ size = Vector3(1.9366302, 1, 2.2264729)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0h208"]
 transparency = 1
 cull_mode = 2
+vertex_color_use_as_albedo = true
 albedo_color = Color(1.5084606, 1.5084606, 0, 1)
 albedo_texture = ExtResource("3_sc3qm")
 metallic = 0.28
@@ -17,6 +18,13 @@ metallic_specular = 0.12
 emission_enabled = true
 emission = Color(0.7008162, 0.7008166, 0, 1)
 emission_energy_multiplier = 8.04
+
+[sub_resource type="Curve" id="Curve_sc3qm"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0h208"]
+curve = SubResource("Curve_sc3qm")
 
 [sub_resource type="Gradient" id="Gradient_gve62"]
 offsets = PackedFloat32Array(0, 0.49122807, 1)
@@ -48,6 +56,7 @@ scale_max = 1.1999999
 scale_curve = SubResource("CurveTexture_sgusd")
 color = Color(0, 0, 0, 1)
 color_ramp = SubResource("GradientTexture1D_c5snx")
+alpha_curve = SubResource("CurveTexture_0h208")
 
 [sub_resource type="QuadMesh" id="QuadMesh_qsb42"]
 size = Vector2(2, 2)
