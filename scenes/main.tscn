@@ -130,7 +130,7 @@ progress = 1429.9998
 [node name="Goal" parent="Path3D/GoalContainer" unique_id=1367205300 instance=ExtResource("5_trceg")]
 
 [node name="PlaceTestObjectsHere" type="PathFollow3D" parent="Path3D" unique_id=9759153]
-transform = Transform3D(-0.9998116, 0, 0.019332519, 0, 1, 0, -0.019332519, 0, -0.9998116, 99.96066, 0, 4.0998735)
+transform = Transform3D(-0.9998114, 0, 0.019332515, 0, 1, 0, -0.019332515, 0, -0.9998114, 99.96066, 0, 4.0998735)
 progress = 4.1
 
 [node name="PathMesh3D" type="PathMesh3D" parent="." unique_id=1638612615 node_paths=PackedStringArray("path_3d")]
