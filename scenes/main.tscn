@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://cwo6568oe4fke" path="res://assets/ui/hit-overlay.png" id="19_yc10j"]
 [ext_resource type="PackedScene" uid="uid://cvryb65p0phss" path="res://scenes/end_screen_time_display.tscn" id="20_yc10j"]
 [ext_resource type="Script" uid="uid://2pndk6s3gqiq" path="res://scenes/pause_menu.gd" id="21_y6deb"]
-[ext_resource type="AudioStream" uid="uid://c7efqkgiim6yc" path="res://assets/music/MainTrack_00.mp3" id="22_jscy8"]
+[ext_resource type="AudioStream" uid="uid://2c2tsn468u0w" path="res://assets/music/MainTrack_01Loop.ogg" id="24_y6deb"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tipki"]
 _surfaces = [{
@@ -105,6 +105,9 @@ script = ExtResource("1_sugp2")
 [node name="Camera" type="Camera3D" parent="Path3D/PathFollow/PlayerContainer" unique_id=1105489900]
 unique_name_in_owner = true
 transform = Transform3D(1.0000162, -3.5001715e-08, 2.6592764e-07, 1.210719e-08, 0.9949427, 0.101110786, -2.0861626e-07, -0.10111517, 0.9948995, 0.17299938, 0.61304903, 4.8041573)
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Path3D/PathFollow/PlayerContainer/Camera" unique_id=1511284599]
+current = true
 
 [node name="Player" parent="Path3D/PathFollow/PlayerContainer" unique_id=1255014144 instance=ExtResource("3_ya4ey")]
 unique_name_in_owner = true
@@ -461,7 +464,7 @@ one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1775894916]
 process_mode = 3
-stream = ExtResource("22_jscy8")
+stream = ExtResource("24_y6deb")
 autoplay = true
 
 [connection signal="boosted" from="Path3D/PathFollow/PlayerContainer/Player" to="Path3D/PathFollow/PlayerContainer" method="_on_player_boosted"]
