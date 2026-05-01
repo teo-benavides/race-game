@@ -1,7 +1,11 @@
 extends Node3D
 
-const LO_QUE_DE_THRESHOLD = 350
-const SPEED_MULTIPLIER = 2.0
+var warning_indicator_scene := preload("res://scenes/warning_indicator.tscn") as PackedScene
+
+const LO_QUE_DE_THRESHOLD := 350
+const SPEED_MULTIPLIER := 2.0
+const OBSTACLE_LOOKAHEAD_DISTANCE := 30.0
+const OBSTACLE_WARNINGS_ENABLED = false
 
 var playing = true
 var elapsed_time: float = 0.0
@@ -17,6 +21,17 @@ func _physics_process(delta: float) -> void:
     if playing:
         elapsed_time += delta
         %TimeDisplay.seconds = elapsed_time
+    
+    if OBSTACLE_WARNINGS_ENABLED:
+        var obj_infos := %ObstacleSpawner.get_object_infos_in_range(%PathFollow.progress, %PathFollow.progress + OBSTACLE_LOOKAHEAD_DISTANCE) as Array[PathObjectInfo]
+        for c in %WarningIndicatorHolder.get_children():
+            c.queue_free()
+        for obj_info in obj_infos:
+            var indicator = warning_indicator_scene.instantiate()
+            indicator.position = Vector2.UP.rotated(deg_to_rad(-obj_info.rotation)) * 100.0
+            %WarningIndicatorHolder.add_child(indicator)
+        %WarningIndicatorHolder.rotation = %PlayerContainer.rotation.z
+    
     var kmh := int(roundf(%PlayerContainer.speed * SPEED_MULTIPLIER * 3.6))
     %Speedometer.value = kmh if kmh < LO_QUE_DE_THRESHOLD else -1
     
