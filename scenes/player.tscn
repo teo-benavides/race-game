@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://dpoabwl700ct1" path="res://assets/Vehiculo.glb" id="2_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://bjjtgi0i7b5tt" path="res://scenes/VFXs/Explosion_00.tscn" id="3_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://cpbv2xd664dtn" path="res://assets/sfx/passby.wav" id="4_dqkch"]
+[ext_resource type="AudioStream" uid="uid://cs63fvyrhg4ji" path="res://assets/sfx/engine.ogg" id="5_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://bi2wtenxen08o" path="res://assets/sfx/Explota.wav" id="6_fjrip"]
+[ext_resource type="AudioStream" uid="uid://c1yv1wrgbnix1" path="res://assets/sfx/Choque.wav" id="7_smehm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3vyb7"]
 size = Vector3(1.2570801, 1.4219971, 2.1678162)
@@ -36,6 +39,13 @@ _data = {
 random_pitch = 1.122462
 streams_count = 1
 stream_0/stream = ExtResource("4_dqkch")
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_ur7pv"]
+stream_count = 2
+stream_0/stream = ExtResource("6_fjrip")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("7_smehm")
+stream_1/volume = 10.35
 
 [node name="Player" type="CharacterBody3D" unique_id=1255014144]
 motion_mode = 1
@@ -86,6 +96,14 @@ libraries/ = SubResource("AnimationLibrary_qhqgy")
 
 [node name="PassbySFX" type="AudioStreamPlayer" parent="." unique_id=1414814851]
 stream = SubResource("AudioStreamRandomizer_dqkch")
+
+[node name="EngineSFX" type="AudioStreamPlayer" parent="." unique_id=1056803550]
+stream = ExtResource("5_qlg0r")
+autoplay = true
+
+[node name="DeathSFX" type="AudioStreamPlayer" parent="." unique_id=685325316]
+stream = SubResource("AudioStreamSynchronized_ur7pv")
+volume_db = -6.173
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="BoostArea" to="." method="_on_boost_area_body_entered"]

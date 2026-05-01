@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 signal died
 signal respawned
@@ -6,9 +7,17 @@ signal finished_track
 signal boosted
 
 const FLASH_INTERVAL = 0.2
-
+const MIN_ENGINE_SFX_PITCH := 1.0
+const MAX_ENGINE_SFX_PITCH := 3.0
 var invincible := false
 var flash_cooldown: float = 0.0
+var _engine_power: float = 0.0
+var engine_power: float:
+    set(value):
+        _engine_power = value
+        $EngineSFX.pitch_scale = lerpf(MIN_ENGINE_SFX_PITCH, MAX_ENGINE_SFX_PITCH, _engine_power)
+    get():
+        return _engine_power
 
 func _physics_process(delta: float) -> void:
     if invincible and flash_cooldown <= 0.0:
@@ -23,6 +32,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
         #$PassbySFX.play()
         pass
     else:
+        $DeathSFX.play()
         $Explosion00/Sparks.emitting = true
         $Explosion00/Flash.emitting = true
         $Explosion00/Burn.emitting = true
