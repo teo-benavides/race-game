@@ -27,6 +27,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
     if body is Goal:
+        $EngineSFX.stop()
         finished_track.emit()
     elif body.name == "PassbyBody":
         #$PassbySFX.play()
@@ -54,3 +55,4 @@ func _on_invincibility_timer_timeout() -> void:
 
 func _on_boost_area_body_entered(_body: Node3D) -> void:
     boosted.emit()
+    $BoostSFX.play()

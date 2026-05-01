@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cs63fvyrhg4ji" path="res://assets/sfx/engine.ogg" id="5_qlg0r"]
 [ext_resource type="AudioStream" uid="uid://bi2wtenxen08o" path="res://assets/sfx/Explota.wav" id="6_fjrip"]
 [ext_resource type="AudioStream" uid="uid://c1yv1wrgbnix1" path="res://assets/sfx/Choque.wav" id="7_smehm"]
+[ext_resource type="AudioStream" uid="uid://devndqshcesl5" path="res://assets/sfx/boost.wav" id="8_smehm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3vyb7"]
 size = Vector3(1.2570801, 1.4219971, 2.1678162)
@@ -109,6 +110,10 @@ autoplay = true
 [node name="DeathSFX" type="AudioStreamPlayer" parent="." unique_id=685325316]
 stream = SubResource("AudioStreamSynchronized_ur7pv")
 volume_db = -6.173
+
+[node name="BoostSFX" type="AudioStreamPlayer" parent="." unique_id=1549936043]
+stream = ExtResource("8_smehm")
+volume_db = -13.345
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="BoostArea" to="." method="_on_boost_area_body_entered"]
