@@ -2,9 +2,43 @@
 
 [ext_resource type="Script" uid="uid://dyr68jly2wy4b" path="res://scenes/boost.gd" id="1_8xfal"]
 [ext_resource type="PackedScene" uid="uid://dlq6tg7n18my" path="res://assets/models/Booster v2.glb" id="2_s34y7"]
+[ext_resource type="Texture2D" uid="uid://cnm384hfsip8e" path="res://assets/texturas/Particle_arrow.png" id="3_sc3qm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_776o6"]
 size = Vector3(1.9366302, 1, 2.2264729)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0h208"]
+transparency = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(1.5084606, 1.5084606, 0, 1)
+albedo_texture = ExtResource("3_sc3qm")
+metallic = 0.28
+metallic_specular = 0.12
+emission_enabled = true
+emission = Color(0.7008162, 0.7008166, 0, 1)
+emission_energy_multiplier = 8.04
+
+[sub_resource type="Curve" id="Curve_sc3qm"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0h208"]
+curve = SubResource("Curve_sc3qm")
+
+[sub_resource type="Gradient" id="Gradient_gve62"]
+offsets = PackedFloat32Array(0, 0.49122807, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c5snx"]
+gradient = SubResource("Gradient_gve62")
+
+[sub_resource type="Curve" id="Curve_o3pa5"]
+_data = [Vector2(0, 0.9204658), 0.0, 0.0, 0, 0, Vector2(1, 0.4650681), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_sgusd"]
+curve = SubResource("Curve_o3pa5")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s34y7"]
 particle_flag_align_y = true
@@ -12,19 +46,20 @@ emission_shape_offset = Vector3(-0.06, 0, -0.07)
 emission_shape_scale = Vector3(1, 0.035, 1)
 angle_min = 1.0728835e-05
 angle_max = 1.0728835e-05
-direction = Vector3(0, -1, 0)
+direction = Vector3(0, -4, -10)
+spread = 0.0
 initial_velocity_min = 6.8799996
 initial_velocity_max = 7.5699997
 gravity = Vector3(0, 0, 0)
+scale_min = 1.1999999
+scale_max = 1.1999999
+scale_curve = SubResource("CurveTexture_sgusd")
+color = Color(0, 0, 0, 1)
+color_ramp = SubResource("GradientTexture1D_c5snx")
+alpha_curve = SubResource("CurveTexture_0h208")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sc3qm"]
-albedo_color = Color(1, 0.7833333, 0, 1)
-emission_enabled = true
-emission = Color(1, 0.78431374, 0, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_0h208"]
-material = SubResource("StandardMaterial3D_sc3qm")
-radius = 0.05
+[sub_resource type="QuadMesh" id="QuadMesh_qsb42"]
+size = Vector2(2, 2)
 
 [node name="Boost" type="StaticBody3D" unique_id=1961623901]
 collision_layer = 8
@@ -38,10 +73,12 @@ shape = SubResource("BoxShape3D_776o6")
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 2.4662533, 3.0414732, 0.6902075)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=681450759]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7658603, 0)
-amount = 22
+transform = Transform3D(1, 0, 0, 0, 0.9728365, -0.23149332, 0, 0.23149332, 0.9728365, 0, 2.6467965, 0.13600183)
+material_override = SubResource("StandardMaterial3D_0h208")
+amount = 3
+lifetime = 0.61
 process_material = SubResource("ParticleProcessMaterial_s34y7")
-draw_pass_1 = SubResource("SphereMesh_0h208")
+draw_pass_1 = SubResource("QuadMesh_qsb42")
 
 [node name="OmniLight3D" type="SpotLight3D" parent="." unique_id=1215997849]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.873306, 0)
