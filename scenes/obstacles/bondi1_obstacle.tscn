@@ -48,4 +48,9 @@ transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0.56
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3454013, 0)
 stream = SubResource("AudioStreamRandomizer_fgd73")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=2098589205]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4148498, 0)
+light_energy = 5.023
+omni_range = 3.118
+
 [connection signal="body_entered" from="PassbyBody" to="." method="_on_passby_body_body_entered"]
