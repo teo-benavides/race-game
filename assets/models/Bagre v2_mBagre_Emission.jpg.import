@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsaidp51wgcpb"
 path.s3tc="res://.godot/imported/Bagre v2_mBagre_Emission.jpg-b14665f3498adab64aa8b808ee1b4f60.s3tc.ctex"
+path.etc2="res://.godot/imported/Bagre v2_mBagre_Emission.jpg-b14665f3498adab64aa8b808ee1b4f60.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/Bagre v2_mBagre_Emission.jpg"
-dest_files=["res://.godot/imported/Bagre v2_mBagre_Emission.jpg-b14665f3498adab64aa8b808ee1b4f60.s3tc.ctex"]
+dest_files=["res://.godot/imported/Bagre v2_mBagre_Emission.jpg-b14665f3498adab64aa8b808ee1b4f60.s3tc.ctex", "res://.godot/imported/Bagre v2_mBagre_Emission.jpg-b14665f3498adab64aa8b808ee1b4f60.etc2.ctex"]
 
 [params]
 

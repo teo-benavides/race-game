@@ -98,9 +98,9 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
         died.emit()
 
 func _on_respawn_timer_timeout() -> void:
-	invincible = true
-	$InvincibilityTimer.start()
-	respawned.emit()
+    invincible = true
+    $InvincibilityTimer.start()
+    respawned.emit()
 
 func _on_invincibility_timer_timeout() -> void:
     invincible = false
@@ -112,5 +112,5 @@ func _on_invincibility_timer_timeout() -> void:
     $Area3D.set_deferred("monitoring", true)
 
 func _on_boost_area_body_entered(_body: Node3D) -> void:
-	boosted.emit()
-	$BoostSFX.play()
+    boosted.emit()
+    $BoostSFX.play()

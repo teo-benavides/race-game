@@ -81,26 +81,26 @@ func _physics_process(delta: float) -> void:
         
     var target_rotation = rotation.z
 
-	camera_rotation = lerp_angle(
-		camera_rotation,
-		target_rotation,
-		1.0 - exp(-CAMERA_LAG_SPEED * delta)
-	)
+    camera_rotation = lerp_angle(
+        camera_rotation,
+        target_rotation,
+        1.0 - exp(-CAMERA_LAG_SPEED * delta)
+    )
 
-	%Camera.rotation.z = camera_rotation - rotation.z
-	%PathFollow.progress += speed * delta
-	%Camera.position.z = camera_distance
-	rotate_z(rotation_speed * delta)
-	%Player.rotation.z = tilt
+    %Camera.rotation.z = camera_rotation - rotation.z
+    %PathFollow.progress += speed * delta
+    %Camera.position.z = camera_distance
+    rotate_z(rotation_speed * delta)
+    %Player.rotation.z = tilt
 
 func speed_to_engine_power(spd: float):
     return inverse_lerp(0.0, MAX_SPEED + MAX_BOOST_SPEED, spd)
 
 func _on_player_died() -> void:
-	player_dead = true
+    player_dead = true
 
 func _on_player_respawned() -> void:
-	player_dead = false
+    player_dead = false
 
 func _on_player_boosted() -> void:
-	remaining_boost_time = BOOST_TIME
+    remaining_boost_time = BOOST_TIME

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://fsj436xt4tdn"
 path.s3tc="res://.godot/imported/Attention1.png-0eef61610488d01f1a23601254f0d386.s3tc.ctex"
+path.etc2="res://.godot/imported/Attention1.png-0eef61610488d01f1a23601254f0d386.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/texturas/Attention1.png"
-dest_files=["res://.godot/imported/Attention1.png-0eef61610488d01f1a23601254f0d386.s3tc.ctex"]
+dest_files=["res://.godot/imported/Attention1.png-0eef61610488d01f1a23601254f0d386.s3tc.ctex", "res://.godot/imported/Attention1.png-0eef61610488d01f1a23601254f0d386.etc2.ctex"]
 
 [params]
 

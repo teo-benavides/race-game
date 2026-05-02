@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnm384hfsip8e"
 path.s3tc="res://.godot/imported/Particle_arrow.png-302df1a16f6c28ea88ada2cd48bf16c2.s3tc.ctex"
+path.etc2="res://.godot/imported/Particle_arrow.png-302df1a16f6c28ea88ada2cd48bf16c2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/texturas/Particle_arrow.png"
-dest_files=["res://.godot/imported/Particle_arrow.png-302df1a16f6c28ea88ada2cd48bf16c2.s3tc.ctex"]
+dest_files=["res://.godot/imported/Particle_arrow.png-302df1a16f6c28ea88ada2cd48bf16c2.s3tc.ctex", "res://.godot/imported/Particle_arrow.png-302df1a16f6c28ea88ada2cd48bf16c2.etc2.ctex"]
 
 [params]
 
