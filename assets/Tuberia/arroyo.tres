@@ -1,0 +1,44 @@
+[gd_resource type="ArrayMesh" format=4 uid="uid://baauwh64spfda"]
+
+[ext_resource type="Texture2D" uid="uid://dfxgxwn5qrhfl" path="res://assets/Tuberia/arroyo.png" id="1_20jmj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_af2lk"]
+resource_name = "mArroyo"
+transparency = 4
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0.5)
+albedo_texture = ExtResource("1_20jmj")
+roughness = 0.5
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xqia4"]
+_surfaces = [{
+"aabb": AABB(-1.4919431, 0.073771805, -2.9976292, 2.9838908, 1e-05, 5.9952593),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAACAAUA"),
+"name": "mArroyo",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("AAAAAP9/AAD//wAAAAAAAP//AAD/fwAAAAAAAAAAAAAAAAAA//8AAP//AAD//wAA")
+}]
+blend_shape_mode = 0
+
+[resource]
+resource_name = "ArroyoPlano_Plane"
+_surfaces = [{
+"aabb": AABB(-1.4919431, 0.073771805, -2.9976292, 2.9838908, 1e-05, 5.9952593),
+"attribute_data": PackedByteArray("AAD/////AAD/////AAAAAAAA/////wAA/////wAAAAA="),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
+"material": SubResource("StandardMaterial3D_af2lk"),
+"name": "mArroyo",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP9//7///wAAAAD/v///AAD/f/+/AAAAAAAA/78AAAAA////v///AAD/f/+///8AAP///78AAAAA/3//v////3////9/////f////3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_xqia4")

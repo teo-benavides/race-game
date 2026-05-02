@@ -8,18 +8,13 @@
 		{
 			"name":"Scene",
 			"nodes":[
-				0,
-				1
+				0
 			]
 		}
 	],
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"Cylinder"
-		},
-		{
-			"mesh":1,
 			"name":"Plane",
 			"translation":[
 				0,
@@ -32,18 +27,6 @@
 		{
 			"alphaMode":"BLEND",
 			"doubleSided":true,
-			"name":"mMaterial",
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":0
-				},
-				"metallicFactor":0,
-				"roughnessFactor":0.5
-			}
-		},
-		{
-			"alphaMode":"BLEND",
-			"doubleSided":true,
 			"name":"mArroyo",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
@@ -53,7 +36,7 @@
 					0.5
 				],
 				"baseColorTexture":{
-					"index":1
+					"index":0
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.5
@@ -62,7 +45,7 @@
 	],
 	"meshes":[
 		{
-			"name":"Cylinder",
+			"name":"Plane",
 			"primitives":[
 				{
 					"attributes":{
@@ -74,38 +57,15 @@
 					"material":0
 				}
 			]
-		},
-		{
-			"name":"Plane",
-			"primitives":[
-				{
-					"attributes":{
-						"POSITION":4,
-						"NORMAL":5,
-						"TEXCOORD_0":6
-					},
-					"indices":7,
-					"material":1
-				}
-			]
 		}
 	],
 	"textures":[
 		{
 			"sampler":0,
 			"source":0
-		},
-		{
-			"sampler":0,
-			"source":1
 		}
 	],
 	"images":[
-		{
-			"mimeType":"image/png",
-			"name":"image",
-			"uri":"image.png"
-		},
 		{
 			"mimeType":"image/png",
 			"name":"arroyo",
@@ -115,40 +75,6 @@
 	"accessors":[
 		{
 			"bufferView":0,
-			"componentType":5126,
-			"count":1786,
-			"max":[
-				3.210005283355713,
-				3.210000514984131,
-				1.184289772027114e-06
-			],
-			"min":[
-				-3.2100043296813965,
-				-3.2100002765655518,
-				-5.995262145996094
-			],
-			"type":"VEC3"
-		},
-		{
-			"bufferView":1,
-			"componentType":5126,
-			"count":1786,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":2,
-			"componentType":5126,
-			"count":1786,
-			"type":"VEC2"
-		},
-		{
-			"bufferView":3,
-			"componentType":5123,
-			"count":2688,
-			"type":"SCALAR"
-		},
-		{
-			"bufferView":4,
 			"componentType":5126,
 			"count":8,
 			"max":[
@@ -164,19 +90,19 @@
 			"type":"VEC3"
 		},
 		{
-			"bufferView":5,
+			"bufferView":1,
 			"componentType":5126,
 			"count":8,
 			"type":"VEC3"
 		},
 		{
-			"bufferView":6,
+			"bufferView":2,
 			"componentType":5126,
 			"count":8,
 			"type":"VEC2"
 		},
 		{
-			"bufferView":7,
+			"bufferView":3,
 			"componentType":5123,
 			"count":12,
 			"type":"SCALAR"
@@ -185,50 +111,26 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":21432,
+			"byteLength":96,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":21432,
-			"byteOffset":21432,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":14288,
-			"byteOffset":42864,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":5376,
-			"byteOffset":57152,
-			"target":34963
-		},
-		{
-			"buffer":0,
 			"byteLength":96,
-			"byteOffset":62528,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":96,
-			"byteOffset":62624,
+			"byteOffset":96,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":64,
-			"byteOffset":62720,
+			"byteOffset":192,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":24,
-			"byteOffset":62784,
+			"byteOffset":256,
 			"target":34963
 		}
 	],
@@ -240,8 +142,8 @@
 	],
 	"buffers":[
 		{
-			"byteLength":62808,
-			"uri":"placeholder_Tubo.bin"
+			"byteLength":280,
+			"uri":"ArroyoPlano.bin"
 		}
 	]
 }

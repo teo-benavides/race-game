@@ -43,13 +43,19 @@ func _physics_process(delta: float) -> void:
         if Input.is_action_pressed("player_move_left"):
             rotation_speed = move_toward(rotation_speed, deg_to_rad(-MAX_ROTATION_SPEED), deg_to_rad(ROTATION_ACCELERATION) * delta)
             tilt = lerp(tilt, deg_to_rad(MAX_TILT), 1.0 - exp(deg_to_rad(-TILT_SPEED) * delta))
+            var tilt_normalized = -inverse_lerp(0.0, MAX_TILT, rad_to_deg(tilt))
+            %Player.direction = tilt_normalized
         elif Input.is_action_pressed("player_move_right"):
             rotation_speed = move_toward(rotation_speed, deg_to_rad(MAX_ROTATION_SPEED), deg_to_rad(ROTATION_ACCELERATION) * delta)
             tilt = lerp(tilt, deg_to_rad(-MAX_TILT), 1.0 - exp(deg_to_rad(-TILT_SPEED) * delta))
+            var tilt_normalized = inverse_lerp(0.0, MAX_TILT, absf(rad_to_deg(tilt)))
+            %Player.direction = tilt_normalized
         else:
             rotation_speed = move_toward(rotation_speed, 0.0, deg_to_rad(ROTATION_DECELERATION) * delta)
             tilt = lerp(tilt, 0.0, 1.0 - exp(deg_to_rad(-TILT_SPEED) * delta))
-        
+            var tilt_normalized = -inverse_lerp(0.0, MAX_TILT, rad_to_deg(tilt)) if tilt > 0.0 else inverse_lerp(0.0, MAX_TILT, absf(rad_to_deg(tilt)))
+            %Player.direction = tilt_normalized
+    
         if remaining_boost_time > 0.0:
             remaining_boost_time -= delta
             boost_speed = move_toward(boost_speed, MAX_BOOST_SPEED, BOOST_ACCELERATION * delta)
