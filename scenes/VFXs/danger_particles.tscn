@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://d3l5ay347ovrj"]
+
+[ext_resource type="Texture2D" uid="uid://dwwpxbo28gg1v" path="res://assets/texturas/Particle_sparks.png" id="1_0hqm3"]
+[ext_resource type="Texture2D" uid="uid://fsj436xt4tdn" path="res://assets/texturas/Attention1.png" id="2_mykbq"]
+[ext_resource type="Texture2D" uid="uid://s8s5iq6hvmbc" path="res://assets/texturas/Attention2.png" id="3_r4hdx"]
+[ext_resource type="Texture2D" uid="uid://y6abp08asogk" path="res://assets/texturas/Attention3.png" id="4_vf1iy"]
+[ext_resource type="Texture2D" uid="uid://bv6t1cfi36rwo" path="res://assets/texturas/Attention4.png" id="5_fbj1n"]
+[ext_resource type="Texture2D" uid="uid://cr6srlfp5v7et" path="res://assets/texturas/Attention5.png" id="6_jab6k"]
+[ext_resource type="Texture2D" uid="uid://drxd6qggl2o1c" path="res://assets/texturas/Attention6.png" id="7_p0q4c"]
+[ext_resource type="Texture2D" uid="uid://4jsxd5outp1y" path="res://assets/texturas/Attention7.png" id="8_i23nc"]
+[ext_resource type="Texture2D" uid="uid://2ndv3vv6nfbo" path="res://assets/texturas/Attention8.png" id="9_5gipy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4csft"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_0hqm3")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="Gradient" id="Gradient_fgjfc"]
+offsets = PackedFloat32Array(0, 0.51754385, 1)
+colors = PackedColorArray(0, 0, 0, 0, 11.89821, 0, 0, 1, 5.2318487, 0.00027797525, 3.9710747e-05, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wqced"]
+gradient = SubResource("Gradient_fgjfc")
+
+[sub_resource type="Curve" id="Curve_txv7y"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 2.3342214), 0.0, 0.0, 0, 0, Vector2(0.99647886, 1.2066312), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ucdvf"]
+curve = SubResource("Curve_txv7y")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rt54r"]
+emission_shape_scale = Vector3(0.5, 0.5, 1)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 2.0
+emission_ring_inner_radius = 1.9
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 0, 0)
+spread = 0.0
+initial_velocity_max = 1.4
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = -2.2351742e-05
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+scale_min = 0.19999999
+scale_max = 0.29999998
+scale_curve = SubResource("CurveTexture_ucdvf")
+color_ramp = SubResource("GradientTexture1D_wqced")
+
+[sub_resource type="QuadMesh" id="QuadMesh_7h8a7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_85vql"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mykbq")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_r4hdx")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_vf1iy")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_fbj1n")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_jab6k")
+}, {
+"duration": 0.5,
+"texture": ExtResource("7_p0q4c")
+}, {
+"duration": 0.5,
+"texture": ExtResource("8_i23nc")
+}, {
+"duration": 0.5,
+"texture": ExtResource("9_5gipy")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="danger_particles" type="Node3D" unique_id=1584639842]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1028176851]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_4csft")
+amount = 150
+lifetime = 1.35
+process_material = SubResource("ParticleProcessMaterial_rt54r")
+draw_pass_1 = SubResource("QuadMesh_7h8a7")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1733200314]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7141316, 0)
+modulate = Color(18.892157, 0, 0, 1)
+pixel_size = 0.023
+sprite_frames = SubResource("SpriteFrames_85vql")
+animation = &"Idle"
+frame_progress = 0.27650088

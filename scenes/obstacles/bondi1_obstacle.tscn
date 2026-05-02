@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ba1jb0hymxlbt" path="res://scenes/obstacle.gd" id="1_bcyai"]
 [ext_resource type="PackedScene" uid="uid://depsbo07bf3fu" path="res://assets/models/BondiFrente v2.glb" id="2_bcyai"]
 [ext_resource type="AudioStream" uid="uid://cpbv2xd664dtn" path="res://assets/sfx/passby.wav" id="3_p31kg"]
+[ext_resource type="PackedScene" uid="uid://d3l5ay347ovrj" path="res://scenes/VFXs/danger_particles.tscn" id="4_crwya"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fem8u"]
 size = Vector3(1.9082437, 1.8651428, 1.7726321)
@@ -47,5 +48,14 @@ transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0.56
 [node name="WhooshSFX" type="AudioStreamPlayer3D" parent="." unique_id=434000796]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3454013, 0)
 stream = SubResource("AudioStreamRandomizer_fgd73")
+
+[node name="danger_particles" parent="." unique_id=1584639842 instance=ExtResource("4_crwya")]
+transform = Transform3D(1.6, 0, 0, 0, -1.478, 2.4597216e-07, 0, -2.2317181e-07, -1.629, 0, 3.1474004, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1274667537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4148498, 0)
+light_color = Color(0.9882353, 0, 0, 1)
+light_energy = 5.023
+omni_range = 10.0
 
 [connection signal="body_entered" from="PassbyBody" to="." method="_on_passby_body_body_entered"]
