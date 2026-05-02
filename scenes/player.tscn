@@ -1,54 +1,17 @@
 [gd_scene format=3 uid="uid://c5b4sonrvn3ml"]
 
 [ext_resource type="Script" uid="uid://bhq1j0m2ot1m8" path="res://scenes/player.gd" id="1_g2els"]
-[ext_resource type="PackedScene" uid="uid://dpoabwl700ct1" path="res://assets/models/Vehiculo.glb" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://c7iro5elbx20p" path="res://assets/models/Carroceria.glb" id="3_jej6c"]
 [ext_resource type="PackedScene" uid="uid://bjjtgi0i7b5tt" path="res://scenes/VFXs/Explosion_00.tscn" id="3_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://cpbv2xd664dtn" path="res://assets/sfx/passby.wav" id="4_dqkch"]
+[ext_resource type="ArrayMesh" uid="uid://jer3wcdxuun1" path="res://assets/models/rueda_atras.tres" id="4_f1ej7"]
+[ext_resource type="ArrayMesh" uid="uid://b4jx0mtvypama" path="res://assets/models/rueda_adelante.tres" id="5_oprun"]
 [ext_resource type="AudioStream" uid="uid://cs63fvyrhg4ji" path="res://assets/sfx/engine.ogg" id="5_qlg0r"]
 [ext_resource type="AudioStream" uid="uid://bi2wtenxen08o" path="res://assets/sfx/Explota.wav" id="6_fjrip"]
 [ext_resource type="AudioStream" uid="uid://c1yv1wrgbnix1" path="res://assets/sfx/Choque.wav" id="7_smehm"]
 [ext_resource type="AudioStream" uid="uid://devndqshcesl5" path="res://assets/sfx/boost.wav" id="8_smehm"]
 [ext_resource type="Shader" uid="uid://b3xw2yi2omj5q" path="res://resources/thruster.gdshader" id="9_ur7pv"]
 [ext_resource type="Script" uid="uid://cvpct2negmw20" path="res://scenes/scale_with_pivot.gd" id="10_y4r1p"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_3vyb7"]
-size = Vector3(1.2570801, 1.4219971, 2.1678162)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2els"]
-albedo_color = Color(1, 0.5, 0, 1)
-billboard_mode = 3
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qhqgy"]
-spread = 180.0
-initial_velocity_min = 11.63
-initial_velocity_max = 59.07
-gravity = Vector3(0, 0, 0)
-color = Color(1, 0, 0, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_dqkch"]
-
-[sub_resource type="Animation" id="Animation_g2els"]
-resource_name = "invincible"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qhqgy"]
-_data = {
-&"invincible": SubResource("Animation_g2els")
-}
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dqkch"]
-random_pitch = 1.122462
-streams_count = 1
-stream_0/stream = ExtResource("4_dqkch")
-
-[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_ur7pv"]
-stream_count = 2
-stream_0/stream = ExtResource("6_fjrip")
-stream_0/volume = 0.0
-stream_1/stream = ExtResource("7_smehm")
-stream_1/volume = 10.35
 
 [sub_resource type="Curve" id="Curve_y4r1p"]
 _data = [Vector2(0, 0.8265661), 0.0, 0.0, 0, 0, Vector2(1, 0.29213488), 0.0, 0.0, 0, 0]
@@ -93,14 +56,97 @@ shader_parameter/box_fade_x_pos = 0.12
 shader_parameter/box_fade_z_neg = 0.12
 shader_parameter/box_fade_z_pos = 0.12
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_3vyb7"]
+size = Vector3(1.2570801, 1.4219971, 2.1678162)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2els"]
+albedo_color = Color(1, 0.5, 0, 1)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qhqgy"]
+spread = 180.0
+initial_velocity_min = 11.63
+initial_velocity_max = 59.07
+gravity = Vector3(0, 0, 0)
+color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_dqkch"]
+
+[sub_resource type="Animation" id="Animation_g2els"]
+resource_name = "invincible"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qhqgy"]
+_data = {
+&"invincible": SubResource("Animation_g2els")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dqkch"]
+random_pitch = 1.122462
+streams_count = 1
+stream_0/stream = ExtResource("4_dqkch")
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_ur7pv"]
+stream_count = 2
+stream_0/stream = ExtResource("6_fjrip")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("7_smehm")
+stream_1/volume = 10.35
+
 [node name="Player" type="CharacterBody3D" unique_id=1255014144]
 collision_mask = 16
 motion_mode = 1
 script = ExtResource("1_g2els")
 
-[node name="Model" parent="." unique_id=779167478 instance=ExtResource("2_qhqgy")]
+[node name="Model" parent="." unique_id=1612078983 instance=ExtResource("3_jej6c")]
 unique_name_in_owner = true
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="BackWheelLeft" type="MeshInstance3D" parent="." unique_id=423585613]
+transform = Transform3D(0.820169, 0.45398402, -0.34816867, 0.1749042, 0.38046125, 0.9081066, 0.54473066, -0.8056971, 0.23263879, -0.4134081, 0.4094053, 1.0011446)
+mesh = ExtResource("4_f1ej7")
+
+[node name="ThrusterLeft" type="MeshInstance3D" parent="BackWheelLeft" unique_id=1805083634]
+unique_name_in_owner = true
+transform = Transform3D(0.9027488, -0.011065349, 0.4287585, 0.014470935, 0.31755966, 0.050575733, -0.4299247, -0.012545928, 0.9020024, 0.002430141, -0.7249174, 0.021449745)
+mesh = SubResource("TubeTrailMesh_d2wvv")
+surface_material_override/0 = SubResource("ShaderMaterial_f1ej7")
+script = ExtResource("10_y4r1p")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="BackWheelLeft" unique_id=1582078596]
+unique_name_in_owner = true
+transform = Transform3D(0.820169, 0.17490421, 0.5447306, 0.45398387, 0.38046134, -0.8056971, -0.34816876, 0.9081067, 0.23263887, 0.98619133, 0.13850129, -0.44253445)
+light_color = Color(0, 0.9137255, 0.98039216, 1)
+light_energy = 8.0
+omni_range = 1.0
+
+[node name="BackWheelRight" type="MeshInstance3D" parent="." unique_id=654805237]
+transform = Transform3D(0.883496, -0.46843874, 0, 0.19615358, 0.36995423, 0.9081066, -0.42539236, -0.80230856, 0.418739, 0.41534135, 0.4094053, 0.99247605)
+mesh = ExtResource("4_f1ej7")
+
+[node name="ThrusterRight" type="MeshInstance3D" parent="BackWheelRight" unique_id=765206553]
+unique_name_in_owner = true
+transform = Transform3D(0.99967045, -0.0075323954, -0.009898901, 0.024483174, 0.3166116, 0.09008369, 0.007721901, -0.028714247, 0.995885, 0.0071119964, -0.7317069, 0.027979612)
+mesh = SubResource("TubeTrailMesh_d2wvv")
+surface_material_override/0 = SubResource("ShaderMaterial_f1ej7")
+script = ExtResource("10_y4r1p")
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="BackWheelRight" unique_id=962999061]
+unique_name_in_owner = true
+transform = Transform3D(0.883496, 0.19615357, -0.42539233, -0.46843874, 0.36995423, -0.80230856, 1.4901161e-08, 0.9081066, 0.41873902, -1.0751384, 0.13785446, 0.0085760355)
+light_color = Color(0, 0.9137255, 0.98039216, 1)
+light_energy = 8.0
+omni_range = 1.0
+
+[node name="FrontWheelLeft" type="MeshInstance3D" parent="." unique_id=989525872]
+transform = Transform3D(-0.32561755, -0.9455015, -5.9895144e-11, 0.9455015, -0.32561755, -3.2355154e-09, 3.0396827e-09, -1.1101687e-09, 1, -0.57397693, 0.30915084, -0.5769958)
+mesh = ExtResource("5_oprun")
+
+[node name="FrontWheelRight" type="MeshInstance3D" parent="." unique_id=337461251]
+transform = Transform3D(-0.3123682, 0.94996107, 2.00412e-09, -0.94996107, -0.3123682, 2.5407974e-09, 3.0396827e-09, -1.1101687e-09, 1, 0.56042576, 0.30915084, -0.5769958)
+mesh = ExtResource("5_oprun")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2101887231]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00012207031, 0.21099824, -0.004653629)
@@ -159,30 +205,6 @@ volume_db = -6.173
 [node name="BoostSFX" type="AudioStreamPlayer" parent="." unique_id=1549936043]
 stream = ExtResource("8_smehm")
 volume_db = -13.345
-
-[node name="Thruster1" type="MeshInstance3D" parent="." unique_id=765206553]
-transform = Transform3D(0.87173593, -0.15496798, -0.050944317, 0.21215887, 0.089578696, 0.9357549, -0.44166172, -0.26283973, 0.3489519, 0.7643846, 0.16551074, 1.5882215)
-mesh = SubResource("TubeTrailMesh_d2wvv")
-surface_material_override/0 = SubResource("ShaderMaterial_f1ej7")
-script = ExtResource("10_y4r1p")
-
-[node name="Thruster2" type="MeshInstance3D" parent="." unique_id=1805083634]
-transform = Transform3D(0.8966625, 0.13945965, 0.060565952, -0.22701725, 0.10749076, 0.91334814, 0.38007846, -0.2648032, 0.40264994, -0.74798405, 0.1535059, 1.5915223)
-mesh = SubResource("TubeTrailMesh_d2wvv")
-surface_material_override/0 = SubResource("ShaderMaterial_f1ej7")
-script = ExtResource("10_y4r1p")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1582078596]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6123893, 0.23272026, 1.3238124)
-light_color = Color(0, 0.9137255, 0.98039216, 1)
-light_energy = 8.0
-omni_range = 1.0
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=962999061]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5991155, 0.25730085, 1.342821)
-light_color = Color(0, 0.9137255, 0.98039216, 1)
-light_energy = 8.0
-omni_range = 1.0
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1500895914]
 transform = Transform3D(0.91060096, 0.39650556, 0.11657262, -0.17330575, 0.11027753, 0.97867465, 0.37519452, -0.9113849, 0.16913551, -0.63617367, 0.23293656, 1.3693789)
