@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ba1jb0hymxlbt" path="res://scenes/obstacle.gd" id="1_k1n1h"]
 [ext_resource type="PackedScene" uid="uid://bbau6o3obhsqf" path="res://assets/models/BondiTrasero v2.glb" id="2_k1n1h"]
 [ext_resource type="AudioStream" uid="uid://cpbv2xd664dtn" path="res://assets/sfx/passby.wav" id="3_qm6cj"]
+[ext_resource type="PackedScene" uid="uid://d3l5ay347ovrj" path="res://scenes/VFXs/danger_particles.tscn" id="4_p67tj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fem8u"]
 size = Vector3(1.8647664, 1.8651428, 1.6226014)
@@ -48,9 +49,13 @@ transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -4.4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3454013, 0)
 stream = SubResource("AudioStreamRandomizer_fgd73")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=561251531]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4148498, 0)
+[node name="danger_particles" parent="." unique_id=1584639842 instance=ExtResource("4_p67tj")]
+transform = Transform3D(1.5, 0, 0, 0, -1.5, 1.3113416e-07, 0, -1.3113416e-07, -1.5, 0, 3.1437192, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=174465993]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.2200912, 0, 2.4148498, 0)
+light_color = Color(0.9882353, 0, 0, 1)
 light_energy = 5.023
-omni_range = 3.118
+omni_range = 10.0
 
 [connection signal="body_entered" from="PassbyBody" to="." method="_on_passby_body_body_entered"]
