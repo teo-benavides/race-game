@@ -76,7 +76,7 @@ transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -4.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4148498, 0)
 light_color = Color(0.9882353, 0, 0, 1)
 light_energy = 5.023
-omni_range = 10.0
+omni_range = 4.763
 
 [node name="danger_particles" parent="." unique_id=1584639842 instance=ExtResource("4_fo82a")]
 transform = Transform3D(1.5891631, 0, 0, 0, -1.026587, 8.742278e-08, 0, -8.974709e-08, -1, 0, 2.4907863, 0)

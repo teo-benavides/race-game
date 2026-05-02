@@ -12,7 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://7mosxxinjrcy" path="res://scenes/goal.tscn" id="5_trceg"]
 [ext_resource type="ArrayMesh" uid="uid://djhcvwb0fsltk" path="res://assets/Tuberia/Caños y cables/Cables_1.obj" id="6_tipki"]
 [ext_resource type="PackedScene" uid="uid://ceu5mfv48xr2" path="res://scenes/tunnel_light.tscn" id="9_85g3d"]
+[ext_resource type="ArrayMesh" uid="uid://baauwh64spfda" path="res://assets/Tuberia/arroyo.tres" id="11_tel4y"]
+[ext_resource type="Shader" uid="uid://x6i263xim8rn" path="res://resources/arroyo_shader.gdshader" id="12_qkpxi"]
 [ext_resource type="PackedScene" uid="uid://cvbjriif2mjfk" path="res://scenes/obstacles/bondi1_obstacle.tscn" id="13_2f3dj"]
+[ext_resource type="Texture2D" uid="uid://dfxgxwn5qrhfl" path="res://assets/Tuberia/arroyo.png" id="13_qkpxi"]
 [ext_resource type="PackedScene" uid="uid://eemrhmoi2t51" path="res://scenes/boost.tscn" id="14_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://c1fnbs33706s6" path="res://scenes/obstacles/fish_obstacle.tscn" id="14_pm3ni"]
 [ext_resource type="PackedScene" uid="uid://w82g3ixm36jd" path="res://scenes/obstacles/bondi2_obstacle.tscn" id="14_yq6so"]
@@ -29,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://b3fubi238632v" path="res://assets/ui/credits.png" id="23_og1vs"]
 [ext_resource type="AudioStream" uid="uid://2c2tsn468u0w" path="res://assets/music/MainTrack_01Loop.ogg" id="24_y6deb"]
 [ext_resource type="PackedScene" uid="uid://dbo3cqfcsvuev" path="res://scenes/rotating_vehicle.tscn" id="25_yq6so"]
+[ext_resource type="AudioStream" uid="uid://j4bmxnlgxsl6" path="res://assets/sfx/WaterFlow.wav" id="33_5q0nq"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tipki"]
 _surfaces = [{
@@ -63,6 +67,13 @@ albedo_color = Color(0.29479998, 0.37950003, 0.44, 1)
 albedo_texture = ExtResource("5_o6xl0")
 uv1_scale = Vector3(10.645, 10.645, 10.645)
 texture_filter = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5q0nq"]
+render_priority = 0
+shader = ExtResource("12_qkpxi")
+shader_parameter/albedo_texture = ExtResource("13_qkpxi")
+shader_parameter/scroll_speed = 3.3810001605975
+shader_parameter/alpha = 0.5
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jbj1t"]
 atlas = ExtResource("15_jkv2x")
@@ -100,19 +111,21 @@ curve = ExtResource("1_choun")
 
 [node name="PathFollow" type="PathFollow3D" parent="Path3D" unique_id=497262417]
 unique_name_in_owner = true
-transform = Transform3D(-0.9999841, 0, -8.742066e-08, 0, 0.9999325, 0, 8.7421384e-08, 0, -0.9999758, 100, 0, 0)
+transform = Transform3D(-0.99970806, 0, 0.023443727, 0, 0.9999325, 0, -0.023443924, 0, -0.99969965, 99.94249, 0, 4.9495854)
+progress = 4.95
 
 [node name="PlayerContainer" type="Node3D" parent="Path3D/PathFollow" unique_id=1258040793]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_sugp2")
 
+[node name="AudioListener3D" type="AudioListener3D" parent="Path3D/PathFollow/PlayerContainer" unique_id=1511284599]
+transform = Transform3D(1.0000172, -3.3527613e-08, 2.1979213e-07, 1.21072e-08, 0.9949422, 0.10111936, -2.104789e-07, -0.101115115, 0.9949012, 0.011070251, -1.7282277, 0.563704)
+current = true
+
 [node name="Camera" type="Camera3D" parent="Path3D/PathFollow/PlayerContainer" unique_id=1105489900]
 unique_name_in_owner = true
 transform = Transform3D(1.0000162, -3.5001715e-08, 2.6592764e-07, 1.210719e-08, 0.9949427, 0.101110786, -2.0861626e-07, -0.10111517, 0.9948995, 0.17299938, 0.61304903, 4.8041573)
-
-[node name="AudioListener3D" type="AudioListener3D" parent="Path3D/PathFollow/PlayerContainer/Camera" unique_id=1511284599]
-current = true
 
 [node name="Player" parent="Path3D/PathFollow/PlayerContainer" unique_id=1255014144 instance=ExtResource("3_ya4ey")]
 unique_name_in_owner = true
@@ -130,7 +143,7 @@ progress = 1429.9998
 [node name="Goal" parent="Path3D/GoalContainer" unique_id=1367205300 instance=ExtResource("5_trceg")]
 
 [node name="PlaceTestObjectsHere" type="PathFollow3D" parent="Path3D" unique_id=9759153]
-transform = Transform3D(-0.9998114, 0, 0.019332515, 0, 1, 0, -0.019332515, 0, -0.9998114, 99.96066, 0, 4.0998735)
+transform = Transform3D(-0.99980766, 0, 0.019332442, 0, 1, 0, -0.019332442, 0, -0.99980766, 99.96066, 0, 4.0998735)
 progress = 4.1
 
 [node name="PathMesh3D" type="PathMesh3D" parent="." unique_id=1638612615 node_paths=PackedStringArray("path_3d")]
@@ -216,6 +229,22 @@ surface_2/triangle_count = 61516
 material_override = SubResource("StandardMaterial3D_85g3d")
 cast_shadow = 0
 
+[node name="Arroyo" type="PathMesh3D" parent="PathMesh3D" unique_id=1611438960 node_paths=PackedStringArray("path_3d")]
+path_3d = NodePath("../../Path3D")
+mesh = ExtResource("11_tel4y")
+surface_0/tile_rotation = Vector3(0, 0, 0)
+surface_0/tile_rotation_order = 2
+surface_0/distribution = 0
+surface_0/alignment = 0
+surface_0/warp_along_curve = true
+surface_0/mesh_length_offset = 0.0
+surface_0/sample_cubic = false
+surface_0/tilt = true
+surface_0/offset = Vector2(0, 0)
+surface_0/triangle_count = 1354
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.23, 0)
+material_override = SubResource("ShaderMaterial_5q0nq")
+
 [node name="LightSpawner" type="Node3D" parent="." unique_id=1987378476 node_paths=PackedStringArray("path")]
 script = ExtResource("1_tipki")
 enabled = false
@@ -253,6 +282,7 @@ metadata/_custom_type_script = "uid://d4b0eol7ktjlk"
 
 [node name="WarningIndicatorHolder" type="Control" parent="CanvasLayer" unique_id=478063967]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -503,10 +533,16 @@ process_callback = 0
 wait_time = 0.08
 one_shot = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1775894916]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1775894916]
 process_mode = 3
 stream = ExtResource("24_y6deb")
 autoplay = true
+
+[node name="WaterSFXPlayer" type="AudioStreamPlayer" parent="." unique_id=179056560]
+stream = ExtResource("33_5q0nq")
+volume_db = 18.0
+autoplay = true
+bus = &"3D"
 
 [connection signal="boosted" from="Path3D/PathFollow/PlayerContainer/Player" to="Path3D/PathFollow/PlayerContainer" method="_on_player_boosted"]
 [connection signal="died" from="Path3D/PathFollow/PlayerContainer/Player" to="." method="_on_player_died"]

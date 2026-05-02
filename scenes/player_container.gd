@@ -31,49 +31,55 @@ var player_dead = false
 var remaining_boost_time = 0.0
 
 func _physics_process(delta: float) -> void:
-	if player_dead:
-		rotation_speed = 0.0
-		tilt = 0.0
-		speed = 0.0
-		remaining_boost_time = 0.0
-		boost_speed = 0.0
-		camera_distance = lerp(camera_distance, MIN_CAMERA_DISTANCE, 1.0 - exp(deg_to_rad(-CAMERA_APPROACH_SPEED) * delta))
-		%Camera.fov = lerp(%Camera.fov, 75.0, 1.0 - exp(deg_to_rad(-BOOST_CAMERA_APPROACH_SPEED) * delta))
-	else:
-		if Input.is_action_pressed("player_move_left"):
-			rotation_speed = move_toward(rotation_speed, deg_to_rad(-MAX_ROTATION_SPEED), deg_to_rad(ROTATION_ACCELERATION) * delta)
-			tilt = lerp(tilt, deg_to_rad(MAX_TILT), 1.0 - exp(deg_to_rad(-TILT_SPEED) * delta))
-		elif Input.is_action_pressed("player_move_right"):
-			rotation_speed = move_toward(rotation_speed, deg_to_rad(MAX_ROTATION_SPEED), deg_to_rad(ROTATION_ACCELERATION) * delta)
-			tilt = lerp(tilt, deg_to_rad(-MAX_TILT), 1.0 - exp(deg_to_rad(-TILT_SPEED) * delta))
-		else:
-			rotation_speed = move_toward(rotation_speed, 0.0, deg_to_rad(ROTATION_DECELERATION) * delta)
-			tilt = lerp(tilt, 0.0, 1.0 - exp(deg_to_rad(-TILT_SPEED) * delta))
-		
-		if remaining_boost_time > 0.0:
-			remaining_boost_time -= delta
-			boost_speed = move_toward(boost_speed, MAX_BOOST_SPEED, BOOST_ACCELERATION * delta)
-			if USE_FOV_EFFECT:
-				%Camera.fov = lerp(%Camera.fov, MAX_FOV, 1.0 - exp(deg_to_rad(-BOOST_CAMERA_APPROACH_SPEED) * delta))
-		else:
-			boost_speed = move_toward(boost_speed, 0.0, BOOST_ACCELERATION * delta)
-			if USE_FOV_EFFECT:
-				%Camera.fov = lerp(%Camera.fov, 75.0, 1.0 - exp(deg_to_rad(-BOOST_CAMERA_APPROACH_SPEED) * delta))
-		
-		if boost_speed > 0.0:
-			speed = MAX_SPEED + boost_speed
-			if !USE_FOV_EFFECT:
-				camera_distance = lerp(camera_distance, BOOST_CAMERA_DISTANCE, 1.0 - exp(deg_to_rad(-BOOST_CAMERA_APPROACH_SPEED) * delta))
-		elif Input.is_action_pressed("player_brake"):
-			speed = move_toward(speed, SLOW_SPEED, DECELERATION * delta)
-			camera_distance = lerp(camera_distance, MIN_CAMERA_DISTANCE, 1.0 - exp(deg_to_rad(-CAMERA_APPROACH_SPEED) * delta))
-		else:
-			speed = move_toward(speed, MAX_SPEED, ACCELERATION * delta)
-			camera_distance = lerp(camera_distance, MAX_CAMERA_DISTANCE, 1.0 - exp(deg_to_rad(-CAMERA_APPROACH_SPEED) * delta))
-		
-	%Player.engine_power = speed_to_engine_power(speed) 
-		
-	var target_rotation = rotation.z
+    if player_dead:
+        rotation_speed = 0.0
+        tilt = 0.0
+        speed = 0.0
+        remaining_boost_time = 0.0
+        boost_speed = 0.0
+        camera_distance = lerp(camera_distance, MIN_CAMERA_DISTANCE, 1.0 - exp(deg_to_rad(-CAMERA_APPROACH_SPEED) * delta))
+        %Camera.fov = lerp(%Camera.fov, 75.0, 1.0 - exp(deg_to_rad(-BOOST_CAMERA_APPROACH_SPEED) * delta))
+    else:
+        if Input.is_action_pressed("player_move_left"):
+            rotation_speed = move_toward(rotation_speed, deg_to_rad(-MAX_ROTATION_SPEED), deg_to_rad(ROTATION_ACCELERATION) * delta)
+            tilt = lerp(tilt, deg_to_rad(MAX_TILT), 1.0 - exp(deg_to_rad(-TILT_SPEED) * delta))
+            var tilt_normalized = -inverse_lerp(0.0, MAX_TILT, rad_to_deg(tilt))
+            %Player.direction = tilt_normalized
+        elif Input.is_action_pressed("player_move_right"):
+            rotation_speed = move_toward(rotation_speed, deg_to_rad(MAX_ROTATION_SPEED), deg_to_rad(ROTATION_ACCELERATION) * delta)
+            tilt = lerp(tilt, deg_to_rad(-MAX_TILT), 1.0 - exp(deg_to_rad(-TILT_SPEED) * delta))
+            var tilt_normalized = inverse_lerp(0.0, MAX_TILT, absf(rad_to_deg(tilt)))
+            %Player.direction = tilt_normalized
+        else:
+            rotation_speed = move_toward(rotation_speed, 0.0, deg_to_rad(ROTATION_DECELERATION) * delta)
+            tilt = lerp(tilt, 0.0, 1.0 - exp(deg_to_rad(-TILT_SPEED) * delta))
+            var tilt_normalized = -inverse_lerp(0.0, MAX_TILT, rad_to_deg(tilt)) if tilt > 0.0 else inverse_lerp(0.0, MAX_TILT, absf(rad_to_deg(tilt)))
+            %Player.direction = tilt_normalized
+    
+        if remaining_boost_time > 0.0:
+            remaining_boost_time -= delta
+            boost_speed = move_toward(boost_speed, MAX_BOOST_SPEED, BOOST_ACCELERATION * delta)
+            if USE_FOV_EFFECT:
+                %Camera.fov = lerp(%Camera.fov, MAX_FOV, 1.0 - exp(deg_to_rad(-BOOST_CAMERA_APPROACH_SPEED) * delta))
+        else:
+            boost_speed = move_toward(boost_speed, 0.0, BOOST_ACCELERATION * delta)
+            if USE_FOV_EFFECT:
+                %Camera.fov = lerp(%Camera.fov, 75.0, 1.0 - exp(deg_to_rad(-BOOST_CAMERA_APPROACH_SPEED) * delta))
+        
+        if boost_speed > 0.0:
+            speed = MAX_SPEED + boost_speed
+            if !USE_FOV_EFFECT:
+                camera_distance = lerp(camera_distance, BOOST_CAMERA_DISTANCE, 1.0 - exp(deg_to_rad(-BOOST_CAMERA_APPROACH_SPEED) * delta))
+        elif Input.is_action_pressed("player_brake"):
+            speed = move_toward(speed, SLOW_SPEED, DECELERATION * delta)
+            camera_distance = lerp(camera_distance, MIN_CAMERA_DISTANCE, 1.0 - exp(deg_to_rad(-CAMERA_APPROACH_SPEED) * delta))
+        else:
+            speed = move_toward(speed, MAX_SPEED, ACCELERATION * delta)
+            camera_distance = lerp(camera_distance, MAX_CAMERA_DISTANCE, 1.0 - exp(deg_to_rad(-CAMERA_APPROACH_SPEED) * delta))
+        
+    %Player.engine_power = speed_to_engine_power(speed) 
+        
+    var target_rotation = rotation.z
 
 	camera_rotation = lerp_angle(
 		camera_rotation,
@@ -88,7 +94,7 @@ func _physics_process(delta: float) -> void:
 	%Player.rotation.z = tilt
 
 func speed_to_engine_power(spd: float):
-	return inverse_lerp(SLOW_SPEED, MAX_SPEED + MAX_BOOST_SPEED, spd)
+    return inverse_lerp(0.0, MAX_SPEED + MAX_BOOST_SPEED, spd)
 
 func _on_player_died() -> void:
 	player_dead = true
