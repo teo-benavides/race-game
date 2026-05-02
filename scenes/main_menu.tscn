@@ -17,31 +17,31 @@ script = ExtResource("1_ekxnf")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1108331639]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 768.0
+offset_bottom = 432.0
 texture = ExtResource("1_l6cm7")
 
 [node name="JugarOn" type="TextureRect" parent="." unique_id=1079504674]
 visible = false
 layout_mode = 0
-offset_right = 384.0
-offset_bottom = 216.0
+offset_right = 768.0
+offset_bottom = 432.0
 texture = ExtResource("4_wu84c")
 
 [node name="StartButton" type="Button" parent="." unique_id=1893855657]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 170.0
-offset_top = 78.0
-offset_right = 249.0
-offset_bottom = 132.0
+offset_left = 338.0
+offset_top = 158.0
+offset_right = 500.0
+offset_bottom = 258.0
 mouse_default_cursor_shape = 2
 
 [node name="LoreTexture" type="TextureRect" parent="." unique_id=1857264800]
 visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 768.0
+offset_bottom = 432.0
 texture = ExtResource("4_8ln24")
 
 [node name="LoreButton" type="Button" parent="." unique_id=525446816]

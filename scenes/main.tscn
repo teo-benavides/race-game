@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://7mosxxinjrcy" path="res://scenes/goal.tscn" id="5_trceg"]
 [ext_resource type="ArrayMesh" uid="uid://djhcvwb0fsltk" path="res://assets/Tuberia/Caños y cables/Cables_1.obj" id="6_tipki"]
 [ext_resource type="PackedScene" uid="uid://ceu5mfv48xr2" path="res://scenes/tunnel_light.tscn" id="9_85g3d"]
-[ext_resource type="ArrayMesh" uid="uid://baauwh64spfda" path="res://assets/Tuberia/arroyo.tres" id="11_tel4y"]
+[ext_resource type="ArrayMesh" uid="uid://bq38tyr2oemv2" path="res://assets/Tuberia/arroyo.tres" id="11_tel4y"]
 [ext_resource type="Shader" uid="uid://x6i263xim8rn" path="res://resources/arroyo_shader.gdshader" id="12_qkpxi"]
 [ext_resource type="PackedScene" uid="uid://cvbjriif2mjfk" path="res://scenes/obstacles/bondi1_obstacle.tscn" id="13_2f3dj"]
 [ext_resource type="Texture2D" uid="uid://dfxgxwn5qrhfl" path="res://assets/Tuberia/arroyo.png" id="13_qkpxi"]
@@ -87,7 +87,7 @@ shader_parameter/scroll_speed = 3.3810001605975
 shader_parameter/alpha = 0.5
 shader_parameter/Noise = SubResource("NoiseTexture3D_dgi5k")
 shader_parameter/Color = Color(0.32156864, 0.29803923, 0.27058825, 1)
-shader_parameter/edge_fade_size = 0.054000002564999997
+shader_parameter/edge_fade_size = 0.05400000256499999
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jbj1t"]
 atlas = ExtResource("15_jkv2x")
@@ -157,7 +157,7 @@ progress = 1429.9998
 [node name="Goal" parent="Path3D/GoalContainer" unique_id=1367205300 instance=ExtResource("5_trceg")]
 
 [node name="PlaceTestObjectsHere" type="PathFollow3D" parent="Path3D" unique_id=9759153]
-transform = Transform3D(-0.99980754, 0, 0.019332439, 0, 1, 0, -0.019332439, 0, -0.99980754, 99.96066, 0, 4.0998735)
+transform = Transform3D(-0.99980736, 0, 0.019332437, 0, 1, 0, -0.019332437, 0, -0.99980736, 99.96066, 0, 4.0998735)
 progress = 4.1
 
 [node name="PathMesh3D" type="PathMesh3D" parent="." unique_id=1638612615 node_paths=PackedStringArray("path_3d")]
@@ -351,9 +351,9 @@ texture = SubResource("AtlasTexture_muem4")
 [node name="TimeDisplay" parent="CanvasLayer/HUD/Time" unique_id=668320583 instance=ExtResource("16_dp3eg")]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 283.0
+offset_left = 667.0
 offset_top = 5.0
-offset_right = 364.0
+offset_right = 748.0
 offset_bottom = 23.0
 
 [node name="Speedometer" type="Control" parent="CanvasLayer/HUD" unique_id=1634829884]
@@ -373,8 +373,10 @@ texture = SubResource("AtlasTexture_dp3eg")
 
 [node name="Contents" type="Control" parent="CanvasLayer/HUD/Speedometer" unique_id=1394265110]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 1.0
+offset_top = 216.0
+offset_right = 41.0
+offset_bottom = 256.0
 
 [node name="Kmh" type="TextureRect" parent="CanvasLayer/HUD/Speedometer/Contents" unique_id=1197229593]
 layout_mode = 1
@@ -410,8 +412,8 @@ texture = SubResource("AtlasTexture_gqmmt")
 [node name="HitEffect" type="TextureRect" parent="CanvasLayer" unique_id=92020677]
 unique_name_in_owner = true
 visible = false
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 768.0
+offset_bottom = 432.0
 texture = ExtResource("19_yc10j")
 
 [node name="PauseMenu" type="Control" parent="CanvasLayer" unique_id=641091118]
@@ -449,7 +451,6 @@ text = "PAUSA"
 
 [node name="EndScreen" type="Control" parent="CanvasLayer" unique_id=546772342]
 unique_name_in_owner = true
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -457,22 +458,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RotatingVehicle" parent="CanvasLayer/EndScreen" unique_id=1530574261 instance=ExtResource("25_yq6so")]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 0.0
-offset_top = -124.0
-offset_right = 446.0
-offset_bottom = 388.0
-
 [node name="Background" type="ColorRect" parent="CanvasLayer/EndScreen" unique_id=30767534]
-visible = false
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="RotatingVehicle" parent="CanvasLayer/EndScreen" unique_id=1530574261 instance=ExtResource("25_yq6so")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 125.0
+offset_top = -144.0
+offset_right = 637.0
+offset_bottom = 368.0
 
 [node name="Label" type="Label" parent="CanvasLayer/EndScreen" unique_id=1897825332]
 visible = false
