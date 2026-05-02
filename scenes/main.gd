@@ -17,6 +17,10 @@ func _ready() -> void:
     %HitEffect.visible = false
     %GoalContainer.progress_ratio = 0.995
 
+func _process(delta: float) -> void:
+    if !playing and Input.is_action_just_pressed("start"):
+        get_tree().reload_current_scene()
+
 func _physics_process(delta: float) -> void:
     if playing:
         elapsed_time += delta
