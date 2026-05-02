@@ -68,12 +68,26 @@ albedo_texture = ExtResource("5_o6xl0")
 uv1_scale = Vector3(10.645, 10.645, 10.645)
 texture_filter = 0
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5q0nq"]
+noise_type = 3
+frequency = 0.0261
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_dgi5k"]
+width = 156
+height = 105
+depth = 85
+noise = SubResource("FastNoiseLite_5q0nq")
+seamless = true
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5q0nq"]
 render_priority = 0
 shader = ExtResource("12_qkpxi")
 shader_parameter/albedo_texture = ExtResource("13_qkpxi")
 shader_parameter/scroll_speed = 3.3810001605975
 shader_parameter/alpha = 0.5
+shader_parameter/Noise = SubResource("NoiseTexture3D_dgi5k")
+shader_parameter/Color = Color(0.32156864, 0.29803923, 0.27058825, 1)
+shader_parameter/edge_fade_size = 0.054000002564999997
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jbj1t"]
 atlas = ExtResource("15_jkv2x")
@@ -143,7 +157,7 @@ progress = 1429.9998
 [node name="Goal" parent="Path3D/GoalContainer" unique_id=1367205300 instance=ExtResource("5_trceg")]
 
 [node name="PlaceTestObjectsHere" type="PathFollow3D" parent="Path3D" unique_id=9759153]
-transform = Transform3D(-0.99980766, 0, 0.019332442, 0, 1, 0, -0.019332442, 0, -0.99980766, 99.96066, 0, 4.0998735)
+transform = Transform3D(-0.99980754, 0, 0.019332439, 0, 1, 0, -0.019332439, 0, -0.99980754, 99.96066, 0, 4.0998735)
 progress = 4.1
 
 [node name="PathMesh3D" type="PathMesh3D" parent="." unique_id=1638612615 node_paths=PackedStringArray("path_3d")]
@@ -241,7 +255,7 @@ surface_0/mesh_length_offset = 0.0
 surface_0/sample_cubic = false
 surface_0/tilt = true
 surface_0/offset = Vector2(0, 0)
-surface_0/triangle_count = 1354
+surface_0/triangle_count = 27432
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.23, 0)
 material_override = SubResource("ShaderMaterial_5q0nq")
 
