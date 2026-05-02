@@ -152,10 +152,10 @@ mesh = ExtResource("5_oprun")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00012207031, 0.21099824, -0.004653629)
 shape = SubResource("BoxShape3D_3vyb7")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=1662969251]
-collision_mask = 22
+[node name="Hurtbox" type="Area3D" parent="." unique_id=1662969251]
+collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=439483308]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox" unique_id=439483308]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00012207031, 0.21099824, -0.004653629)
 shape = SubResource("BoxShape3D_3vyb7")
 
@@ -163,6 +163,13 @@ shape = SubResource("BoxShape3D_3vyb7")
 collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BoostArea" unique_id=1068280503]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00012207031, 0.21099824, -0.004653629)
+shape = SubResource("BoxShape3D_3vyb7")
+
+[node name="GoalArea" type="Area3D" parent="." unique_id=899466621]
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GoalArea" unique_id=2129854953]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00012207031, 0.21099824, -0.004653629)
 shape = SubResource("BoxShape3D_3vyb7")
 
@@ -233,8 +240,9 @@ spot_range = 10.498
 spot_attenuation = 0.49
 spot_angle = 28.95
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="body_entered" from="BoostArea" to="." method="_on_boost_area_body_entered"]
+[connection signal="body_entered" from="GoalArea" to="." method="_on_goal_area_body_entered"]
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
 
