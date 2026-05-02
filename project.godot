@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Race Game"
+config/name="Maldonado Drift"
 run/main_scene="uid://ckmfc6u78mkl1"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://uljfufuoarw"
 
 [audio]
 

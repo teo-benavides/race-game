@@ -12,7 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://7mosxxinjrcy" path="res://scenes/goal.tscn" id="5_trceg"]
 [ext_resource type="ArrayMesh" uid="uid://djhcvwb0fsltk" path="res://assets/Tuberia/Caños y cables/Cables_1.obj" id="6_tipki"]
 [ext_resource type="PackedScene" uid="uid://ceu5mfv48xr2" path="res://scenes/tunnel_light.tscn" id="9_85g3d"]
+[ext_resource type="ArrayMesh" uid="uid://baauwh64spfda" path="res://assets/Tuberia/arroyo.tres" id="11_tel4y"]
+[ext_resource type="Shader" uid="uid://x6i263xim8rn" path="res://resources/arroyo_shader.gdshader" id="12_qkpxi"]
 [ext_resource type="PackedScene" uid="uid://cvbjriif2mjfk" path="res://scenes/obstacles/bondi1_obstacle.tscn" id="13_2f3dj"]
+[ext_resource type="Texture2D" uid="uid://dfxgxwn5qrhfl" path="res://assets/Tuberia/arroyo.png" id="13_qkpxi"]
 [ext_resource type="PackedScene" uid="uid://eemrhmoi2t51" path="res://scenes/boost.tscn" id="14_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://c1fnbs33706s6" path="res://scenes/obstacles/fish_obstacle.tscn" id="14_pm3ni"]
 [ext_resource type="PackedScene" uid="uid://w82g3ixm36jd" path="res://scenes/obstacles/bondi2_obstacle.tscn" id="14_yq6so"]
@@ -63,6 +66,13 @@ albedo_color = Color(0.29479998, 0.37950003, 0.44, 1)
 albedo_texture = ExtResource("5_o6xl0")
 uv1_scale = Vector3(10.645, 10.645, 10.645)
 texture_filter = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5q0nq"]
+render_priority = 0
+shader = ExtResource("12_qkpxi")
+shader_parameter/albedo_texture = ExtResource("13_qkpxi")
+shader_parameter/scroll_speed = 3.3810001605975
+shader_parameter/alpha = 0.5
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jbj1t"]
 atlas = ExtResource("15_jkv2x")
@@ -131,7 +141,7 @@ progress = 1429.9998
 [node name="Goal" parent="Path3D/GoalContainer" unique_id=1367205300 instance=ExtResource("5_trceg")]
 
 [node name="PlaceTestObjectsHere" type="PathFollow3D" parent="Path3D" unique_id=9759153]
-transform = Transform3D(-0.99980855, 0, 0.01933246, 0, 1, 0, -0.01933246, 0, -0.99980855, 99.96066, 0, 4.0998735)
+transform = Transform3D(-0.99980843, 0, 0.019332457, 0, 1, 0, -0.019332457, 0, -0.99980843, 99.96066, 0, 4.0998735)
 progress = 4.1
 
 [node name="PathMesh3D" type="PathMesh3D" parent="." unique_id=1638612615 node_paths=PackedStringArray("path_3d")]
@@ -216,6 +226,22 @@ surface_2/offset = Vector2(0, 0)
 surface_2/triangle_count = 61516
 material_override = SubResource("StandardMaterial3D_85g3d")
 cast_shadow = 0
+
+[node name="PathMesh3D" type="PathMesh3D" parent="PathMesh3D" unique_id=1611438960 node_paths=PackedStringArray("path_3d")]
+path_3d = NodePath("../../Path3D")
+mesh = ExtResource("11_tel4y")
+surface_0/tile_rotation = Vector3(0, 0, 0)
+surface_0/tile_rotation_order = 2
+surface_0/distribution = 0
+surface_0/alignment = 0
+surface_0/warp_along_curve = true
+surface_0/mesh_length_offset = 0.0
+surface_0/sample_cubic = false
+surface_0/tilt = true
+surface_0/offset = Vector2(0, 0)
+surface_0/triangle_count = 1354
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.23, 0)
+material_override = SubResource("ShaderMaterial_5q0nq")
 
 [node name="LightSpawner" type="Node3D" parent="." unique_id=1987378476 node_paths=PackedStringArray("path")]
 script = ExtResource("1_tipki")
