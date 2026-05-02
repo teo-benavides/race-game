@@ -100,7 +100,8 @@ curve = ExtResource("1_choun")
 
 [node name="PathFollow" type="PathFollow3D" parent="Path3D" unique_id=497262417]
 unique_name_in_owner = true
-transform = Transform3D(-0.9999841, 0, -8.742066e-08, 0, 0.9999325, 0, 8.7421384e-08, 0, -0.9999758, 100, 0, 0)
+transform = Transform3D(-0.99970806, 0, 0.023443727, 0, 0.9999325, 0, -0.023443924, 0, -0.99969965, 99.94249, 0, 4.9495854)
+progress = 4.95
 
 [node name="PlayerContainer" type="Node3D" parent="Path3D/PathFollow" unique_id=1258040793]
 unique_name_in_owner = true
@@ -130,7 +131,7 @@ progress = 1429.9998
 [node name="Goal" parent="Path3D/GoalContainer" unique_id=1367205300 instance=ExtResource("5_trceg")]
 
 [node name="PlaceTestObjectsHere" type="PathFollow3D" parent="Path3D" unique_id=9759153]
-transform = Transform3D(-0.9998114, 0, 0.019332515, 0, 1, 0, -0.019332515, 0, -0.9998114, 99.96066, 0, 4.0998735)
+transform = Transform3D(-0.99980855, 0, 0.01933246, 0, 1, 0, -0.01933246, 0, -0.99980855, 99.96066, 0, 4.0998735)
 progress = 4.1
 
 [node name="PathMesh3D" type="PathMesh3D" parent="." unique_id=1638612615 node_paths=PackedStringArray("path_3d")]
@@ -253,6 +254,7 @@ metadata/_custom_type_script = "uid://d4b0eol7ktjlk"
 
 [node name="WarningIndicatorHolder" type="Control" parent="CanvasLayer" unique_id=478063967]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5

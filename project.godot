@@ -27,7 +27,6 @@ FullscreenManager="*uid://brmanpryjoyfg"
 
 window/size/viewport_width=384
 window/size/viewport_height=216
-window/size/mode=3
 window/stretch/mode="viewport"
 
 [editor_plugins]

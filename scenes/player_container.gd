@@ -88,7 +88,7 @@ func _physics_process(delta: float) -> void:
     %Player.rotation.z = tilt
 
 func speed_to_engine_power(spd: float):
-    return inverse_lerp(SLOW_SPEED, MAX_SPEED + MAX_BOOST_SPEED, spd)
+    return inverse_lerp(0.0, MAX_SPEED + MAX_BOOST_SPEED, spd)
 
 func _on_player_died() -> void:
     player_dead = true
