@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1t4evroi63c8"
 path.s3tc="res://.godot/imported/image.png-15dffe9524b615bcf719f0e8e5c14e1f.s3tc.ctex"
+path.etc2="res://.godot/imported/image.png-15dffe9524b615bcf719f0e8e5c14e1f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Tuberia/image.png"
-dest_files=["res://.godot/imported/image.png-15dffe9524b615bcf719f0e8e5c14e1f.s3tc.ctex"]
+dest_files=["res://.godot/imported/image.png-15dffe9524b615bcf719f0e8e5c14e1f.s3tc.ctex", "res://.godot/imported/image.png-15dffe9524b615bcf719f0e8e5c14e1f.etc2.ctex"]
 
 [params]
 

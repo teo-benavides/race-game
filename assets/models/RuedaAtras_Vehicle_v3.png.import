@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dentci5iqw7y0"
 path.s3tc="res://.godot/imported/RuedaAtras_Vehicle_v3.png-32a5c067951ebcc1256b060bd31ddab4.s3tc.ctex"
+path.etc2="res://.godot/imported/RuedaAtras_Vehicle_v3.png-32a5c067951ebcc1256b060bd31ddab4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/RuedaAtras_Vehicle_v3.png"
-dest_files=["res://.godot/imported/RuedaAtras_Vehicle_v3.png-32a5c067951ebcc1256b060bd31ddab4.s3tc.ctex"]
+dest_files=["res://.godot/imported/RuedaAtras_Vehicle_v3.png-32a5c067951ebcc1256b060bd31ddab4.s3tc.ctex", "res://.godot/imported/RuedaAtras_Vehicle_v3.png-32a5c067951ebcc1256b060bd31ddab4.etc2.ctex"]
 
 [params]
 

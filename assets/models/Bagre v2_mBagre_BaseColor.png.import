@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ba67xx5dx2utu"
 path.s3tc="res://.godot/imported/Bagre v2_mBagre_BaseColor.png-d74e3fcaa8a676be85df7e2840d19e97.s3tc.ctex"
+path.etc2="res://.godot/imported/Bagre v2_mBagre_BaseColor.png-d74e3fcaa8a676be85df7e2840d19e97.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/Bagre v2_mBagre_BaseColor.png"
-dest_files=["res://.godot/imported/Bagre v2_mBagre_BaseColor.png-d74e3fcaa8a676be85df7e2840d19e97.s3tc.ctex"]
+dest_files=["res://.godot/imported/Bagre v2_mBagre_BaseColor.png-d74e3fcaa8a676be85df7e2840d19e97.s3tc.ctex", "res://.godot/imported/Bagre v2_mBagre_BaseColor.png-d74e3fcaa8a676be85df7e2840d19e97.etc2.ctex"]
 
 [params]
 

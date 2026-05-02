@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ww7aq44db782"
 path.s3tc="res://.godot/imported/BondiMedio v2_Bondi Saturado Texture.png-1816542135e9ad15d4b90d8d43e4bb53.s3tc.ctex"
+path.etc2="res://.godot/imported/BondiMedio v2_Bondi Saturado Texture.png-1816542135e9ad15d4b90d8d43e4bb53.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/BondiMedio v2_Bondi Saturado Texture.png"
-dest_files=["res://.godot/imported/BondiMedio v2_Bondi Saturado Texture.png-1816542135e9ad15d4b90d8d43e4bb53.s3tc.ctex"]
+dest_files=["res://.godot/imported/BondiMedio v2_Bondi Saturado Texture.png-1816542135e9ad15d4b90d8d43e4bb53.s3tc.ctex", "res://.godot/imported/BondiMedio v2_Bondi Saturado Texture.png-1816542135e9ad15d4b90d8d43e4bb53.etc2.ctex"]
 
 [params]
 

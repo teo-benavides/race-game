@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cp3xj2yk7juwd"
 path.s3tc="res://.godot/imported/tCaño_1.png-1de760e22e4a38dc6d3e76d3b3a8a00c.s3tc.ctex"
+path.etc2="res://.godot/imported/tCaño_1.png-1de760e22e4a38dc6d3e76d3b3a8a00c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/texturas/tCaño_1.png"
-dest_files=["res://.godot/imported/tCaño_1.png-1de760e22e4a38dc6d3e76d3b3a8a00c.s3tc.ctex"]
+dest_files=["res://.godot/imported/tCaño_1.png-1de760e22e4a38dc6d3e76d3b3a8a00c.s3tc.ctex", "res://.godot/imported/tCaño_1.png-1de760e22e4a38dc6d3e76d3b3a8a00c.etc2.ctex"]
 
 [params]
 

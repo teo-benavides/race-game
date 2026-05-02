@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dwwpxbo28gg1v"
 path.s3tc="res://.godot/imported/Particle_sparks.png-6d6f821e85a994af72067281296d00af.s3tc.ctex"
+path.etc2="res://.godot/imported/Particle_sparks.png-6d6f821e85a994af72067281296d00af.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/texturas/Particle_sparks.png"
-dest_files=["res://.godot/imported/Particle_sparks.png-6d6f821e85a994af72067281296d00af.s3tc.ctex"]
+dest_files=["res://.godot/imported/Particle_sparks.png-6d6f821e85a994af72067281296d00af.s3tc.ctex", "res://.godot/imported/Particle_sparks.png-6d6f821e85a994af72067281296d00af.etc2.ctex"]
 
 [params]
 
